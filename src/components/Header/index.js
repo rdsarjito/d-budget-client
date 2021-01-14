@@ -1,21 +1,28 @@
 import { Component } from 'react';
+
 import './style.css';
 
-import { NavLink } from 'react-router-dom';
-
 class Header extends Component {
+
+  componentDidMount() {
+    const gambar = fetch('http://101.50.0.139:5000/images/left-arrow.png')
+    .then(res => res.status)
+
+    console.log(gambar)
+  }
+
   render() {
     return (
-      <div className='header'>
-        <NavLink to="/budget"  className="navLink" activeClassName="selected">
-          Budget
-        </NavLink>
-        <NavLink to="/reports"  className="navLink" activeClassName="selected">
-          Reports
-        </NavLink>
+      <div className="wrapper-header">
+        <div className="back-button">
+          <img src='http://101.50.0.139:5000/images/left-arrow.png' />
+        </div>
+        <div className="title">
+          D-Budget
+        </div>
       </div>
     )
-  }
-}
+  };
+};
 
 export default Header;

@@ -1,21 +1,22 @@
-.header {
-  position: relative;
+.wrapper-header {
+  border-top-left-radius: 2.5rem;
+  background-color: grey;
+  padding: 20px;
   display: flex;
-  margin-bottom: 3em;
+  justify-content: end;
+  font-size: 20px;
 }
 
-.navLink {
-  padding: 35px 25px;
-  margin: -6px 6px 0;
-  border-radius: 6px;
-  font-size: 16px;
-  color: mediumgray;
-  border: 1px solid lightgray;
-  text-decoration: none;
+.back-button {
+  width: 25%;
 }
 
-.navLink:active, .selected {
+.back-button img {
+  width: 25px;
+}
+
+.title {
   color: black;
-  text-decoration: underline;
-  box-shadow: 0 1px 4px 1px darkgray;
+  width: 50%;
+  text-align: center;
 }
