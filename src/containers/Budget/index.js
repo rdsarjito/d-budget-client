@@ -1,13 +1,14 @@
 import { Component } from 'react';
 
-import Header from '../../components/Header';
+import Balance from '../Balance';
+
 import './style.css'
 
 class BudgetContainer extends Component {
   render() {
     return (
-      <div className="wrapper">
-        <Header />
+      <div>
+        <Balance />
       </div>
     )
   }

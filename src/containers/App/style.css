@@ -3,3 +3,14 @@ body {
   background-color: wheat;
   color: black;
 }
+
+.wrapper {
+  border-radius: 2.5rem;
+  height: 95vh;;
+  width: 300px;
+  margin: 0 auto;
+  color: white;
+  overflow: hidden;
+  background-color: white;
+  border: 1px black solid;
+}
