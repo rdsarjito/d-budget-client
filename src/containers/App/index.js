@@ -1,9 +1,10 @@
 import { Component } from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom'; 
 import Header from '../../components/Header';
+import Income from '../Income';
 import Budget from '../Budget';
 
-import './style.css'
+import './style.css';
 
 class App extends Component {
   render() {
@@ -12,7 +13,8 @@ class App extends Component {
         <div className="wrapper">
           <Header />
           <Route path="/budget" component={Budget} />
-          <Redirect to="/budget" />
+          <Route path="/income" component={Income} />
+          {/* <Redirect to="/budget" /> */}
         </div>
       </BrowserRouter>  
     )
