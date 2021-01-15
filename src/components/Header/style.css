@@ -3,16 +3,18 @@
   background-color: grey;
   padding: 20px;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   font-size: 20px;
 }
 
-.back-button {
-  width: 25%;
-}
 
 .back-button img {
   width: 25px;
+}
+
+.back-button-right img {
+  width: 25px;
+  text-align: right;
 }
 
 .header-title {

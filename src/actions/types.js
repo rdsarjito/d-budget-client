@@ -1,0 +1,1 @@
+export const STORE_INCOME = 'store_income';
