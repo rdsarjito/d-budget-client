@@ -19,8 +19,6 @@ class FormIncome extends Component {
   };
 
   _onChangeInputDescription(e) {
-    console.log(API)
-
     this.setState({ description: e.target.value });
   };
 
