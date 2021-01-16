@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import addIncome from './incomeReducer';
+import add from './incomeReducer';
 
 export default combineReducers({
-  incomes: addIncome
+  incomes: add
 });

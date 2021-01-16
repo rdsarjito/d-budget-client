@@ -4,20 +4,26 @@ import * as actions from '../../actions';
 
 import '../../style/style.css';
 
-
 const API = `http://localhost:5000`;
 
-class FormIncome extends Component {
+class Form extends Component {
   constructor () {
     super();
     this.state = {
       description : '',
-      amount: ''
+      amount: '',
+      format: ''
     };
     this._onChangeInputDescription = this._onChangeInputDescription.bind(this);
     this._onChangeIncomeAmount = this._onChangeIncomeAmount.bind(this);
     this._onSubmit = this._onSubmit.bind(this);
   };
+
+  componentDidMount() {
+    const getPathName = window.location.pathname;
+    const format = getPathName.replace("/", "");
+    this.setState({ format });
+  }
 
   _onChangeInputDescription(e) {
     this.setState({ description: e.target.value });
@@ -30,10 +36,12 @@ class FormIncome extends Component {
   _onSubmit = async(e) => {
     e.preventDefault();
 
-    const dataIncome = {
+    const data = {
       description: this.state.description,
       amount: this.state.amount
     };
+
+    const format = this.state.format;
     
     const POST = {
       method: 'POST',
@@ -41,17 +49,17 @@ class FormIncome extends Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ dataIncome })
+      body: JSON.stringify({ data })
     };
 
     const GET = {
       method: 'GET',
     };
 
-    await this.props.addIncome(API, POST);
+    await this.props.add(API, format, POST);
 
     await this.props.getIncome(API, GET);
-
+    
     this.setState({
       description: '',
       amount: ''
@@ -83,8 +91,8 @@ function mapStateToProps({ incomes }) {
 };
 
 const mapDispatchToProps = {
-  addIncome: actions.addIncome,
+  add: actions.add,
   getIncome: actions.getIncome
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormIncome);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

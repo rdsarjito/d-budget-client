@@ -2,8 +2,8 @@ import {
   GET_INCOME,
 } from './types';
 
-export const addIncome = (API, obj) => async dispatch => {
-  await fetch(`${API}/api/income`, obj);
+export const add  = (API, format, POST) => async dispatch => {
+  await fetch(`${API}/api/${format}`, POST);
 };
 
 export const getIncome = (API, obj) => async dispatch => {

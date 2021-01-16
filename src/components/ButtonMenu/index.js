@@ -12,8 +12,8 @@ class ButtonMenu extends Component {
         return 'History'
       default:
         return `Add ${format.name}`
-    }
-  }
+    };
+  };
 
   render() {
     return formats.map(format => {
