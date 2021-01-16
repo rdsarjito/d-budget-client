@@ -39,7 +39,7 @@ class Row extends Component {
 
     const format = this.state.format;
 
-    await this.props.deleteIncome(API, DELETE, id);
+    await this.props.deleteIncome(API, format, DELETE, id);
 
     await this.props.get(API, format, GET);
   }
