@@ -2,16 +2,16 @@ import {
   GET_INCOME,
 } from './types';
 
-export const add  = (API, format, POST) => async dispatch => {
+export const add  = (API, format, POST) => async () => {
   await fetch(`${API}/api/${format}`, POST);
 };
 
-export const getIncome = (API, obj) => async dispatch => {
-  const res = await fetch(`${API}/api/income`, obj);
+export const get = (API, format, GET) => async dispatch => {
+  const res = await fetch(`${API}/api/${format}`, GET);
   const respond = await res.json();
   dispatch({ type: GET_INCOME, payload: respond });
 };
 
-export const deleteIncome = (API, obj, id) => async dispatch => {
+export const deleteIncome = (API, obj, id) => async () => {
   await fetch(`${API}/api/income/` + id, obj);
 };

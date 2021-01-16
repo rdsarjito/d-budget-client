@@ -57,8 +57,7 @@ class Form extends Component {
     };
 
     await this.props.add(API, format, POST);
-
-    await this.props.getIncome(API, GET);
+    await this.props.get(API, format, GET);
     
     this.setState({
       description: '',
@@ -86,13 +85,13 @@ class Form extends Component {
   };
 };
 
-function mapStateToProps({ incomes }) {
-  return { incomes }
+function mapStateToProps({ balance }) {
+  return { balance }
 };
 
 const mapDispatchToProps = {
   add: actions.add,
-  getIncome: actions.getIncome
+  get: actions.get
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);

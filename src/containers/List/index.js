@@ -1,10 +1,9 @@
 import { Component } from 'react';
-import RowIncome from '../../components/RowIncome';
+import RowIncome from '../../components/Row';
 
 import '../../style/style.css';
 
-
-class ListIncome extends Component {
+class List extends Component {
   render() {
     return (
       <table>
@@ -23,4 +22,4 @@ class ListIncome extends Component {
   };
 };
 
-export default ListIncome
+export default List

@@ -8,14 +8,26 @@ import '../../style/style.css';
 
 const API = `http://localhost:5000`;
 
-class RowIncome extends Component {
+class Row extends Component {
+  constructor() {
+    super(); 
+    this.state = {
+      format: ''  
+    };
+  };
+
   componentDidMount(){
     const GET = {
       method: 'GET',
     };
+    
+    const getPathName = window.location.pathname;
+    const format = getPathName.replace("/", "");
+    this.setState({ format });
 
-    this.props.getIncome(API, GET);
+    this.props.get(API, format, GET);
   };
+
 
   _deleteIncome = async(id) => {
     const DELETE = {
@@ -25,13 +37,15 @@ class RowIncome extends Component {
       method: 'GET',
     };
 
+    const format = this.state.format;
+
     await this.props.deleteIncome(API, DELETE, id);
 
-    await this.props.getIncome(API, GET);
+    await this.props.get(API, format, GET);
   }
 
   render() {
-    return this.props.incomes.map(income => {
+    return this.props.balance.map(income => {
       return (
         <tr key={income._id}>
           <td>{income.description}</td>
@@ -43,4 +57,4 @@ class RowIncome extends Component {
   };
 };
 
-export default connect(({ incomes }) => ({ incomes }), actions)(RowIncome);
+export default connect(({ balance }) => ({ balance }), actions)(Row);

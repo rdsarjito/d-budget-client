@@ -9,17 +9,28 @@ import '../../style/style.css';
 const API = `http://localhost:5000`;
 
 class TotalInflow extends Component {
+  constructor() {
+    super(); 
+    this.state = {
+      format: ''  
+    };
+  };
+
   componentDidMount(){
-    const obj = {
+    const GET = {
       method: 'GET',
     };
 
-    this.props.getIncome(API, obj);
+    const getPathName = window.location.pathname;
+    const format = getPathName.replace("/", "");
+    this.setState({ format });
+
+    this.props.get(API, format, GET);
   };
 
-  _reduceIncomes() {
-    const getIncomes = this.props.incomes;
-    const totalInflow = getIncomes.reduce((result, item) => {
+  _reducebalance() {
+    const gets = this.props.balance;
+    const totalInflow = gets.reduce((result, item) => {
       return result + parseInt(item.amount);
     }, 0);
 
@@ -34,7 +45,7 @@ class TotalInflow extends Component {
     return (
       <div className="wrapper-total-inflow">
         <div className="number-total-inflow">
-          {this._reduceIncomes()}
+          {this._reducebalance()}
         </div>
         <div className="title-total-inflow">
           Total Inflow
@@ -44,4 +55,4 @@ class TotalInflow extends Component {
   };
 };
 
-export default connect(({ incomes }) => ({ incomes }), actions)(TotalInflow);
+export default connect(({ balance }) => ({ balance }), actions)(TotalInflow);

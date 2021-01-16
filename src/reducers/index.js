@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import add from './incomeReducer';
+import balanceReducer from './balanceReducer';
 
 export default combineReducers({
-  incomes: add
+  balance: balanceReducer
 });
