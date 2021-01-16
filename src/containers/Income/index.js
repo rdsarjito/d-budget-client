@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import FormIncome from '../../components/FormIncome';
-import ListIncome from '../../components/ListIncome';
+import ListIncome from '../ListIncome';
 import TotalInflow from '../../components/TotalInflow';
 
 class Income extends Component {

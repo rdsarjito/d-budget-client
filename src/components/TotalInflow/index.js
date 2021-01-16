@@ -33,7 +33,6 @@ class TotalInflow extends Component {
     return (
       <div className="wrapper-total-inflow">
         <div className="number-total-inflow">
-          {/* 1000 */}
           {this._reduceIncomes()}
         </div>
         <div className="title-total-inflow">

@@ -11,3 +11,7 @@ export const getIncome = (API, obj) => async dispatch => {
   const respond = await res.json();
   dispatch({ type: GET_INCOME, payload: respond });
 };
+
+export const deleteIncome = (API, obj, id) => async dispatch => {
+  await fetch(`${API}/api/income/` + id, obj);
+};
