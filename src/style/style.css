@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+  color: black;
+}
+
+body {
+  background-color: wheat;
+  color: black;
+}
+
+tr, th, td {
+  text-align: left;
+}
+
+tr td {
+  padding: 20px 0;
+}
+
+thead tr {
+  border: 0.5px solid grey;
+  background-color: #f0f0f0;
+}
+
+tbody tr {
+  border: 0.5px solid grey;
+  margin: 100px;
+}
+
+table {
+  margin: 20px 10%;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+button {
+  color: #888866;
+  border: none;
+  background-color: #00ffff;
+  padding: 15px;
+  margin: 5px 0;
+}
+ 
+/* Components Style */
+.add-income-wrapper {
+  color: black;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button-add-income {
+  text-align: center;
+}
+
+.income-wrapper {
+  padding: 20px 20px;
+}
+
+.income-description-input {
+  padding: 10px 5px 10px 5px;
+  border: none;
+  border-bottom: 1px solid red;
+  font-size: 14px;
+}
+
+.income-amount {
+  margin-top: 30px;
+  padding: 5px 5px 25px 5px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 0.5em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.income-amount-title {
+  color: black;
+}
+
+.income-amount-input {
+  padding: 10px 5px 10px 5px;
+  border: none;
+  border-bottom: 1px solid red;
+  font-size: 14px;
+}
+
+.btn-simpan {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.wrapper-header {
+  border-top-left-radius: 2.5rem;
+  background-color: grey;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.back-button img {
+  width: 25px;
+}
+
+.back-button-right img {
+  width: 25px;
+  text-align: right;
+}
+
+.header-title {
+  color: black;
+  width: 50%;
+  text-align: center;
+}
+
+.wrapper-total-inflow {
+  margin: 30px;
+  padding: 10px 0 10px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 0.5em;
+}
+
+.btn-delete {
+  color: #888866;
+  border: none;
+  background-color: #00ffff;
+  padding: 15px;
+}
+
+/* Containers */
+.wrapper {
+  border-radius: 2.5rem;
+  height: 95vh;;
+  width: 300px;
+  margin: 0 auto;
+  color: white;
+  overflow: hidden;
+  background-color: white;
+  border: 1px black solid;
+  overflow: scroll;
+}
+
+.balance-container {
+  padding: 0 20px 0 20px;
+  color: black;
+}
+
+.balance-title {
+  font-size: 14px;
+}
+
+.balance-cash {
+  font-size: 18px;
+}
+
+.wrapper-list-income {
+  color: black;
+}
+
+.menu-container {
+  margin: 20px;
+  padding: 10px 0 10px 0;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 0.5em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}

@@ -2,7 +2,8 @@ import { Component } from 'react';
 
 import ButtonAddIncome from '../../components/ButtonAddIncome';
 
-import './style.css';
+import '../../style/style.css';
+
 
 class Menu extends Component {
   render() {

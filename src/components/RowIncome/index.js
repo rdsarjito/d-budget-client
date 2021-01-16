@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
 
-import './style.css';
+import '../../style/style.css';
+
 
 const API = `http://localhost:5000`;
 
@@ -35,7 +36,7 @@ class RowIncome extends Component {
         <tr key={income._id}>
           <td>{income.description}</td>
           <td>{income.amount}</td>
-          <button onClick={() => { this._deleteIncome(income._id) }}>X</button>
+          <td onClick={() => { this._deleteIncome(income._id) }}><span className="btn-delete">X</span></td>
         </tr>
       )
     });

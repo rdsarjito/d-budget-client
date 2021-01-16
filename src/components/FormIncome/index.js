@@ -2,7 +2,8 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
-import './style.css';
+import '../../style/style.css';
+
 
 const API = `http://localhost:5000`;
 
@@ -61,7 +62,7 @@ class FormIncome extends Component {
     return (
       <form className="income-wrapper" onSubmit={this._onSubmit}>
         <div className="income-description">
-          <input className="income-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} />
+          <input className="income-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} autoFocus  />
         </div>
         <div className="income-amount">
           <div className="income-amount-title">
@@ -69,7 +70,7 @@ class FormIncome extends Component {
           </div>
           <input className="income-amount-input" onChange={this._onChangeIncomeAmount} placeholder='Masukan Amount' value={this.state.amount} />
         </div>
-        <button>
+        <button className="btn-simpan">
           Simpan
         </button>
       </form>

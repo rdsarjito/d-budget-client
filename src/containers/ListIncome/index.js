@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import RowIncome from '../../components/RowIncome';
 
-import './style.css';
+import '../../style/style.css';
+
 
 class ListIncome extends Component {
   render() {

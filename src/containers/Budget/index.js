@@ -3,7 +3,8 @@ import { Component } from 'react';
 import Balance from '../Balance';
 import Menu from '../Menu';
 
-import './style.css'
+import '../../style/style.css';
+
 
 class BudgetContainer extends Component {
   render() {

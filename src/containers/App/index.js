@@ -4,7 +4,8 @@ import Header from '../../components/Header';
 import Income from '../Income';
 import Budget from '../Budget';
 
-import './style.css';
+import '../../style/style.css';
+
 
 class App extends Component {
   render() {
