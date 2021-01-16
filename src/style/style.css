@@ -41,14 +41,16 @@ button {
 }
  
 /* Components Style */
-.add-income-wrapper {
+
+/* Button Menu */
+.button-menu-wrapper {
   color: black;
   font-size: 14px;
   cursor: pointer;
   text-decoration: none;
 }
 
-.button-add-income {
+.button-menu-add {
   text-align: center;
 }
 
@@ -59,7 +61,7 @@ button {
 .income-description-input {
   padding: 10px 5px 10px 5px;
   border: none;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid #00ffff;
   font-size: 14px;
 }
 
@@ -78,7 +80,7 @@ button {
 .income-amount-input {
   padding: 10px 5px 10px 5px;
   border: none;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid #00ffff;
   font-size: 14px;
 }
 
@@ -89,20 +91,18 @@ button {
 
 .wrapper-header {
   border-top-left-radius: 2.5rem;
-  background-color: grey;
+  background-color: #f0f0f0;
   padding: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   font-size: 20px;
+}
+.back-button {
+  width: 25%;
 }
 
 .back-button img {
   width: 25px;
-}
-
-.back-button-right img {
-  width: 25px;
-  text-align: right;
 }
 
 .header-title {
@@ -127,6 +127,8 @@ button {
   background-color: #00ffff;
   padding: 15px;
 }
+
+/*  */
 
 /* Containers */
 .wrapper {

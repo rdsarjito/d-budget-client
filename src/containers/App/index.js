@@ -15,7 +15,7 @@ class App extends Component {
           <Header />
           <Route path="/budget" component={Budget} />
           <Route path="/income" component={Income} />
-          {/* <Redirect to="/budget" /> */}
+          <Redirect to="/budget" />
         </div>
       </BrowserRouter>  
     )
