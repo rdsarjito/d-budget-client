@@ -36,7 +36,7 @@ class FormIncome extends Component {
       amount: this.state.amount
     };
     
-    const obj = {
+    const POST = {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -45,22 +45,31 @@ class FormIncome extends Component {
       body: JSON.stringify({ dataIncome })
     };
 
-    await this.props.storeIncome(API, obj);
+    const GET = {
+      method: 'GET',
+    };
 
+    await this.props.addIncome(API, POST);
+
+    await this.props.getIncome(API, GET);
+
+    this.setState({
+      description: '',
+      amount: ''
+    });
   };
 
   render() {
-    console.log(this.props)
     return (
       <form className="income-wrapper" onSubmit={this._onSubmit}>
         <div className="income-description">
-          <input className="income-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} />
+          <input className="income-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} />
         </div>
         <div className="income-amount">
           <div className="income-amount-title">
             Amount
           </div>
-          <input className="income-amount-input" onChange={this._onChangeIncomeAmount} />
+          <input className="income-amount-input" onChange={this._onChangeIncomeAmount} placeholder='Masukan Amount' value={this.state.amount} />
         </div>
         <button>
           Simpan
@@ -72,10 +81,11 @@ class FormIncome extends Component {
 
 function mapStateToProps({ incomes }) {
   return { incomes }
-}
+};
 
 const mapDispatchToProps = {
-  storeIncome: actions.storeIncome,
-}
+  addIncome: actions.addIncome,
+  getIncome: actions.getIncome
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormIncome);

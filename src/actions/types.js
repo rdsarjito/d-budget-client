@@ -1,1 +1,1 @@
-export const STORE_INCOME = 'store_income';
+export const GET_INCOME = 'get_income';

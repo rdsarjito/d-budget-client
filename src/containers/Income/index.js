@@ -1,11 +1,15 @@
 import { Component } from 'react';
 import FormIncome from '../../components/FormIncome';
+import ListIncome from '../../components/ListIncome';
 
 class Income extends Component {
   render() {
     return (
-      <FormIncome />
-    )
+      <main>
+        <FormIncome />
+        <ListIncome />
+      </main>
+    );
   };
 };
 

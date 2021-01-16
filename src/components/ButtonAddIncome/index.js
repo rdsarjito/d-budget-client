@@ -6,7 +6,7 @@ import './style.css';
 class ButtonAddIncome extends Component {
   render() {
     return (
-      <Link className="add-income-wrapper" to='/' >
+      <Link className="add-income-wrapper" to='/income' >
         <div className="button-add-income">
           +
         </div>

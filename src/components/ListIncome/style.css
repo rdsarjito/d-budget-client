@@ -1,0 +1,23 @@
+.wrapper-list-income {
+  color: black;
+}
+
+tr, th, td {
+  text-align: left;
+}
+
+thead tr {
+  border: 0.5px solid grey;
+  background-color: #f0f0f0;
+}
+
+tbody tr {
+  border: 0.5px solid grey;
+  margin: 100px;
+}
+
+table {
+  margin: 20px 10%;
+  width: 80%;
+  border-collapse: collapse;
+}

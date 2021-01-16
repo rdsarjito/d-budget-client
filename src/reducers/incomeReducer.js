@@ -1,9 +1,9 @@
-import { STORE_INCOME } from '../actions/types';
+import { GET_INCOME } from '../actions/types';
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default (state = {}, action) => {
+export default (state = [], action) => {
   switch (action.type) {
-    case STORE_INCOME:
+    case GET_INCOME:
       return action.payload;
     default:
       return state;
