@@ -67,17 +67,17 @@ class Form extends Component {
 
   render() {
     return (
-      <form className="income-wrapper" onSubmit={this._onSubmit}>
-        <div className="income-description">
-          <input className="income-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} autoFocus  />
+      <form className="form-wrapper" onSubmit={this._onSubmit}>
+        <div className="form-description">
+          <input className="form-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} autoFocus  />
         </div>
-        <div className="income-amount">
-          <div className="income-amount-title">
+        <div className="form-amount">
+          <div className="form-amount-title">
             Amount
           </div>
-          <input className="income-amount-input" onChange={this._onChangeIncomeAmount} placeholder='Masukan Amount' value={this.state.amount} />
+          <input className="form-amount-input" onChange={this._onChangeIncomeAmount} placeholder='Masukan Amount' value={this.state.amount} />
         </div>
-        <button className="btn-simpan">
+        <button className="form-btn-simpan">
           Simpan
         </button>
       </form>
@@ -85,8 +85,8 @@ class Form extends Component {
   };
 };
 
-function mapStateToProps({ balance }) {
-  return { balance }
+function mapStateToProps({ balances }) {
+  return { balances }
 };
 
 const mapDispatchToProps = {

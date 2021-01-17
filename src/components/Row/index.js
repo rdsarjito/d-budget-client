@@ -45,16 +45,16 @@ class Row extends Component {
   }
 
   render() {
-    return this.props.balance.map(income => {
+    return this.props.balances.map(balance => {
       return (
-        <tr key={income._id}>
-          <td>{income.description}</td>
-          <td>{income.amount}</td>
-          <td onClick={() => { this._deleteIncome(income._id) }}><span className="btn-delete">X</span></td>
+        <tr key={balance._id}>
+          <td>{balance.description}</td>
+          <td>{balance.amount}</td>
+          <td onClick={() => { this._deleteIncome(balance._id) }}><span className="btn-delete">X</span></td>
         </tr>
       )
     });
   };
 };
 
-export default connect(({ balance }) => ({ balance }), actions)(Row);
+export default connect(({ balances }) => ({ balances }), actions)(Row);

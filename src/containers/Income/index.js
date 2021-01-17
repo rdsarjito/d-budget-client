@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import Form from '../../components/Form';
 import List from '../List';
-import TotalInflow from '../../components/TotalInflow';
+import TotalCashFLow from '../../components/TotalCashFLow';
 
 class Income extends Component {
   render() {
@@ -9,7 +9,7 @@ class Income extends Component {
       <main>
         <Form />
         <List />
-        <TotalInflow />
+        <TotalCashFLow />
       </main>
     );
   };

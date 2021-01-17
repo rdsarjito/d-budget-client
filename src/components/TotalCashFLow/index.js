@@ -8,7 +8,7 @@ import '../../style/style.css';
 
 const API = `http://localhost:5000`;
 
-class TotalInflow extends Component {
+class TotalCashFlow extends Component {
   constructor() {
     super(); 
     this.state = {
@@ -28,31 +28,22 @@ class TotalInflow extends Component {
     this.props.get(API, format, GET);
   };
 
-  _reducebalance() {
-    const gets = this.props.balance;
+  render() {
+    const gets = this.props.balances;
     const totalInflow = gets.reduce((result, item) => {
       return result + parseInt(item.amount);
     }, 0);
-
     return (
-      <div>
-        {totalInflow}
-      </div>
-    )
-  }
-
-  render() {
-    return (
-      <div className="wrapper-total-inflow">
-        <div className="number-total-inflow">
-          {this._reducebalance()}
+      <div className="wrapper-total-cashflow">
+        <div className="number-total-cashflow">
+          {totalInflow}
         </div>
-        <div className="title-total-inflow">
-          Total Inflow
+        <div className="title-total-cashflow">
+          Total Cashflow
         </div>
       </div>
-    )
+    );
   };
 };
 
-export default connect(({ balance }) => ({ balance }), actions)(TotalInflow);
+export default connect(({ balances }) => ({ balances }), actions)(TotalCashFlow);
