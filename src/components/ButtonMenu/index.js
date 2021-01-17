@@ -11,7 +11,7 @@ class ButtonMenu extends Component {
       return (
         <Link key={format.name} className="button-menu-wrapper" to={`/${format.name}`} >
           <div className="button-menu-add">
-            Add
+            <img src='http://101.50.0.139:5000/images/add .png' alt='' />
           </div>
           <div className="button-menu-title">
             {format.name}

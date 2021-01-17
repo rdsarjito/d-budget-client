@@ -56,10 +56,11 @@ button:focus {
   font-size: 14px;
   cursor: pointer;
   text-decoration: none;
+  text-align: center;
 }
 
-.button-menu-add {
-  text-align: center;
+.button-menu-add img {
+  width: 25%;
 }
 
 .form-wrapper {
@@ -99,11 +100,14 @@ button:focus {
 
 .wrapper-header {
   border-top-left-radius: 2.5rem;
-  background-color: #f0f0f0;
+  background-color: #5e0085;
   padding: 20px;
+  margin: 0 0 10px 0;
   display: flex;
   justify-content: left;
   font-size: 20px;
+  position: relative;
+  z-index: 2;
 }
 .back-button {
   width: 25%;
@@ -152,8 +156,13 @@ button:focus {
 }
 
 .balance-container {
-  padding: 0 20px 0 20px;
+  padding: 60px 20px;
+  margin: -70px 0;
   color: black;
+  background-color: #5e0085;
+  border-radius: 3em;
+  position: relative;
+  z-index: 1;
 }
 
 .balance-title {
@@ -176,4 +185,7 @@ button:focus {
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 0.5em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
+  position: relative;
+  z-index: 5;
 }

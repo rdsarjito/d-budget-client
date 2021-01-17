@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { addMoneyDots } from '../../helper';
 import * as actions from '../../actions';
 
 import '../../style/style.css';
@@ -39,14 +40,13 @@ class Balance extends Component {
     }, 0);
 
     const totalBalance = totalInflow - totalOutflow;
-    console.log(totalBalance)
     return (
       <div className="balance-container">
         <div className="balance-title">
           Balance
         </div>
         <div className="balance-cash">
-          Rp. {totalBalance}
+          Rp. {addMoneyDots(totalBalance)}
         </div>
       </div>
     )
