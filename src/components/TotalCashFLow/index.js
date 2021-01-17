@@ -12,7 +12,7 @@ class TotalCashFlow extends Component {
   constructor() {
     super(); 
     this.state = {
-      format: ''  
+      format: ''
     };
   };
 

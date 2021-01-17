@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import NumberFormat from 'react-number-format';
 
-import { addMoneyDots, removeMoneyDots } from '../../helper';
+import { removeMoneyDots } from '../../helper';
 import '../../style/style.css';
 
 const API = `http://localhost:5000`;
