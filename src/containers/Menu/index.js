@@ -8,6 +8,7 @@ import '../../style/style.css';
 class Menu extends Component {
   render() {
     return (
+      
       <div className="menu-container">
         <Buttonadd />
       </div>

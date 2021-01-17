@@ -1,7 +1,9 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import NumberFormat from 'react-number-format';
 
+import { addMoneyDots, removeMoneyDots } from '../../helper';
 import '../../style/style.css';
 
 const API = `http://localhost:5000`;
@@ -12,10 +14,10 @@ class Form extends Component {
     this.state = {
       description : '',
       amount: '',
-      format: ''
+      format: '',
     };
     this._onChangeInputDescription = this._onChangeInputDescription.bind(this);
-    this._onChangeIncomeAmount = this._onChangeIncomeAmount.bind(this);
+    this._onChangeInputAmount = this._onChangeInputAmount.bind(this);
     this._onSubmit = this._onSubmit.bind(this);
   };
 
@@ -29,8 +31,9 @@ class Form extends Component {
     this.setState({ description: e.target.value });
   };
 
-  _onChangeIncomeAmount(e) {
-    this.setState({ amount: e.target.value })
+  _onChangeInputAmount(e) {
+    const amount = removeMoneyDots(e.target.value);
+    this.setState({ amount })
   };
 
   _onSubmit = async(e) => {
@@ -74,8 +77,11 @@ class Form extends Component {
         <div className="form-amount">
           <div className="form-amount-title">
             Amount
-          </div>
-          <input className="form-amount-input" onChange={this._onChangeIncomeAmount} placeholder='Masukan Amount' value={this.state.amount} />
+          </div>  
+          <span className="textbox">
+            Rp.
+            <NumberFormat className="form-amount-input" onChange={this._onChangeInputAmount} value={this.state.amount} thousandSeparator={true} placeholder='Masukan Amount' />
+          </span>
         </div>
         <button className="form-btn-simpan">
           Simpan
