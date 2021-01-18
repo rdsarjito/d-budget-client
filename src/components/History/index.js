@@ -29,6 +29,10 @@ class History extends Component {
     this.setState({ income: dataIncome, expense: dataExpense });
   };
 
+
+  _case() {
+    
+  }
   render() {
     const mergeData = [...this.state.income, ...this.state.expense];
 
