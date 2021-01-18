@@ -63,7 +63,8 @@ button:focus {
 
 /* Button Menu */
 .button-menu-wrapper {
-  color: black;
+  padding: 5px 0;
+  margin: 0 5px;
   font-size: 14px;
   cursor: pointer;
   text-decoration: none;
@@ -71,7 +72,7 @@ button:focus {
 }
 
 .button-menu-add img {
-  width: 25%;
+  width: 40%;
 }
 
 .form-wrapper {

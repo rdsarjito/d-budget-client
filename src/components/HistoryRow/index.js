@@ -7,7 +7,7 @@ import '../../style/style.css';
 
 const API = `http://localhost:5000`;
 
-class History extends Component {
+class HistoryRow extends Component {
   constructor() {
     super();
     this.state = {
@@ -29,10 +29,6 @@ class History extends Component {
     this.setState({ income: dataIncome, expense: dataExpense });
   };
 
-
-  _case() {
-    
-  }
   render() {
     const mergeData = [...this.state.income, ...this.state.expense];
 
@@ -66,4 +62,4 @@ class History extends Component {
   }
 }
 
-export default connect(({ balances }) => ({ balances }), actions)(History);
+export default connect(({ balances }) => ({ balances }), actions)(HistoryRow);
