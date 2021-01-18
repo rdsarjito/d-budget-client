@@ -11,7 +11,7 @@ class Header extends Component {
         <Link to="/budget" className="back-button">
           <img src='http://101.50.0.139:5000/images/left-arrow.png' alt='' />
         </Link>
-        <div className="header-title">
+        <div className="header-title white">
           D-Budget
         </div>
       </div>

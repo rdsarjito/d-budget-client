@@ -13,7 +13,7 @@ class ButtonMenu extends Component {
           <div className="button-menu-add">
             <img src='http://101.50.0.139:5000/images/add .png' alt='' />
           </div>
-          <div className="button-menu-title">
+          <div className="button-menu-title ungu">
             {format.name}
           </div>
         </Link>

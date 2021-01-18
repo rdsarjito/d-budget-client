@@ -42,7 +42,7 @@ class TotalBalance extends Component {
     const totalBalance = totalInflow - totalOutflow;
 
     return (
-      <div className="balance-cash">
+      <div className="balance-cash white">
         Rp. {addMoneyDots(totalBalance)}
       </div>
     )

@@ -47,6 +47,17 @@ button:focus {
     outline: none;
 }
 
+.white {
+  color: white;
+}
+
+.ungu {
+  color: #5e0085;
+}
+
+.fz12 {
+  font-size: 12;
+}
  
 /* Components Style */
 
@@ -118,7 +129,6 @@ button:focus {
 }
 
 .header-title {
-  color: black;
   width: 50%;
   text-align: center;
 }

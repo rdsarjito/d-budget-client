@@ -72,7 +72,7 @@ class Form extends Component {
     return (
       <form className="form-wrapper" onSubmit={this._onSubmit}>
         <div className="form-description">
-          <input className="form-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} autoFocus  />
+          <input type="description" className="form-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} />
         </div>
         <div className="form-amount">
           <div className="form-amount-title">

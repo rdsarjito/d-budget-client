@@ -8,7 +8,7 @@ class Balance extends Component {
   render() {
     return (
       <div className="balance-container">
-        <div className="balance-title">
+        <div className="balance-title white">
           Balance
         </div>
         <TotalBalance />
