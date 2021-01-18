@@ -41,12 +41,20 @@ class History extends Component {
     return sortedDate.map((history) => {
       const getDate = history.date;
       const parseToDate = new Date(getDate);
-      const date = parseToDate.toLocaleDateString();
-      console.log(parseToDate.toUTCString())
+      const date = parseToDate.toLocaleDateString('en-GB', {
+        month: 'long',day: '2-digit',year: 'numeric'});
       return (
         <div key={history._id} className="history-wrapper">
-          <div className="historydate">
+          <div className="history-date">
             {date}
+          </div>
+          <div className="history-content">
+            <div className="history-description">
+              {history.description}
+            </div>
+            <div className="history-amount">
+              {history.amount}
+            </div>
           </div>
         </div>
       )

@@ -140,6 +140,24 @@ button:focus {
   padding: 15px;
 }
 
+.history-wrapper {
+  padding: 0 20px;
+}
+.history-date {
+  font-size: 14px;
+  background-color: #e5f1ef;
+  padding: 5px;
+  font-weight: 800;
+  color: #738281;
+}
+.history-content {
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
 /*  */
 
 /* Containers */

@@ -1,56 +1,20 @@
 import { Component } from 'react';
-import { connect } from 'react-redux';
 
 import TotalBalance from '../../components/TotalBalance';
-import * as actions from '../../actions';
 
 import '../../style/style.css';
 
-const API = `http://localhost:5000`;
-
 class Balance extends Component {
-  constructor() {
-    super();
-    this.state = {
-      income: [],
-      expense: []
-    };
-  };
-
-  componentDidMount = async() => {
-    const GET = {
-      method: 'GET',
-    };
-
-    const getIncome =  await fetch(`${API}/api/income`, GET);
-    const getExpense = await fetch(`${API}/api/expense`, GET);
-    const dataIncome = await getIncome.json();
-    const dataExpense = await getExpense.json();
-
-    this.setState({ income: dataIncome, expense: dataExpense });
-  };
-
   render() {
-    const mergeData = [...this.state.income, ...this.state.expense];
-
-    const sortedDate = mergeData.sort((date1,date2) => {
-      const parseDate1 = new Date(date1.date);
-      const parseDate2 = new Date(date2.date);
-      return parseDate1.getTime() - parseDate2.getTime()
-    });
-
-    // console.log(sortedDate)
-
     return (
       <div className="balance-container">
         <div className="balance-title">
           Balance
         </div>
         <TotalBalance />
-        {/* <History /> */}
       </div>
     )
   }
 }
 
-export default connect(({ balances }) => ({ balances }), actions)(Balance);
+export default Balance;
