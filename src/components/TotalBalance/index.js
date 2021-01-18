@@ -1,14 +1,14 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
-import TotalBalance from '../../components/TotalBalance';
+import { addMoneyDots } from '../../helper';
 import * as actions from '../../actions';
 
 import '../../style/style.css';
 
 const API = `http://localhost:5000`;
 
-class Balance extends Component {
+class TotalBalance extends Component {
   constructor() {
     super();
     this.state = {
@@ -31,26 +31,22 @@ class Balance extends Component {
   };
 
   render() {
-    const mergeData = [...this.state.income, ...this.state.expense];
+    const totalInflow = this.state.income.reduce((result, item) => {
+      return result + parseInt(item.amount);
+    }, 0);
 
-    const sortedDate = mergeData.sort((date1,date2) => {
-      const parseDate1 = new Date(date1.date);
-      const parseDate2 = new Date(date2.date);
-      return parseDate1.getTime() - parseDate2.getTime()
-    });
+    const totalOutflow = this.state.expense.reduce((result, item) => {
+      return result + parseInt(item.amount);
+    }, 0);
 
-    // console.log(sortedDate)
+    const totalBalance = totalInflow - totalOutflow;
 
     return (
-      <div className="balance-container">
-        <div className="balance-title">
-          Balance
-        </div>
-        <TotalBalance />
-        {/* <History /> */}
+      <div className="balance-cash">
+        Rp. {addMoneyDots(totalBalance)}
       </div>
     )
   }
 }
 
-export default connect(({ balances }) => ({ balances }), actions)(Balance);
+export default connect(({ balances }) => ({ balances }), actions)(TotalBalance);

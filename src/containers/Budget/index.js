@@ -3,6 +3,7 @@ import { Component } from 'react';
 import Balance from '../Balance';
 import Menu from '../Menu';
 
+import History from '../../components/History';
 import '../../style/style.css';
 
 
@@ -12,6 +13,7 @@ class BudgetContainer extends Component {
       <div>
         <Balance />
         <Menu />
+        <History />
       </div>
     )
   }

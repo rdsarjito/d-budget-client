@@ -1,14 +1,13 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
-import TotalBalance from '../../components/TotalBalance';
 import * as actions from '../../actions';
 
 import '../../style/style.css';
 
 const API = `http://localhost:5000`;
 
-class Balance extends Component {
+class History extends Component {
   constructor() {
     super();
     this.state = {
@@ -39,18 +38,20 @@ class Balance extends Component {
       return parseDate1.getTime() - parseDate2.getTime()
     });
 
-    // console.log(sortedDate)
-
-    return (
-      <div className="balance-container">
-        <div className="balance-title">
-          Balance
+    return sortedDate.map((history) => {
+      const getDate = history.date;
+      const parseToDate = new Date(getDate);
+      const date = parseToDate.toLocaleDateString();
+      console.log(parseToDate.toUTCString())
+      return (
+        <div key={history._id} className="history-wrapper">
+          <div className="historydate">
+            {date}
+          </div>
         </div>
-        <TotalBalance />
-        {/* <History /> */}
-      </div>
-    )
+      )
+    })
   }
 }
 
-export default connect(({ balances }) => ({ balances }), actions)(Balance);
+export default connect(({ balances }) => ({ balances }), actions)(History);
