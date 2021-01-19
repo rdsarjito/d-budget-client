@@ -37,7 +37,7 @@ class TotalCashFlow extends Component {
     return (
       <div className="wrapper-total-cashflow">
         <div className="number-total-cashflow">
-          Total Cashflow: {addMoneyDots(totalInflow)}
+          Total {this.state.format}: {addMoneyDots(totalInflow)}
         </div>
       </div>
     );

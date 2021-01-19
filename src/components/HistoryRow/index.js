@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { sortedDate, stringDate } from '../../helper';
+import { addMoneyDots, sortedDate, stringDate } from '../../helper';
 import * as actions from '../../actions';
 
 import '../../style/style.css';
@@ -36,6 +36,7 @@ class HistoryRow extends Component {
     const sortDate = sortedDate(mergeData);
     return sortDate.map((history) => {
       const date = stringDate(history.date);
+      console.log(history.typeBalance)
       return (
         <div key={history._id} className="history-wrapper">
           <div className="history-date">
@@ -45,8 +46,8 @@ class HistoryRow extends Component {
             <div className="history-description">
               {history.description}
             </div>
-            <div className="history-amount">
-              {history.amount}
+            <div className={`history-amount ${history.typeBalance}`}>
+              {addMoneyDots(history.amount)}
             </div>
           </div>
         </div>

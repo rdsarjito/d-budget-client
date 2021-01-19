@@ -47,6 +47,14 @@ button:focus {
     outline: none;
 }
 
+.income {
+  color: green;
+}
+
+.expense {
+  color: red;
+}
+
 .padding {
   padding: 10px;
 }
@@ -140,7 +148,6 @@ button:focus {
 .wrapper-total-cashflow {
   margin: 10px 20px;
 }
-
 
 .history-date {
   font-size: 14px;
