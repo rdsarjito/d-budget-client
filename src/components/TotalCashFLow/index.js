@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
+import { addMoneyDots } from '../../helper';
 
 import '../../style/style.css';
 
@@ -36,10 +37,7 @@ class TotalCashFlow extends Component {
     return (
       <div className="wrapper-total-cashflow">
         <div className="number-total-cashflow">
-          {totalInflow}
-        </div>
-        <div className="title-total-cashflow">
-          Total Cashflow
+          Total Cashflow: {addMoneyDots(totalInflow)}
         </div>
       </div>
     );

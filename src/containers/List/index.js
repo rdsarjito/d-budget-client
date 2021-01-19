@@ -14,7 +14,7 @@ class List extends Component {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="row-cashflow">
           <RowIncome />
         </tbody>
       </table>

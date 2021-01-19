@@ -28,7 +28,6 @@ class Row extends Component {
     this.props.get(API, format, GET);
   };
 
-
   _deleteIncome = async(id) => {
     const DELETE = {
       method: 'DELETE',
@@ -42,7 +41,7 @@ class Row extends Component {
     await this.props.deleteIncome(API, format, DELETE, id);
 
     await this.props.get(API, format, GET);
-  }
+  };
 
   render() {
     return this.props.balances.map(balance => {

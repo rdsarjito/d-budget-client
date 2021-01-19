@@ -47,6 +47,10 @@ button:focus {
     outline: none;
 }
 
+.padding {
+  padding: 10px;
+}
+
 .white {
   color: white;
 }
@@ -76,7 +80,7 @@ button:focus {
 }
 
 .form-wrapper {
-  padding: 20px 20px;
+  padding: 10px 20px;
 }
 
 .form-description-input {
@@ -114,7 +118,6 @@ button:focus {
   border-top-left-radius: 2.5rem;
   background-color: #5e0085;
   padding: 20px;
-  margin: 0 0 10px 0;
   display: flex;
   justify-content: left;
   font-size: 20px;
@@ -135,13 +138,7 @@ button:focus {
 }
 
 .wrapper-total-cashflow {
-  margin: 30px;
-  padding: 10px 0 10px 0;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 0.5em;
+  margin: 10px 20px;
 }
 
 .btn-delete {
@@ -151,9 +148,6 @@ button:focus {
   padding: 15px;
 }
 
-.history-wrapper {
-  padding: 0 20px;
-}
 .history-date {
   font-size: 14px;
   background-color: #e5f1ef;
@@ -185,7 +179,7 @@ button:focus {
 }
 
 .balance-container {
-  padding: 60px 20px;
+  padding: 70px 20px;
   margin: -70px 0;
   color: black;
   background-color: #5e0085;
@@ -217,4 +211,10 @@ button:focus {
   background-color: white;
   position: relative;
   z-index: 5;
+}
+
+.history-container {
+  display: flex;
+  flex-direction: column-reverse;
+
 }

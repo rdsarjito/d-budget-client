@@ -1,22 +1,17 @@
 import { Component } from 'react';
 
-import Balance from '../Balance';
-import Menu from '../Menu';
-
 import HistoryRow from '../../components/HistoryRow';
+
 import '../../style/style.css';
 
-
-class BudgetContainer extends Component {
+class History extends Component {
   render() {
     return (
-      <div>
-        <Balance />
-        <Menu />
+      <div className="history-container">
         <HistoryRow />
       </div>
     )
   }
 }
 
-export default BudgetContainer;
+export default History;

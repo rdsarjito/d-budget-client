@@ -8,8 +8,8 @@ class Expense extends Component {
     return (
       <main>
         <Form />
-        <List />
         <TotalCashFlow />
+        <List />
       </main>
     );
   };
