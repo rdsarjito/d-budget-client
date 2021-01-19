@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { sortedDate } from '../../helper';
 import * as actions from '../../actions';
 
 import '../../style/style.css';
@@ -28,7 +29,7 @@ class Row extends Component {
     this.props.get(API, format, GET);
   };
 
-  _deleteIncome = async(id) => {
+  _deleteRow = async(id) => {
     const DELETE = {
       method: 'DELETE',
     }
@@ -38,19 +39,22 @@ class Row extends Component {
 
     const format = this.state.format;
 
-    await this.props.deleteIncome(API, format, DELETE, id);
+    await this.props.del(API, format, DELETE, id);
 
     await this.props.get(API, format, GET);
   };
 
   render() {
+    const sortDate = sortedDate(this.props.balances);
     return this.props.balances.map(balance => {
       return (
-        <tr key={balance._id}>
-          <td>{balance.description}</td>
-          <td>{balance.amount}</td>
-          <td onClick={() => { this._deleteIncome(balance._id) }}><span className="btn-delete">X</span></td>
-        </tr>
+        <div key={balance._id} className="row-cashflow evenly-color">
+          <div className="row-content">
+            <div>{balance.description}</div>
+            <div>{balance.amount}</div>
+          </div>
+          <div onClick={() => { this._deleteRow(balance._id) }} className="btn-delete">X</div>
+        </div>
       )
     });
   };

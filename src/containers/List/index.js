@@ -6,18 +6,9 @@ import '../../style/style.css';
 class List extends Component {
   render() {
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>Description</th>
-            <th>Amount</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody className="row-cashflow">
-          <RowIncome />
-        </tbody>
-      </table>
+      <div>
+        <RowIncome />
+      </div>
     )
   };
 };

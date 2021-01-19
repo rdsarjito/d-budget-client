@@ -141,12 +141,6 @@ button:focus {
   margin: 10px 20px;
 }
 
-.btn-delete {
-  color: #888866;
-  border: none;
-  background-color: #00ffff;
-  padding: 15px;
-}
 
 .history-date {
   font-size: 14px;
@@ -155,6 +149,7 @@ button:focus {
   font-weight: 800;
   color: #738281;
 }
+
 .history-content {
   font-size: 18px;
   font-weight: 800;
@@ -163,7 +158,28 @@ button:focus {
   padding: 5px;
 }
 
-/*  */
+
+/* RowCashflow */
+.evenly-color:nth-child(even) {
+  background-color: white;
+}
+
+.row-cashflow {
+  padding: 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: grey;
+}
+
+.btn-delete {
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* Containers */
 .wrapper {
@@ -216,5 +232,4 @@ button:focus {
 .history-container {
   display: flex;
   flex-direction: column-reverse;
-
 }

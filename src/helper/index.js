@@ -5,3 +5,9 @@ export const addMoneyDots = (n) =>  {
 export const removeMoneyDots = (n) =>  {
   return n.split(',').join("");
 };
+
+export const sortedDate = (arr) => arr.sort((date1,date2) => {
+  const parseDate1 = new Date(date1.date);
+  const parseDate2 = new Date(date2.date);
+  return parseDate1.getTime() - parseDate2.getTime()
+});

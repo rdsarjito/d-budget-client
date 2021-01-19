@@ -12,6 +12,6 @@ export const get = (API, format, GET) => async dispatch => {
   dispatch({ type: GET_INCOME, payload: respond });
 };
 
-export const deleteIncome = (API, format, DELETE, id) => async () => {
+export const del = (API, format, DELETE, id) => async () => {
   await fetch(`${API}/api/${format}/` + id, DELETE);
 };
