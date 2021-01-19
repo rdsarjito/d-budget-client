@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { sortedDate } from '../../helper';
+import { sortedDate, stringDate, addMoneyDots } from '../../helper';
 import * as actions from '../../actions';
 
 import '../../style/style.css';
@@ -45,15 +45,17 @@ class Row extends Component {
   };
 
   render() {
-    const sortDate = sortedDate(this.props.balances);
-    return this.props.balances.map(balance => {
+    const sortDataByDate = sortedDate(this.props.balances);
+    return sortDataByDate.map(data => {
+      const date = stringDate(data.date);
       return (
-        <div key={balance._id} className="row-cashflow evenly-color">
+        <div key={data._id} className="row-cashflow evenly-color">
           <div className="row-content">
-            <div>{balance.description}</div>
-            <div>{balance.amount}</div>
+            <div>{data.description}</div>
+            <div>{addMoneyDots(data.amount)}</div>
+            <div>{date}</div>
           </div>
-          <div onClick={() => { this._deleteRow(balance._id) }} className="btn-delete">X</div>
+          <div onClick={() => { this._deleteRow(data._id) }} className="btn-delete">X</div>
         </div>
       )
     });

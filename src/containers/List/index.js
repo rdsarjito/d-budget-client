@@ -6,7 +6,7 @@ import '../../style/style.css';
 class List extends Component {
   render() {
     return (
-      <div>
+      <div className="list-container">
         <RowIncome />
       </div>
     )

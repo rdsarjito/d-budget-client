@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { sortedDate } from '../../helper';
+import { sortedDate, stringDate } from '../../helper';
 import * as actions from '../../actions';
 
 import '../../style/style.css';
@@ -35,10 +35,7 @@ class HistoryRow extends Component {
     const mergeData = [...this.state.income, ...this.state.expense];
     const sortDate = sortedDate(mergeData);
     return sortDate.map((history) => {
-      const getDate = history.date;
-      const parseToDate = new Date(getDate);
-      const date = parseToDate.toLocaleDateString('en-GB', {
-        month: 'long',day: '2-digit',year: 'numeric'});
+      const date = stringDate(history.date);
       return (
         <div key={history._id} className="history-wrapper">
           <div className="history-date">

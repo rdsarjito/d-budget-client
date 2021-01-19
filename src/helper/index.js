@@ -11,3 +11,9 @@ export const sortedDate = (arr) => arr.sort((date1,date2) => {
   const parseDate2 = new Date(date2.date);
   return parseDate1.getTime() - parseDate2.getTime()
 });
+
+export const stringDate = (date) => {
+  const parseToDate = new Date(date);
+  return parseToDate.toLocaleDateString('en-GB', {
+    month: 'long', day: '2-digit', year: 'numeric'});
+};
