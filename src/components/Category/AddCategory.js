@@ -23,9 +23,10 @@ class Addcategory extends Component {
   render() {
     return (
       <div className="button-add-category">
-        <a type="button" onClick={this.showModalHandler}>
+        <div onClick={this.showModalHandler} className="wrapper-button-add-category">
           <img src='http://101.50.0.139:5000/images/add.png' alt='' />
-        </a>
+          <div className="add-category-title">Category</div>
+        </div>
         <FormModal showModal={this.state.showModal} hideModalHandler={this.hideModalHandler}></FormModal>
       </div>
     );

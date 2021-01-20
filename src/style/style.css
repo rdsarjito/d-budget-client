@@ -154,9 +154,22 @@ button:focus {
   color: white;
 }
 
-.form-btn-simpan {
-  /* margin-top: 30px; */
+.form-category-input {
+  padding: 10px 5px 10px 5px;
+  border: none;
+  border-bottom: 1px solid #00ffff;
+  font-size: 14px;
   width: 100%;
+}
+
+.form-btn-simpan {
+  width: 100%;
+}
+
+.form-content {
+  margin-left: -1px;
+  margin-top: -50px;
+  display: flex;
 }
 
 .wrapper-header {
@@ -233,9 +246,21 @@ button:focus {
 }
 
 /* Category */
+.button-add-category {
+  margin: 20px 20px 0 20px;
+}
+
 .button-add-category img {
-  width: 43%;
-  margin-left: 50.3px;
+  width: 15%;
+}
+
+.wrapper-button-add-category {
+  display: flex;
+  align-items: center;
+}
+
+.add-category-title {
+  margin-left: 10px;
 }
 
 

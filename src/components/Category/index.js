@@ -2,7 +2,6 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
-import AddCategory from './AddCategory';
 
 // const API = `http://localhost:5000`;
 
@@ -17,7 +16,6 @@ class Category extends Component {
             <option value="bill">Bill</option>
           </select>
         </div>
-        <AddCategory />
       </div>
     )
   };
