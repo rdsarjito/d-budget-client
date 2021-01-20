@@ -1,20 +1,32 @@
-import { Component, useState } from 'react';
+import { Component } from 'react';
 import { connect } from 'react-redux';
-import Modal from 'react-modal';
-
 
 import * as actions from '../../actions';
+import FormModal from './FormModal';
 
 class Addcategory extends Component {
+  constructor() {
+    super()
+    this.state = {
+      showModal : false
+    }
+  }
+
+  showModalHandler = (event) =>{
+    this.setState({showModal:true});
+  }
+
+  hideModalHandler = (event) =>{
+    this.setState({showModal:false});
+  }
+
   render() {
     return (
       <div className="button-add-category">
-        <button onClick={() => this.state.setModalIsopen(true)}>
+        <a type="button" onClick={this.showModalHandler}>
           <img src='http://101.50.0.139:5000/images/add.png' alt='' />
-        </button>
-        <Modal isOpen={this.state.modalIsOpen}>
-          <h2>test</h2>
-        </Modal>
+        </a>
+        <FormModal showModal={this.state.showModal} hideModalHandler={this.hideModalHandler}></FormModal>
       </div>
     );
   };

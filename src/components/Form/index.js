@@ -4,6 +4,7 @@ import NumberFormat from 'react-number-format';
 
 import * as actions from '../../actions';
 import Category from '../Category';
+import AddCategory from '../Category/AddCategory';
 import { removeMoneyDots } from '../../helper';
 import '../../style/style.css';
 
@@ -78,24 +79,27 @@ class Form extends Component {
 
   render() {
     return (
-      <form className="form-wrapper" onSubmit={this._onSubmit}>
-        <Category />
-        <div className="form-description">
-          <input type="description" className="form-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} />
-        </div>
-        <div className="form-amount">
-          <div className="form-amount-title">
-            Amount
+      <div>
+        <AddCategory />
+        <form className="form-wrapper" onSubmit={this._onSubmit}>
+          <Category />
+          <div className="form-description">
+            <input type="description" className="form-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} />
           </div>
-          <span className="textbox">
-            Rp.
-            <NumberFormat className="form-amount-input" onChange={this._onChangeInputAmount} value={this.state.amount} thousandSeparator={true} placeholder='Masukan Amount' />
-          </span>
-        </div>
-        <button className="form-btn-simpan">
-          Simpan
-        </button>
-      </form>
+          <div className="form-amount">
+            <div className="form-amount-title">
+              Amount
+            </div>
+            <span className="textbox">
+              Rp.
+              <NumberFormat className="form-amount-input" onChange={this._onChangeInputAmount} value={this.state.amount} thousandSeparator={true} placeholder='Masukan Amount' />
+            </span>
+          </div>
+          <button className="form-btn-simpan">
+            Simpan
+          </button>
+        </form>
+      </div>
     )
   };
 };
