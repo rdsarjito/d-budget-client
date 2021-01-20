@@ -77,11 +77,18 @@ class Form extends Component {
         <div className="form-amount">
           <div className="form-amount-title">
             Amount
-          </div>  
+          </div>
           <span className="textbox">
             Rp.
             <NumberFormat className="form-amount-input" onChange={this._onChangeInputAmount} value={this.state.amount} thousandSeparator={true} placeholder='Masukan Amount' />
           </span>
+        </div>
+        <div className="form-category">
+          <select>
+            <option value="" className="option-title">Choose one category</option>
+            <option value="food">Food</option>
+            <option value="bikk">Bill</option>
+          </select>
         </div>
         <button className="form-btn-simpan">
           Simpan

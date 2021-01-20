@@ -40,6 +40,10 @@ button {
   margin: 5px 0;
 }
 
+select {
+  border: none;
+}
+
 input:focus,
 select:focus,
 textarea:focus,
@@ -70,6 +74,10 @@ button:focus {
 .fz12 {
   font-size: 12;
 }
+
+.option-title {
+  display: none;
+}
  
 /* Components Style */
 
@@ -91,19 +99,23 @@ button:focus {
   padding: 10px 20px;
 }
 
+.form-description {
+  margin-bottom: 20px;
+}
 .form-description-input {
   padding: 10px 5px 10px 5px;
   border: none;
   border-bottom: 1px solid #00ffff;
   font-size: 14px;
+  width: 100%;
 }
 
 .form-amount {
-  margin-top: 30px;
   padding: 5px 5px 25px 5px;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 0.5em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .form-amount-title {
@@ -117,8 +129,19 @@ button:focus {
   font-size: 14px;
 }
 
+.form-category select {
+  padding: 10px 5px 10px 5px;
+  margin-bottom: 20px;
+  background-color: #5e0085;
+  color: white;
+}
+
+.form-category select option {
+  color: white;
+}
+
 .form-btn-simpan {
-  margin-top: 30px;
+  /* margin-top: 30px; */
   width: 100%;
 }
 
@@ -164,6 +187,8 @@ button:focus {
   justify-content: space-between;
   padding: 5px;
 }
+
+
 
 
 /* RowCashflow */
