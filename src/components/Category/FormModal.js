@@ -11,7 +11,7 @@ class FormModal extends Component {
         {modal}
       </div>
     );
-  }
-}
+  };
+};
 
 export default FormModal;

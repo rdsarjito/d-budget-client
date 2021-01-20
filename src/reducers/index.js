@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import balanceReducer from './balanceReducer';
+import categoryReducer from './categoryReducer';
 
 export default combineReducers({
-  balances: balanceReducer
+  balances: balanceReducer,
+  categories: categoryReducer,
 });

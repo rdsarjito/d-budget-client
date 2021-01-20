@@ -46,7 +46,6 @@ button {
   border: none;
   background-color: #00ffff;
   padding: 15px;
-  margin: 5px 0;
 }
 
 select {
@@ -168,7 +167,7 @@ button:focus {
 
 .form-content {
   margin-left: -1px;
-  margin-top: -50px;
+  margin-top: -40px;
   display: flex;
 }
 

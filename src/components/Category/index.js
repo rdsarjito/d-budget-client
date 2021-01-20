@@ -2,32 +2,36 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
+import ListCategory from './ListCategory';
 
-// const API = `http://localhost:5000`;
+const API = `http://localhost:5000`;
 
 class Category extends Component {
+  componentDidMount(){
+    const GET = {
+      method: 'GET',
+    };
+    
+    const format = 'category';
+
+    this.props.getCategories(API, format, GET);
+  };
   render() {
     return (
       <div className="form-category">
         <div className="dropdown-category">
-          <select onChange={this._onChangeSelectCategory}>
+          <select>
             <option value="" className="option-title">Choose one category</option>
-            <option value="food">Food</option>
-            <option value="bill">Bill</option>
+            <ListCategory />
           </select>
         </div>
       </div>
-    )
+    );
   };
 };
 
-function mapStateToProps({ balances }) {
-  return { balances }
+function mapStateToProps({ categories }) {
+  return { categories }
 };
 
-const mapDispatchToProps = {
-  add: actions.add,
-  get: actions.get
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Category);
+export default connect(mapStateToProps, actions)(Category);

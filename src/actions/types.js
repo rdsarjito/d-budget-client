@@ -1,1 +1,2 @@
-export const GET_INCOME = 'get_income';
+export const GET_DATA = 'get';
+export const GET_CATEGORIES = 'get_categories';
