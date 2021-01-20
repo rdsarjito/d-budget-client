@@ -129,9 +129,14 @@ button:focus {
   font-size: 14px;
 }
 
+.form-category {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .form-category select {
   padding: 10px 5px 10px 5px;
-  margin-bottom: 20px;
   background-color: #5e0085;
   color: white;
 }
@@ -217,6 +222,15 @@ button:focus {
   justify-content: center;
   align-items: center;
 }
+
+/* Category */
+.button-add-category img {
+  width: 43%;
+  margin-left: 50.3px;
+}
+
+
+
 
 /* Containers */
 .wrapper {

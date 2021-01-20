@@ -1,8 +1,9 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
 import NumberFormat from 'react-number-format';
 
+import * as actions from '../../actions';
+import Category from '../Category';
 import { removeMoneyDots } from '../../helper';
 import '../../style/style.css';
 
@@ -50,7 +51,7 @@ class Form extends Component {
       amount: this.state.amount,
       category: this.state.category,
     };
-
+    
     const format = this.state.format;
     
     const POST = {
@@ -78,13 +79,7 @@ class Form extends Component {
   render() {
     return (
       <form className="form-wrapper" onSubmit={this._onSubmit}>
-        <div className="form-category">
-          <select onChange={this._onChangeSelectCategory}>
-            <option value="" className="option-title">Choose one category</option>
-            <option value="food">Food</option>
-            <option value="bill">Bill</option>
-          </select>
-        </div>
+        <Category />
         <div className="form-description">
           <input type="description" className="form-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} />
         </div>
@@ -97,7 +92,6 @@ class Form extends Component {
             <NumberFormat className="form-amount-input" onChange={this._onChangeInputAmount} value={this.state.amount} thousandSeparator={true} placeholder='Masukan Amount' />
           </span>
         </div>
-
         <button className="form-btn-simpan">
           Simpan
         </button>
