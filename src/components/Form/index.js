@@ -15,9 +15,11 @@ class Form extends Component {
       description : '',
       amount: '',
       format: '',
+      category: '',
     };
     this._onChangeInputDescription = this._onChangeInputDescription.bind(this);
     this._onChangeInputAmount = this._onChangeInputAmount.bind(this);
+    this._onChangeSelectCategory = this._onChangeSelectCategory.bind(this);
     this._onSubmit = this._onSubmit.bind(this);
   };
 
@@ -33,7 +35,11 @@ class Form extends Component {
 
   _onChangeInputAmount(e) {
     const amount = removeMoneyDots(e.target.value);
-    this.setState({ amount })
+    this.setState({ amount });
+  };
+
+  _onChangeSelectCategory(e) {
+    this.setState({ category: e.target.value });
   };
 
   _onSubmit = async(e) => {
@@ -41,7 +47,8 @@ class Form extends Component {
 
     const data = {
       description: this.state.description,
-      amount: this.state.amount
+      amount: this.state.amount,
+      category: this.state.category,
     };
 
     const format = this.state.format;
@@ -71,6 +78,13 @@ class Form extends Component {
   render() {
     return (
       <form className="form-wrapper" onSubmit={this._onSubmit}>
+        <div className="form-category">
+          <select onChange={this._onChangeSelectCategory}>
+            <option value="" className="option-title">Choose one category</option>
+            <option value="food">Food</option>
+            <option value="bill">Bill</option>
+          </select>
+        </div>
         <div className="form-description">
           <input type="description" className="form-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} />
         </div>
@@ -83,13 +97,7 @@ class Form extends Component {
             <NumberFormat className="form-amount-input" onChange={this._onChangeInputAmount} value={this.state.amount} thousandSeparator={true} placeholder='Masukan Amount' />
           </span>
         </div>
-        <div className="form-category">
-          <select>
-            <option value="" className="option-title">Choose one category</option>
-            <option value="food">Food</option>
-            <option value="bikk">Bill</option>
-          </select>
-        </div>
+
         <button className="form-btn-simpan">
           Simpan
         </button>
