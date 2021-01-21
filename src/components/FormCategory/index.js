@@ -5,7 +5,7 @@ import * as actions from '../../actions';
 
 const API = `http://localhost:5000`;
 
-class FormContent extends Component {
+class FormCategory extends Component {
   constructor() {
     super();
     this.state = {
@@ -61,4 +61,4 @@ const mapDispatchToProps = {
   get: actions.get
 };
 
-export default connect(null, mapDispatchToProps)(FormContent);
+export default connect(null, mapDispatchToProps)(FormCategory);

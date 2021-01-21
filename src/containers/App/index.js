@@ -5,9 +5,9 @@ import Budget from '../Budget';
 import Income from '../Income';
 import Expense from '../Expense';
 import History from '../History';
+import Category from '../Category';
 
 import '../../style/style.css';
-
 
 class App extends Component {
   render() {
@@ -19,6 +19,7 @@ class App extends Component {
           <Route path="/income" component={Income} />
           <Route path="/expense" component={Expense} />
           <Route path="/history" component={History} />
+          <Route path="/category" component={Category} />
           <Redirect to="/budget" />
         </div>
       </BrowserRouter>  

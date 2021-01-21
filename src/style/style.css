@@ -67,8 +67,8 @@ button:focus {
   color: red;
 }
 
-.padding {
-  padding: 10px;
+.padding-left-right {
+  padding: 20px 20px;
 }
 
 .white {
@@ -104,7 +104,7 @@ button:focus {
 }
 
 .form-wrapper {
-  padding: 20px 20px;
+  margin-top: 20px;
 }
 
 .form-description {
@@ -137,19 +137,19 @@ button:focus {
   font-size: 14px;
 }
 
-.form-category {
+.dropdown-category{
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
 }
 
-.form-category select {
+.dropdown-category select {
   padding: 10px 5px 10px 5px;
   background-color: #5e0085;
   color: white;
 }
 
-.form-category select option {
+.dropdown-category select option {
   color: white;
 }
 
@@ -166,8 +166,7 @@ button:focus {
 }
 
 .form-content {
-  margin-left: -1px;
-  margin-top: -40px;
+  padding: 20px;
   display: flex;
 }
 
@@ -245,10 +244,6 @@ button:focus {
 }
 
 /* Category */
-.button-add-category {
-  margin: 20px 20px 0 20px;
-}
-
 .button-add-category img {
   width: 15%;
 }

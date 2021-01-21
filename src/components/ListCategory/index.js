@@ -19,7 +19,6 @@ class ListCategory extends Component {
   render() {
     const dataCategories = this.props.categories;
     return dataCategories.map((dataCategory) => {
-      console.log(dataCategory)
       return (
         <option key={dataCategory._id} value={`${dataCategory.category}`}>{dataCategory.category}</option>
       );
