@@ -36,7 +36,13 @@ class FormCategory extends Component {
       body: JSON.stringify({ data })
     };
 
+    const GET = {
+      method: 'GET',
+    };
+
     await this.props.add(API, format, POST);
+
+    await this.props.getCategories(API, format, GET);
     
     this.setState({
       category: '',
@@ -55,9 +61,5 @@ class FormCategory extends Component {
   };
 };
 
-const mapDispatchToProps = {
-  add: actions.add,
-  get: actions.get
-};
 
-export default connect(null, mapDispatchToProps)(FormCategory);
+export default connect(null, actions)(FormCategory);
