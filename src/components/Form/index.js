@@ -82,7 +82,7 @@ class Form extends Component {
       <div className="padding-left-right">
         <AddCategory />
         <form className="form-wrapper" onSubmit={this._onSubmit}>
-          <DropDownCategory />
+          <DropDownCategory onChange={this._onChangeSelectCategory} />
           <div className="form-description">
             <input type="description" className="form-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} />
           </div>
