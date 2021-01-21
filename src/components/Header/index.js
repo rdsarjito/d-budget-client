@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import '../../style/style.css';
 
@@ -39,4 +40,4 @@ class Header extends Component {
   };
 };
 
-export default Header;
+export default withRouter(Header);

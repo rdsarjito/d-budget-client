@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import NumberFormat from 'react-number-format';
 
 import * as actions from '../../actions';
-import ListCategory from '../ListCategory';
+import DropDownCategory from '../DropDownCategory';
 import AddCategory from '../ButtonAddCategory';
 import { removeMoneyDots } from '../../helper';
 import '../../style/style.css';
@@ -82,7 +82,7 @@ class Form extends Component {
       <div className="padding-left-right">
         <AddCategory />
         <form className="form-wrapper" onSubmit={this._onSubmit}>
-          <ListCategory />
+          <DropDownCategory />
           <div className="form-description">
             <input type="description" className="form-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} />
           </div>

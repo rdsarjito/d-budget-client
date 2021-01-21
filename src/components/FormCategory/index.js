@@ -50,7 +50,6 @@ class FormCategory extends Component {
         <button>
           Simpan
         </button>
-        <button onClick={this.props.hideModalHandler} className="btn-delete">X</button>
       </form>
     );
   };

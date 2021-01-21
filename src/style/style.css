@@ -244,6 +244,9 @@ button:focus {
 }
 
 /* Category */
+.button-add-category {
+  text-decoration: none;
+}
 .button-add-category img {
   width: 15%;
 }
