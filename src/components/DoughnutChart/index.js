@@ -23,7 +23,7 @@ class DoughnutChart extends Component {
       const category = this.props.categories.find((c) => c.category === t.category);
       console.log(category)
 
-      if(category) category.amount += t.amount;
+      if(category) category.category += parseInt(t.amount);
     })
 
     const test = this.props.balances.reduce((acc, currVal) =>  acc+=parseInt(currVal.amount) , 0)

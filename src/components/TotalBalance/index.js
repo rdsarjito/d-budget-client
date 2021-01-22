@@ -22,12 +22,12 @@ class TotalBalance extends Component {
       method: 'GET',
     };
 
-    const getIncome =  await fetch(`${API}/api/income`, GET);
-    const getExpense = await fetch(`${API}/api/expense`, GET);
-    const dataIncome = await getIncome.json();
-    const dataExpense = await getExpense.json();
+    // const getIncome =  await fetch(`${API}/transactions`, GET);
+    // const getExpense = await fetch(`${API}/transactions`, GET);
+    // const dataIncome = await getIncome.json();
+    // const dataExpense = await getExpense.json();
 
-    this.setState({ income: dataIncome, expense: dataExpense });
+    // this.setState({ income: dataIncome, expense: dataExpense });
   };
 
   render() {

@@ -9,8 +9,8 @@ class Report extends Component {
       <main>
         <DoughnutChart />
       </main>
-    )
-  }
-}
+    );
+  };
+};
 
 export default Report;
