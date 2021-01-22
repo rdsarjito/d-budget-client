@@ -21,29 +21,26 @@ class TotalBalance extends Component {
     const GET = {
       method: 'GET',
     };
+    const getTransactions =  await fetch(`${API}/api/transactions`, GET);
+    const transaction = await getTransactions.json()
 
-    // const getIncome =  await fetch(`${API}/transactions`, GET);
-    // const getExpense = await fetch(`${API}/transactions`, GET);
-    // const dataIncome = await getIncome.json();
-    // const dataExpense = await getExpense.json();
-
-    // this.setState({ income: dataIncome, expense: dataExpense });
+    this.setState({ transaction });
   };
 
   render() {
-    const totalInflow = this.state.income.reduce((result, item) => {
-      return result + parseInt(item.amount);
-    }, 0);
+    // const totalInflow = this.state.income.reduce((result, item) => {
+    //   return result + parseInt(item.amount);
+    // }, 0);
 
-    const totalOutflow = this.state.expense.reduce((result, item) => {
-      return result + parseInt(item.amount);
-    }, 0);
+    // const totalOutflow = this.state.expense.reduce((result, item) => {
+    //   return result + parseInt(item.amount);
+    // }, 0);
 
-    const totalBalance = totalInflow - totalOutflow;
+    // const totalBalance = totalInflow - totalOutflow;
 
     return (
       <div className="balance-cash white">
-        Rp. {addMoneyDots(totalBalance)}
+        Rp. {addMoneyDots(10)}
       </div>
     )
   }
