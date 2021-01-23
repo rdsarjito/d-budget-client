@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { sortedDate, stringDate, addMoneyDots } from '../../helper';
+import { sortedDate, stringDate, addMoneyDots, filterArrayByObj } from '../../helper';
 import * as actions from '../../actions';
 
 import '../../style/style.css';
@@ -9,23 +9,12 @@ import '../../style/style.css';
 const API = `http://localhost:5000`;
 
 class Row extends Component {
-  constructor() {
-    super(); 
-    this.state = {
-      format: ''  
-    };
-  };
-
   componentDidMount(){
     const GET = {
       method: 'GET',
     };
     
-    const getPathName = window.location.pathname;
-    const format = getPathName.replace("/", "");
-    this.setState({ format });
-
-    this.props.get(API, format, GET);
+    this.props.get(API, GET);
   };
 
   _deleteRow = async(id) => {
@@ -36,15 +25,18 @@ class Row extends Component {
       method: 'GET',
     };
 
-    const format = this.state.format;
+    await this.props.del(API, DELETE, id);
 
-    await this.props.del(API, format, DELETE, id);
-
-    await this.props.get(API, format, GET);
+    await this.props.get(API, GET);
   };
 
   render() {
-    const sortDataByDate = sortedDate(this.props.balances);
+    const getPathName = window.location.pathname;
+    const format = getPathName.replace("/", "");
+    console.log(format)
+    const filterTransactions = filterArrayByObj(this.props.balances, format);
+    console.log(this.props.balances)
+    const sortDataByDate = sortedDate(filterTransactions);
     return sortDataByDate.map(data => {
       const date = stringDate(data.date);
       return (

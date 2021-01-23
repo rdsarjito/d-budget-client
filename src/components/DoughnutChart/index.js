@@ -14,7 +14,7 @@ class DoughnutChart extends Component {
       method: 'GET',
     };
 
-    await this.props.get(API, 'expense', GET);
+    // await this.props.get(API, 'expense', GET);
     await this.props.getCategories(API, 'category', GET);
   };
 

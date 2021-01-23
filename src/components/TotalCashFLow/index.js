@@ -26,7 +26,7 @@ class TotalCashFlow extends Component {
     const format = getPathName.replace("/", "");
     this.setState({ format });
 
-    this.props.get(API, format, GET);
+    // this.props.get(API, format, GET);
   };
 
   render() {

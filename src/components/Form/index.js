@@ -56,12 +56,7 @@ class Form extends Component {
       body: JSON.stringify({ data })
     };
 
-    const GET = {
-      method: 'GET',
-    };
-
-    await this.props.add(API, POST);
-    await this.props.get(API, GET);
+    await fetch(`${API}/api/transactions`, POST);
     
     this.setState({
       description: '',
@@ -105,9 +100,4 @@ function mapStateToProps({ balances }) {
   return { balances }
 };
 
-const mapDispatchToProps = {
-  add: actions.add,
-  get: actions.get
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default connect(mapStateToProps, actions)(Form);
