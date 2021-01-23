@@ -21,11 +21,11 @@ class Row extends Component {
     const DELETE = {
       method: 'DELETE',
     }
-    const GET = {
+    const GET = { 
       method: 'GET',
     };
 
-    await this.props.del(API, DELETE, id);
+    await fetch(`${API}/api/transactions/` + id, DELETE);
 
     await this.props.get(API, GET);
   };
@@ -33,10 +33,9 @@ class Row extends Component {
   render() {
     const getPathName = window.location.pathname;
     const format = getPathName.replace("/", "");
-    console.log(format)
     const filterTransactions = filterArrayByObj(this.props.balances, format);
-    console.log(this.props.balances)
     const sortDataByDate = sortedDate(filterTransactions);
+    
     return sortDataByDate.map(data => {
       const date = stringDate(data.date);
       return (
