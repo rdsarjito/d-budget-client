@@ -19,7 +19,6 @@ class ButtonMenu extends Component {
         <Link key={format.name} className="button-menu-wrapper" to={`/${format.name}`} >
           <div className="button-menu-add">
             {this._conditionImage(format.name)}
-            
           </div>
           <div className="button-menu-title ungu">
             {format.name}

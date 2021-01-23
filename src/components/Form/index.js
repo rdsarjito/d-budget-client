@@ -55,8 +55,13 @@ class Form extends Component {
       },
       body: JSON.stringify({ data })
     };
+    
+    const GET = {
+      method: 'GET'
+    }
 
     await fetch(`${API}/api/transactions`, POST);
+    await this.props.get(API, GET);
     
     this.setState({
       description: '',
@@ -71,9 +76,9 @@ class Form extends Component {
         <form className="form-wrapper" onSubmit={this._onSubmit}>
           <DropDownCategory />
           <select onChange={this._onChangeSelectType}>
-            <option>Pilih Satu Aja</option>
+            <option>Choose a type</option>
             <option value="income">Income</option>
-            <option value="expense">expense</option>
+            <option value="expense">Expense</option>
           </select>
           <div className="form-description">
             <input type="description" className="form-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} />

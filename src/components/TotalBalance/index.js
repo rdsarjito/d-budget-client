@@ -21,10 +21,7 @@ class TotalBalance extends Component {
     const GET = {
       method: 'GET',
     };
-    const getTransactions =  await fetch(`${API}/api/transactions`, GET);
-    const transaction = await getTransactions.json()
-
-    this.setState({ transaction });
+    this.props.get(API, GET)
   };
 
   render() {
@@ -37,7 +34,6 @@ class TotalBalance extends Component {
     // }, 0);
 
     // const totalBalance = totalInflow - totalOutflow;
-
     return (
       <div className="balance-cash white">
         Rp. {addMoneyDots(10)}

@@ -33,6 +33,7 @@ class Row extends Component {
   render() {
     const getPathName = window.location.pathname;
     const format = getPathName.replace("/", "");
+    console.log(format)
     const filterTransactions = filterArrayByObj(this.props.balances, format);
     const sortDataByDate = sortedDate(filterTransactions);
     
