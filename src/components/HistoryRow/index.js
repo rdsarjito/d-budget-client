@@ -12,8 +12,7 @@ class HistoryRow extends Component {
   constructor() {
     super();
     this.state = {
-      income: [],
-      expense: []
+      transactions: ''
     };
   };
 
@@ -22,19 +21,21 @@ class HistoryRow extends Component {
       method: 'GET',
     };
 
-    const getIncome =  await fetch(`${API}/api/income`, GET);
-    const getExpense = await fetch(`${API}/api/expense`, GET);
+    const getTransactions =  await fetch(`${API}/api/transactions`, GET);
     
-    const dataIncome = await getIncome.json();
-    const dataExpense = await getExpense.json();
+    const dataTransactions = await getTransactions.json();
 
-    this.setState({ income: dataIncome, expense: dataExpense });
+    this.setState({ transactions: dataTransactions });
   };
 
   render() {
-    const mergeData = [...this.state.income, ...this.state.expense];
-    const sortDate = sortedDate(mergeData);
-    return sortDate.map((history) => {
+    console.log(this.state.transactions)
+    // return (
+    //   <div>test</div>
+    // )
+    // const mergeData = [...this.state.income, ...this.state.expense];
+    // const sortDate = sortedDate(mergeData);
+    return this.state.transactions.map((history) => {
       const date = stringDate(history.date);
       return (
         <div key={history._id} className="history-wrapper">
