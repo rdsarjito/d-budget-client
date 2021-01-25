@@ -1,42 +1,28 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addMoneyDots } from '../../helper';
+import { addMoneyDots, filterArrayByObj } from '../../helper';
 import * as actions from '../../actions';
 
 import '../../style/style.css';
 
-const API = `http://localhost:5000`;
-
 class TotalBalance extends Component {
-  constructor() {
-    super();
-    this.state = {
-      income: [],
-      expense: []
-    };
-  };
-
-  componentDidMount = async() => {
-    const GET = {
-      method: 'GET',
-    };
-    this.props.get(API, GET)
-  };
-
   render() {
-    // const totalInflow = this.state.income.reduce((result, item) => {
-    //   return result + parseInt(item.amount);
-    // }, 0);
+    const incomeData = filterArrayByObj(this.props.balances, 'income')
+    const totalInflow = incomeData.reduce((result, item) => {
+      return result + parseInt(item.amount);
+    }, 0);
 
-    // const totalOutflow = this.state.expense.reduce((result, item) => {
-    //   return result + parseInt(item.amount);
-    // }, 0);
+    const expenseData = filterArrayByObj(this.props.balances, 'expense')
+    const totalOutflow = expenseData.reduce((result, item) => {
+      return result + parseInt(item.amount);
+    }, 0);
 
-    // const totalBalance = totalInflow - totalOutflow;
+    const totalBalance = totalInflow - totalOutflow;
+    console.log(totalBalance);
     return (
       <div className="balance-cash white">
-        Rp. {addMoneyDots(10)}
+        Rp. {addMoneyDots(totalBalance)}
       </div>
     )
   }

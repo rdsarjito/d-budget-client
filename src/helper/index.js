@@ -20,4 +20,4 @@ export const stringDate = (date) => {
 
 export const filterArrayByObj = (arr, obj) => {
   return arr.filter(a => a.type.includes(obj));
-}
+};

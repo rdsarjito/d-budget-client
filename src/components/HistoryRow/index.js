@@ -29,7 +29,6 @@ class HistoryRow extends Component {
   };
 
   render() {
-    console.log(this.state.transactions)
     // return (
     //   <div>test</div>
     // )
