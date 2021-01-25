@@ -20,12 +20,8 @@ class HistoryRow extends Component {
     const GET = {
       method: 'GET',
     };
-
-    const getTransactions =  await fetch(`${API}/api/transactions`, GET);
     
-    const dataTransactions = await getTransactions.json();
-
-    this.setState({ transactions: dataTransactions });
+    this.props.get(API, GET);
   };
 
   render() {
@@ -33,8 +29,8 @@ class HistoryRow extends Component {
     //   <div>test</div>
     // )
     // const mergeData = [...this.state.income, ...this.state.expense];
-    // const sortDate = sortedDate(mergeData);
-    return this.state.transactions.map((history) => {
+    const sortDate = sortedDate(this.props.balances);
+    return sortDate.map((history) => {
       const date = stringDate(history.date);
       return (
         <div key={history._id} className="history-wrapper">
@@ -45,7 +41,7 @@ class HistoryRow extends Component {
             <div className="history-description">
               {history.description}
             </div>
-            <div className={`history-amount ${history.typeBalance}`}>
+            <div className={`history-amount ${history.type}`}>
               {addMoneyDots(history.amount)}
             </div>
           </div>

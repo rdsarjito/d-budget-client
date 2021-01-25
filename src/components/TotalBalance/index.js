@@ -6,7 +6,16 @@ import * as actions from '../../actions';
 
 import '../../style/style.css';
 
+const API = `http://localhost:5000`;
+
 class TotalBalance extends Component {
+  componentDidMount(){
+    const GET = {
+      method: 'GET',
+    };
+    
+    this.props.get(API, GET);
+  };
   render() {
     const incomeData = filterArrayByObj(this.props.balances, 'income')
     const totalInflow = incomeData.reduce((result, item) => {
@@ -24,8 +33,8 @@ class TotalBalance extends Component {
       <div className="balance-cash white">
         Rp. {addMoneyDots(totalBalance)}
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default connect(({ balances }) => ({ balances }), actions)(TotalBalance);
