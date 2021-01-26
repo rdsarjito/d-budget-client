@@ -25,10 +25,6 @@ class HistoryRow extends Component {
   };
 
   render() {
-    // return (
-    //   <div>test</div>
-    // )
-    // const mergeData = [...this.state.income, ...this.state.expense];
     const sortDate = sortedDate(this.props.balances);
     return sortDate.map((history) => {
       const date = stringDate(history.date);

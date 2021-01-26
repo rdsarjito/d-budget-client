@@ -10,7 +10,7 @@ class ButtonMenu extends Component {
     if(format === 'History') {
       return <img src='http://101.50.0.139:5000/images/history.png' alt='' />
     }
-    return <img src='http://101.50.0.139:5000/images/add.png' alt='' />
+    return <img src='http://101.50.0.139:3000/images/add.png' alt='' />
   }
 
   render() {
