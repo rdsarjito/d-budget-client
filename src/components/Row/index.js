@@ -20,7 +20,7 @@ class Row extends Component {
   _deleteRow = async(id) => {
     const DELETE = {
       method: 'DELETE',
-    }
+    };
     const GET = { 
       method: 'GET',
     };
