@@ -12,8 +12,7 @@ class HistoryRow extends Component {
   constructor() {
     super();
     this.state = {
-      income: [],
-      expense: []
+      transactions: ''
     };
   };
 
@@ -21,19 +20,12 @@ class HistoryRow extends Component {
     const GET = {
       method: 'GET',
     };
-
-    const getIncome =  await fetch(`${API}/api/income`, GET);
-    const getExpense = await fetch(`${API}/api/expense`, GET);
     
-    const dataIncome = await getIncome.json();
-    const dataExpense = await getExpense.json();
-
-    this.setState({ income: dataIncome, expense: dataExpense });
+    this.props.get(API, GET);
   };
 
   render() {
-    const mergeData = [...this.state.income, ...this.state.expense];
-    const sortDate = sortedDate(mergeData);
+    const sortDate = sortedDate(this.props.balances);
     return sortDate.map((history) => {
       const date = stringDate(history.date);
       return (
@@ -45,7 +37,7 @@ class HistoryRow extends Component {
             <div className="history-description">
               {history.description}
             </div>
-            <div className={`history-amount ${history.typeBalance}`}>
+            <div className={`history-amount ${history.type}`}>
               {addMoneyDots(history.amount)}
             </div>
           </div>

@@ -6,6 +6,7 @@ import * as actions from '../../actions';
 import DropDownCategory from '../DropDownCategory';
 import AddCategory from '../ButtonAddCategory';
 import { removeMoneyDots } from '../../helper';
+
 import '../../style/style.css';
 
 const API = `http://localhost:5000`;
@@ -16,21 +17,23 @@ class Form extends Component {
     this.state = {
       description : '',
       amount: '',
-      format: '',
-      category: '',
+      type: ''
     };
     this._onChangeInputDescription = this._onChangeInputDescription.bind(this);
     this._onChangeInputAmount = this._onChangeInputAmount.bind(this);
-    this._onChangeSelectCategory = this._onChangeSelectCategory.bind(this);
+    this._onChangeSelectType = this._onChangeSelectType.bind(this);
     this._onSubmit = this._onSubmit.bind(this);
   };
 
+<<<<<<< HEAD
   componentDidMount() {
     const getPathName = window.location.pathname;
     const format = getPathName.replace("/", "");
     this.setState({ format });
   };
 
+=======
+>>>>>>> ae91bc5b358d1736cbbf61078ded3aa9f4c6b548
   _onChangeInputDescription(e) {
     this.setState({ description: e.target.value });
   };
@@ -40,8 +43,8 @@ class Form extends Component {
     this.setState({ amount });
   };
 
-  _onChangeSelectCategory(e) {
-    this.setState({ category: e.target.value });
+  _onChangeSelectType(e) {
+    this.setState({ type: e.target.value });
   };
 
   _onSubmit = async(e) => {
@@ -50,11 +53,9 @@ class Form extends Component {
     const data = {
       description: this.state.description,
       amount: this.state.amount,
-      category: this.state.category,
+      type: this.state.type,
     };
-    
-    const format = this.state.format;
-    
+        
     const POST = {
       method: 'POST',
       headers: {
@@ -63,13 +64,18 @@ class Form extends Component {
       },
       body: JSON.stringify({ data })
     };
-
+    
     const GET = {
-      method: 'GET',
-    };
+      method: 'GET'
+    }
 
+<<<<<<< HEAD
     await this.props.addTransaction(API, format, POST);
     await this.props.getTransaction(API, format, GET);
+=======
+    await fetch(`${API}/api/transactions`, POST);
+    await this.props.get(API, GET);
+>>>>>>> ae91bc5b358d1736cbbf61078ded3aa9f4c6b548
     
     this.setState({
       description: '',
@@ -82,7 +88,12 @@ class Form extends Component {
       <div className="padding-left-right">
         <AddCategory />
         <form className="form-wrapper" onSubmit={this._onSubmit}>
-          <DropDownCategory onChange={this._onChangeSelectCategory} />
+          <DropDownCategory />
+          <select onChange={this._onChangeSelectType}>
+            <option>Choose a type</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
           <div className="form-description">
             <input type="description" className="form-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} />
           </div>

@@ -17,3 +17,7 @@ export const stringDate = (date) => {
   return parseToDate.toLocaleDateString('en-GB', {
     month: 'long', day: '2-digit', year: 'numeric'});
 };
+
+export const filterArrayByObj = (arr, obj) => {
+  return arr.filter(a => a.type.includes(obj));
+};

@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
-import { addMoneyDots } from '../../helper';
+import { addMoneyDots, filterArrayByObj } from '../../helper';
 
 import '../../style/style.css';
 
@@ -17,7 +17,7 @@ class TotalCashFlow extends Component {
     };
   };
 
-  componentDidMount(){
+  componentDidMount = async() => {
     const GET = {
       method: 'GET',
     };
@@ -26,18 +26,24 @@ class TotalCashFlow extends Component {
     const format = getPathName.replace("/", "");
     this.setState({ format });
 
+<<<<<<< HEAD
     this.props.getTransaction(API, format, GET);
+=======
+    await this.props.get(API, GET);
+>>>>>>> ae91bc5b358d1736cbbf61078ded3aa9f4c6b548
   };
 
   render() {
-    const gets = this.props.balances;
-    const totalInflow = gets.reduce((result, item) => {
+    const getPathName = window.location.pathname;
+    const format = getPathName.replace("/", "");
+    const filterTransactions = filterArrayByObj(this.props.balances, format);
+    const totalAmount = filterTransactions.reduce((result, item) => {
       return result + parseInt(item.amount);
     }, 0);
     return (
       <div className="wrapper-total-cashflow">
         <div className="number-total-cashflow">
-          Total {this.state.format}: {addMoneyDots(totalInflow)}
+          Total {this.state.format}: {addMoneyDots(totalAmount)}
         </div>
       </div>
     );
