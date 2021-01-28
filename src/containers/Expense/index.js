@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import Form from '../../components/Form';
-import List from '../List';
+import ListTransaction from '../../components/ListTransaction';
 import TotalCashFlow from '../../components/TotalCashFLow';
 
 class Expense extends Component {
@@ -9,7 +9,7 @@ class Expense extends Component {
       <main>
         <Form />
         <TotalCashFlow />
-        <List />
+        <ListTransaction className="list-container" />
       </main>
     );
   };

@@ -29,7 +29,7 @@ class Form extends Component {
     const getPathName = window.location.pathname;
     const format = getPathName.replace("/", "");
     this.setState({ format });
-  }
+  };
 
   _onChangeInputDescription(e) {
     this.setState({ description: e.target.value });
@@ -68,8 +68,8 @@ class Form extends Component {
       method: 'GET',
     };
 
-    await this.props.add(API, format, POST);
-    await this.props.get(API, format, GET);
+    await this.props.addTransaction(API, format, POST);
+    await this.props.getTransaction(API, format, GET);
     
     this.setState({
       description: '',
@@ -108,9 +108,4 @@ function mapStateToProps({ balances }) {
   return { balances }
 };
 
-const mapDispatchToProps = {
-  add: actions.add,
-  get: actions.get
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default connect(mapStateToProps, actions)(Form);

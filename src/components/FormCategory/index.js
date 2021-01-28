@@ -40,9 +40,9 @@ class FormCategory extends Component {
       method: 'GET',
     };
 
-    await this.props.add(API, format, POST);
+    await this.props.addTransaction(API, format, POST);
 
-    await this.props.getCategories(API, format, GET);
+    await this.props.getCategory(API, format, GET);
     
     this.setState({
       category: '',

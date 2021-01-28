@@ -25,7 +25,7 @@ class CategoryRow extends Component {
     const format = getPathName.replace("/", "");
     this.setState({ format });
 
-    this.props.getCategories(API, format, GET);
+    this.props.getCategory(API, format, GET);
   };
 
   _deleteRow = async(id) => {
@@ -38,9 +38,9 @@ class CategoryRow extends Component {
 
     const format = this.state.format;
 
-    await this.props.del(API, format, DELETE, id);
+    await this.props.deleteCategory(API, format, DELETE, id);
 
-    await this.props.getCategories(API, format, GET);
+    await this.props.getCategory(API, format, GET);
   };
 
   render() {

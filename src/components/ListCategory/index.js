@@ -13,7 +13,7 @@ class ListCategory extends Component {
     
     const format = 'category';
 
-    this.props.getCategories(API, format, GET);
+    this.props.getCategory(API, format, GET);
   };
 
   render() {
