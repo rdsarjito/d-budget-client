@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addMoneyDots } from '../../helper';
+import { addMoneyDots, filterArrayByObj } from '../../helper';
 import * as actions from '../../actions';
 
 import '../../style/style.css';
@@ -9,45 +9,33 @@ import '../../style/style.css';
 const API = `http://localhost:5000`;
 
 class TotalBalance extends Component {
-  constructor() {
-    super();
-    this.state = {
-      income: [],
-      expense: []
-    };
-  };
-
-  componentDidMount = async() => {
+  componentDidMount(){
     const GET = {
       method: 'GET',
     };
-
-    const getIncome =  await fetch(`${API}/api/income`, GET);
-    const getExpense = await fetch(`${API}/api/expense`, GET);
-    const dataIncome = await getIncome.json();
-    const dataExpense = await getExpense.json();
-
-    this.setState({ income: dataIncome, expense: dataExpense });
+    
+    this.props.getTransaction(API, GET);
   };
-
   render() {
-    const totalInflow = this.state.income.reduce((result, item) => {
+    const incomeData = filterArrayByObj(this.props.balances, 'income')
+    const totalInflow = incomeData.reduce((result, item) => {
       return result + parseInt(item.amount);
     }, 0);
 
-    const totalOutflow = this.state.expense.reduce((result, item) => {
+    const expenseData = filterArrayByObj(this.props.balances, 'expense')
+    const totalOutflow = expenseData.reduce((result, item) => {
       return result + parseInt(item.amount);
     }, 0);
 
     const totalBalance = totalInflow - totalOutflow;
-
+    console.log(totalBalance);
     return (
       <div className="balance-cash white">
         Rp. {addMoneyDots(totalBalance)}
         <h1>test</h1>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default connect(({ balances }) => ({ balances }), actions)(TotalBalance);
