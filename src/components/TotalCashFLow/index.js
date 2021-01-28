@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
-import { addMoneyDots, filterArrayByObj } from '../../helper';
+import { addMoneyDots } from '../../helper';
 
 import '../../style/style.css';
 
@@ -24,16 +24,11 @@ class TotalCashFlow extends Component {
 
     const getPathName = window.location.pathname;
     const format = getPathName.replace("/", "");
-    this.setState({ format });
-
     this.props.getTransaction(API, format, GET);
   };
 
   render() {
-    const getPathName = window.location.pathname;
-    const format = getPathName.replace("/", "");
-    const filterTransactions = filterArrayByObj(this.props.balances, format);
-    const totalAmount = filterTransactions.reduce((result, item) => {
+    const totalAmount = this.props.balances.reduce((result, item) => {
       return result + parseInt(item.amount);
     }, 0);
     return (
