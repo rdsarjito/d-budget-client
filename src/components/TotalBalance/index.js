@@ -44,6 +44,7 @@ class TotalBalance extends Component {
     return (
       <div className="balance-cash white">
         Rp. {addMoneyDots(totalBalance)}
+        <h1>test</h1>
       </div>
     )
   }
