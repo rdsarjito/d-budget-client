@@ -4,7 +4,7 @@ import NumberFormat from 'react-number-format';
 
 import * as actions from '../../actions';
 import DropDownCategory from '../DropDownCategory';
-import AddCategory from '../ButtonAddCategory';
+import AddCategory from '../AddCategory';
 import { removeMoneyDots } from '../../helper';
 
 import '../../style/style.css';
@@ -17,12 +17,12 @@ class Form extends Component {
     this.state = {
       description : '',
       amount: '',
-      type: '',
+      category: '',
       format: ''
     };
     this._onChangeInputDescription = this._onChangeInputDescription.bind(this);
     this._onChangeInputAmount = this._onChangeInputAmount.bind(this);
-    this._onChangeSelectType = this._onChangeSelectType.bind(this);
+    this._onChangeSelectCategory = this._onChangeSelectCategory.bind(this);
     this._onSubmit = this._onSubmit.bind(this);
   };
 
@@ -30,6 +30,13 @@ class Form extends Component {
     const getPathName = window.location.pathname;
     const format = getPathName.replace("/", "");
     this.setState({ format });
+
+    const GET = {
+      method: 'GET'
+    };
+
+    this.props.getTransaction(API, format, GET);
+    this.props.getCategory(API, 'category', GET);
   };
 
   _onChangeInputDescription(e) {
@@ -41,8 +48,8 @@ class Form extends Component {
     this.setState({ amount });
   };
 
-  _onChangeSelectType(e) {
-    this.setState({ type: e.target.value });
+  _onChangeSelectCategory(e) {
+    this.setState({ category: e.target.value });
   };
 
   _onSubmit = async(e) => {
@@ -51,7 +58,7 @@ class Form extends Component {
     const data = {
       description: this.state.description,
       amount: this.state.amount,
-      type: this.state.type,
+      category: this.state.category,
     };
         
     const POST = {
@@ -62,13 +69,8 @@ class Form extends Component {
       },
       body: JSON.stringify({ data })
     };
-    
-    const GET = {
-      method: 'GET'
-    }
 
     await this.props.addTransaction(API, this.state.format, POST);
-    await this.props.getTransaction(API, this.state.format, GET);
     
     this.setState({
       description: '',
@@ -81,12 +83,7 @@ class Form extends Component {
       <div className="padding-left-right">
         <AddCategory />
         <form className="form-wrapper" onSubmit={this._onSubmit}>
-          <DropDownCategory />
-          <select onChange={this._onChangeSelectType}>
-            <option>Choose a type</option>
-            <option value="income">Income</option>
-            <option value="expense">Expense</option>
-          </select>
+          <DropDownCategory onChange={this._onChangeSelectCategory} />
           <div className="form-description">
             <input type="description" className="form-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} />
           </div>
@@ -108,8 +105,4 @@ class Form extends Component {
   };
 };
 
-function mapStateToProps({ balances }) {
-  return { balances }
-};
-
-export default connect(mapStateToProps, actions)(Form);
+export default connect(({ balances, categories }) => ({ balances, categories }), actions)(Form);

@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 import '../../style/style.css';
 
-const formats = [{name: 'income'}, {name: 'expense'}, {name: 'history'}];
+const formats = [{name: 'Income'}, {name: 'Expense'}, {name: 'History'}];
 
 class ButtonMenu extends Component {
   _conditionImage(format) {
     if(format === 'History') {
-      return <img src='http://101.50.0.139:5000/images/history.png' alt='' />
+      return <img src='http://101.50.0.139:5050/images/history.png' alt='' />
     }
-    return <img src='http://101.50.0.139:3000/images/add.png' alt='' />
+    return <img src='http://101.50.0.139:5050/images/add.png' alt='' />
   };
 
   render() {

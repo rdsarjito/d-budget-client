@@ -41,11 +41,11 @@ class CategoryRow extends Component {
     await this.props.deleteCategory(API, format, DELETE, id);
 
     await this.props.getCategory(API, format, GET);
+    await this.props.getTransaction(API, format, GET);
   };
 
   render() {
     const sortDataByDate = sortedDate(this.props.categories);
-    console.log(this.props.categories)
     return sortDataByDate.map(data => {
       const date = stringDate(data.date);
       return (
@@ -61,4 +61,4 @@ class CategoryRow extends Component {
   };
 };
 
-export default connect(({ categories }) => ({ categories }), actions)(CategoryRow);
+export default connect(({ categories, balances }) => ({ categories, balances }), actions)(CategoryRow);
