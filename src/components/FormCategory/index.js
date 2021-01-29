@@ -45,9 +45,11 @@ class FormCategory extends Component {
   };
 
   render() {
-    // this.props.balances.map((t) => {
-    //   console.log(this.props.category)
-    // })
+    this.props.balances.forEach((t) => {
+      const category = this.props.categories.find((c) => c.category === t.category);
+      if(category) category.amount += parseInt(t.amount);
+    });
+    console.log(this.props.categories)
     return (
       <form className="form-content" onSubmit={this._onSubmit}>
         <input className="form-category-input" placeholder="Masukan Category" onChange={this._onChangeInputCategory} value={this.state.category} />
