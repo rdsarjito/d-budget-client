@@ -36,13 +36,8 @@ class FormCategory extends Component {
       body: JSON.stringify({ data })
     };
 
-    const GET = {
-      method: 'GET',
-    };
 
     await this.props.addCategory(API, format, POST);
-
-    await this.props.getCategory(API, format, GET);
     
     this.setState({
       category: '',
@@ -50,6 +45,9 @@ class FormCategory extends Component {
   };
 
   render() {
+    // this.props.balances.map((t) => {
+    //   console.log(this.props.category)
+    // })
     return (
       <form className="form-content" onSubmit={this._onSubmit}>
         <input className="form-category-input" placeholder="Masukan Category" onChange={this._onChangeInputCategory} value={this.state.category} />
@@ -61,4 +59,4 @@ class FormCategory extends Component {
   };
 };
 
-export default connect(null, actions)(FormCategory);
+export default connect(({ balances, categories }) => ({ balances, categories }), actions)(FormCategory);

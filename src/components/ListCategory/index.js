@@ -41,7 +41,6 @@ class ListCategory extends Component {
     await this.props.deleteCategory(API, format, DELETE, id);
 
     await this.props.getCategory(API, format, GET);
-    await this.props.getTransaction(API, format, GET);
   };
 
   render() {
