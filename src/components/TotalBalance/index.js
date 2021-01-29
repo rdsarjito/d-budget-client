@@ -41,4 +41,4 @@ class TotalBalance extends Component {
     )
   }
 }
-export default connect(({ balances }) => ({ balances }), actions)(TotalBalance );
+export default connect(null, actions)(TotalBalance );

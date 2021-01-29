@@ -21,3 +21,7 @@ export const stringDate = (date) => {
 export const filterArrayByObj = (arr, obj) => {
   return arr.filter(a => a.type.includes(obj));
 };
+
+export const randomArray = (items) => {
+  return items[~~(items.length * Math.random())];
+};

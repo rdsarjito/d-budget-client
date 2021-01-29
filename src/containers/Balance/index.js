@@ -7,11 +7,13 @@ import '../../style/style.css';
 class Balance extends Component {
   render() {
     return (
-      <div className="balance-container">
-        <div className="balance-title white">
-          Balance
+      <div>
+        <div className="balance-container">
+          <div className="balance-title white">
+            Balance
+          </div>
+          <TotalBalance />
         </div>
-        <TotalBalance />
       </div>
     )
   }

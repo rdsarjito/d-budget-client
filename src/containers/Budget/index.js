@@ -5,15 +5,13 @@ import Menu from '../Menu';
 import Doughnut from '../../components/Doughnut/index';
 
 import '../../style/style.css';
-
 class BudgetContainer extends Component {
   render() {
     return (
       <main>
         <Balance />
         <Menu />
-        <Doughnut type="income" />
-        {/* <Doughnut type="expense" /> */}
+        <Doughnut />
       </main>
     )
   }

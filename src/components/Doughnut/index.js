@@ -7,29 +7,45 @@ import * as actions from '../../actions';
 
 const API = `http://localhost:5000`;
 
-class FormCategory extends Component {
-  
-  componentDidMount() {
-    const GET = {
-      method: 'GET'
+class Test extends Component {
+  constructor() {
+    super();
+    this.state = {
+      income: [],
+      expense: [],
+      category: []
     };
-
-    this.props.getTransaction(API, 'income', GET);
-    this.props.getCategory(API, 'category', GET);
+  };
+  componentDidMount = async() => {
+    const GET = {
+      method: 'GET',
+    };
+    const getIncome =  await fetch(`${API}/api/income`, GET);
+    const getExpense = await fetch(`${API}/api/expense`, GET);
+    const getCategory = await fetch(`${API}/api/category`, GET);
+    const dataIncome = await getIncome.json();
+    const dataExpense = await getExpense.json();
+    const dataCategory = await getCategory.json();
+    this.setState({ income: dataIncome, expense: dataExpense, category: dataCategory });
   };
 
+  _resetCategories () {
+    this.state.category.forEach((c) => c.amount = 0);
+  };
+  
   render() {
-    console.log(this.props.type)
-    this.props.balances.forEach((t) => {
-      const category = this.props.categories.find((c) => c.category === t.category);
+    this._resetCategories()
+    const mergeData = [...this.state.income, ...this.state.expense];
+    mergeData.forEach((t) => {
+      const category = this.state.category.find((c) => c.category === t.category);
       if(category) category.amount += parseInt(t.amount);
     });
     const chartData = {
       datasets: [{
-        data: this.props.categories.map((c) => c.amount),
-        backgroundColor: this.props.categories.map((c) => c.randomColor),
+        data: this.state.category.map((c) => c.amount),
+        backgroundColor: this.state.category.map((c) => c.color),
       }],
-      labels: this.props.categories.map((c) => c.category),
+      labels: this.state.category.map((c) => c.category),
     };
     console.log(chartData)
     return (
@@ -40,4 +56,4 @@ class FormCategory extends Component {
   };
 };
 
-export default connect(({ balances, categories }) => ({ balances, categories }), actions)(FormCategory);
+export default connect(null, actions)(Test);
