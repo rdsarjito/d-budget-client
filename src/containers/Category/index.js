@@ -1,13 +1,13 @@
 import { Component } from 'react';
 import FormCategory from '../../components/FormCategory';
-import CategoryRow from '../../components/CategoryRow';
+import ListCategory from '../../components/ListCategory';
 
 class Category extends Component {
   render() {
     return (
       <main>
         <FormCategory />
-        <CategoryRow />
+        <ListCategory />
       </main>
     );
   };

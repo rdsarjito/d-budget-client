@@ -1,19 +1,26 @@
 import {
-  ADD_TRANSACTIONS,
+  ADD_TRANSACTION,
   GET_TRANSACTIONS,
+  ADD_CATEGORY,
   GET_CATEGORIES,
 } from './types';
 
 export const addTransaction  = (API, format, POST) => async dispatch => {
   const res = await fetch(`${API}/api/${format}`, POST);
   const respond = await res.json();
-  dispatch({ type: ADD_TRANSACTIONS, payload: respond });
+  dispatch({ type: ADD_TRANSACTION, payload: respond });
 };
 
 export const getTransaction = (API, format, GET) => async dispatch => {
   const res = await fetch(`${API}/api/${format}`, GET);
   const respond = await res.json();
   dispatch({ type: GET_TRANSACTIONS, payload: respond });
+};
+
+export const addCategory = (API, format, POST) => async dispatch => {
+  const res = await fetch(`${API}/api/${format}`, POST);
+  const respond = await res.json();
+  dispatch({ type: ADD_CATEGORY, payload: respond });
 };
 
 export const getCategory = (API, format, GET) => async dispatch => {

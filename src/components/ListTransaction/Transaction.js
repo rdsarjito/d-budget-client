@@ -37,7 +37,7 @@ class Transaction extends Component {
         </div>
         <div onClick={() => { this._deleteTransaction(transaction._id) }} className="btn-delete">X</div>
       </div>
-    )
+    );
   };
 };
 

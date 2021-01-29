@@ -9,7 +9,7 @@ class ButtonMenu extends Component {
   _conditionImage(format) {
     if(format === 'History') {
       return <img src='http://101.50.0.139:5050/images/history.png' alt='' />
-    }
+    };
     return <img src='http://101.50.0.139:5050/images/add.png' alt='' />
   };
 

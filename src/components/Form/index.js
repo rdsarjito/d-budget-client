@@ -52,7 +52,7 @@ class Form extends Component {
     this.setState({ category: e.target.value });
   };
 
-  _onSubmit = async(e) => {
+  _onSubmit(e) {
     e.preventDefault();
 
     const data = {
@@ -70,7 +70,7 @@ class Form extends Component {
       body: JSON.stringify({ data })
     };
 
-    await this.props.addTransaction(API, this.state.format, POST);
+    this.props.addTransaction(API, this.state.format, POST);
     
     this.setState({
       description: '',
@@ -83,7 +83,7 @@ class Form extends Component {
       <div className="padding-left-right">
         <AddCategory />
         <form className="form-wrapper" onSubmit={this._onSubmit}>
-          <DropDownCategory onChange={this._onChangeSelectCategory} />
+          <DropDownCategory onChange={this._onChangeSelectCategory} categories={this.props.categories} />
           <div className="form-description">
             <input type="description" className="form-description-input" placeholder="Masukan Description" onChange={this._onChangeInputDescription} value={this.state.description} />
           </div>

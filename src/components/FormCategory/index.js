@@ -40,7 +40,7 @@ class FormCategory extends Component {
       method: 'GET',
     };
 
-    await this.props.addTransaction(API, format, POST);
+    await this.props.addCategory(API, format, POST);
 
     await this.props.getCategory(API, format, GET);
     
@@ -60,6 +60,5 @@ class FormCategory extends Component {
     );
   };
 };
-
 
 export default connect(null, actions)(FormCategory);
