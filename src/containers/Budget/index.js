@@ -2,6 +2,7 @@ import { Component } from 'react';
 
 import Balance from '../Balance';
 import Menu from '../Menu';
+import Doughnut from '../../components/Doughnut/index';
 
 import '../../style/style.css';
 
@@ -11,6 +12,8 @@ class BudgetContainer extends Component {
       <main>
         <Balance />
         <Menu />
+        <Doughnut type="income" />
+        {/* <Doughnut type="expense" /> */}
       </main>
     )
   }
