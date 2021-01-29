@@ -7,7 +7,7 @@ import { addMoneyDots } from '../../helper';
 import '../../style/style.css';
 
 
-const API = `http://localhost:5000`;
+const API = `http://101.50.0.139:5000`;
 
 class TotalCashFlow extends Component {
   constructor() {

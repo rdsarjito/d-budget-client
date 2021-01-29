@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { randomArray } from '../../helper';
 
-const API = `http://localhost:5000`;
+const API = `http://101.50.0.139:5000`;
 
 class FormCategory extends Component {
   constructor() {

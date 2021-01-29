@@ -5,7 +5,7 @@ import { addMoneyDots, sortedDate, stringDate } from '../../helper';
 import * as actions from '../../actions';
 
 import '../../style/style.css';
-const API = `http://localhost:5000`;
+const API = `http://101.50.0.139:5000`;
 class HistoryRow extends Component {
   constructor() {
     super();

@@ -5,7 +5,7 @@ import { Doughnut } from 'react-chartjs-2';
 
 import * as actions from '../../actions';
 
-const API = `http://localhost:5000`;
+const API = `http://101.50.0.139:5000`;
 
 class Test extends Component {
   constructor() {
