@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import '../../style/style.css';
 
-const formats = [{name: 'Income'}, {name: 'Expense'}, {name: 'History'}];
+const formats = [{name: 'income'}, {name: 'expense'}, {name: 'history'}];
 
 class ButtonMenu extends Component {
   _conditionImage(format) {

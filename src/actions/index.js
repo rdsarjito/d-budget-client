@@ -30,7 +30,12 @@ export const getCategory = (API, format, GET) => async dispatch => {
 };
 
 export const deleteTransaction = (API, format, DELETE, id) => async () => {
-  await fetch(`${API}/api/${format}/` + id, DELETE);
+  try {
+    await fetch(`${API}/api/${format}/` + id, DELETE);
+
+  } catch (error) {
+    console.log(error)
+  }
 };
 
 export const deleteCategory = (API, format, DELETE, id) => async () => {

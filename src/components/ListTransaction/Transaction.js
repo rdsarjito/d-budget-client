@@ -6,9 +6,13 @@ import * as actions from '../../actions';
 
 import '../../style/style.css';
 
-const API = `http://101.50.0.139:5000`;
+const API = `http://localhost:5000`;
 
 class Transaction extends Component {
+  constructor() {
+    super()
+    this._deleteTransaction = this._deleteTransaction.bind(this);
+  }
   _deleteTransaction = async(id) => {
     const DELETE = {
       method: 'DELETE',
@@ -21,8 +25,7 @@ class Transaction extends Component {
     const format = this.props.type;
 
     await this.props.deleteTransaction(API, format, DELETE, id);
-
-    await this.props.getTransaction(API, format, GET);
+    await this.props.getTransaction(API, this.props.type, GET)
   };
 
   render() {
@@ -41,4 +44,4 @@ class Transaction extends Component {
   };
 };
 
-export default connect(({ balances }) => ({ balances }), actions)(Transaction);
+export default connect(null, actions)(Transaction);
