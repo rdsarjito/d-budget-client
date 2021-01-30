@@ -6,27 +6,7 @@ import { addMoneyDots } from '../../helper';
 
 import '../../style/style.css';
 
-
-const API = `http://localhost:5000`;
-
 class TotalCashFlow extends Component {
-  constructor() {
-    super(); 
-    this.state = {
-      format: ''
-    };
-  };
-
-  componentDidMount = async() => {
-    const GET = {
-      method: 'GET',
-    };
-
-    const getPathName = window.location.pathname;
-    const format = getPathName.replace("/", "");
-    this.props.getTransaction(API, format, GET);
-  };
-
   render() {
     const totalAmount = this.props.balances.reduce((result, item) => {
       return result + parseInt(item.amount);
@@ -34,7 +14,7 @@ class TotalCashFlow extends Component {
     return (
       <div className="wrapper-total-cashflow">
         <div className="number-total-cashflow">
-          Total {this.state.format}: {addMoneyDots(totalAmount)}
+          Total {this.props.type}: {addMoneyDots(totalAmount)}
         </div>
       </div>
     );

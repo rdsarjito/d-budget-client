@@ -19,9 +19,8 @@ export const getTransaction = (API, format, GET) => async dispatch => {
 };
 
 export const deleteTransaction = (API, format, DELETE, id) => async dispatch => {
-  const res = await fetch(`${API}/api/${format}/` + id, DELETE);
-  const respond = await res.json();
-  dispatch({ type: DELETE_TRANSACTIONS, payload: respond });
+  await fetch(`${API}/api/${format}/` + id, DELETE);
+  dispatch({ type: DELETE_TRANSACTIONS, payload: id });
 };
 
 export const addCategory = (API, format, POST) => async dispatch => {

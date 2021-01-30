@@ -6,19 +6,14 @@ import * as actions from '../../actions';
 
 import '../../style/style.css';
 
-const API = `http://localhost:5000`;
-
 class Transaction extends Component {
   _deleteTransaction(id) {
     const DELETE = {
       method: 'DELETE',
     };
-
     const format = this.props.type;
-
-    this.props.deleteTransaction(API, format, DELETE, id);
+    this.props.deleteTransaction(this.props.API, format, DELETE, id);
   };
-
   render() {
     const transaction = this.props.transaction;
     const date = stringDate(transaction.date);

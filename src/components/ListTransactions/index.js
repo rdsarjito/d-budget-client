@@ -8,13 +8,21 @@ import { sortedDate } from '../../helper';
 import '../../style/style.css';
 
 class ListTransaction extends Component {
-  render() {
+  _mapTransaction() {
     const sortTransactionsByDate = sortedDate(this.props.balances);
     return sortTransactionsByDate.map(transaction => {
       return (
-        <Transaction transaction={transaction} key={transaction._id} type='income' />
+        <Transaction transaction={transaction} key={transaction._id} type='income' API={this.props.API} />
       );
     });
+  }
+
+  render() {
+    return (
+      <div className="list-container">
+        { this._mapTransaction() }
+      </div>
+    )
   };
 };
 

@@ -9,8 +9,6 @@ import { removeMoneyDots } from '../../helper';
 
 import '../../style/style.css';
 
-const API = `http://localhost:5000`;
-
 class Form extends Component {
   constructor () {
     super();
@@ -18,25 +16,11 @@ class Form extends Component {
       description : '',
       amount: '',
       category: '',
-      format: ''
     };
     this._onChangeInputDescription = this._onChangeInputDescription.bind(this);
     this._onChangeInputAmount = this._onChangeInputAmount.bind(this);
     this._onChangeSelectCategory = this._onChangeSelectCategory.bind(this);
     this._onSubmit = this._onSubmit.bind(this);
-  };
-
-  componentDidMount() {
-    const getPathName = window.location.pathname;
-    const format = getPathName.replace("/", "");
-    this.setState({ format });
-
-    const GET = {
-      method: 'GET'
-    };
-
-    this.props.getTransaction(API, format, GET);
-    this.props.getCategory(API, 'category', GET);
   };
 
   _onChangeInputDescription(e) {
@@ -70,7 +54,7 @@ class Form extends Component {
       body: JSON.stringify({ data })
     };
 
-    this.props.addTransaction(API, this.state.format, POST);
+    this.props.addTransaction(this.props.API, this.props.type, POST);
     
     this.setState({
       description: '',

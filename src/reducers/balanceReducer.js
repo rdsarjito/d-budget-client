@@ -13,10 +13,7 @@ export default (state = [], action) => {
       return action.payload;
     case DELETE_TRANSACTIONS:
       newData = [...state];
-      const findData = newData.findIndex(d => d.id === action.payload.id);
-      if (findData > -1) {
-        newData.splice(findData, 1)
-      };
+      newData.splice(newData.findIndex(d => d._id === action.payload), 1);
       return newData;
     default:
       return state;
