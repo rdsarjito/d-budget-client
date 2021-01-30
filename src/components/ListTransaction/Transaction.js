@@ -9,23 +9,14 @@ import '../../style/style.css';
 const API = `http://localhost:5000`;
 
 class Transaction extends Component {
-  constructor() {
-    super()
-    this._deleteTransaction = this._deleteTransaction.bind(this);
-  }
-  _deleteTransaction = async(id) => {
+  _deleteTransaction(id) {
     const DELETE = {
       method: 'DELETE',
     };
 
-    const GET = {
-      method: 'GET',
-    };
-
     const format = this.props.type;
 
-    await this.props.deleteTransaction(API, format, DELETE, id);
-    await this.props.getTransaction(API, this.props.type, GET)
+    this.props.deleteTransaction(API, format, DELETE, id);
   };
 
   render() {

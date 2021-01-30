@@ -1,6 +1,7 @@
 import {
   ADD_TRANSACTION,
   GET_TRANSACTIONS,
+  DELETE_TRANSACTIONS,
   ADD_CATEGORY,
   GET_CATEGORIES,
 } from './types';
@@ -17,6 +18,12 @@ export const getTransaction = (API, format, GET) => async dispatch => {
   dispatch({ type: GET_TRANSACTIONS, payload: respond });
 };
 
+export const deleteTransaction = (API, format, DELETE, id) => async dispatch => {
+  const res = await fetch(`${API}/api/${format}/` + id, DELETE);
+  const respond = await res.json();
+  dispatch({ type: DELETE_TRANSACTIONS, payload: respond });
+};
+
 export const addCategory = (API, format, POST) => async dispatch => {
   const res = await fetch(`${API}/api/${format}`, POST);
   const respond = await res.json();
@@ -27,15 +34,6 @@ export const getCategory = (API, format, GET) => async dispatch => {
   const res = await fetch(`${API}/api/${format}`, GET);
   const respond = await res.json();
   dispatch({ type: GET_CATEGORIES, payload: respond });
-};
-
-export const deleteTransaction = (API, format, DELETE, id) => async () => {
-  try {
-    await fetch(`${API}/api/${format}/` + id, DELETE);
-
-  } catch (error) {
-    console.log(error)
-  }
 };
 
 export const deleteCategory = (API, format, DELETE, id) => async () => {

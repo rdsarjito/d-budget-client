@@ -25,7 +25,7 @@ class Header extends Component {
     return (
       <div className="wrapper-header">
         <div onClick={this.goBack} className="back-button">
-          <img src='http://101.50.0.139:5000/images/left-arrow.png' alt='' />
+          <img src='http://localhost:5000/images/left-arrow.png' alt='' />
         </div>
         <div className="header-title white">
           {path}

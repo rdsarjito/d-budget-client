@@ -6,7 +6,7 @@ import * as actions from '../../actions';
 
 import '../../style/style.css';
 
-const API = `http://101.50.0.139:5000`;
+const API = `http://localhost:5000`;
 
 class ListCategory extends Component {
   constructor() {
