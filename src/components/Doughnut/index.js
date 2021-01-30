@@ -19,15 +19,19 @@ class DoughnutChart extends Component {
       }],
       labels: this.props.category.map((c) => c.category),
     };
-    const options = {
-      legend: {
-        position: "bottom",
-        align: "center",
-      }
-    };
     return (
       <div className="doughnut-wrapper">
-        <Doughnut className="doughnut-wrapper" data={chartData} width={"100%"} options={options} />
+        <Doughnut 
+          data={chartData} 
+          width={500} 
+          height={250} 
+          options={
+            { 
+              maintainAspectRatio: false, 
+              legend: { position: "bottom"} 
+            }
+          }
+        />
       </div>
     );
   };

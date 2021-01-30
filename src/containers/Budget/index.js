@@ -12,7 +12,7 @@ class BudgetContainer extends Component {
   state = {
     income: [],
     expense: [],
-    category: [],
+    category: []
   };
   componentDidMount = async() => {
     const GET = {
