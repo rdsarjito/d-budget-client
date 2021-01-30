@@ -10,8 +10,8 @@ import '../../style/style.css';
 
 class ListTransaction extends Component {
   _mapTransactions() {
-    const sortTransactionsByDate = sortedDate(this.props.transactions);
-    return sortTransactionsByDate.map(transaction => {
+    const sortDataByDate = sortedDate(this.props.transactions);
+    return sortDataByDate.map(transaction => {
       return (
         <Transaction transaction={transaction} key={transaction._id} type={this.props.type} API={this.props.API} />
       );
@@ -29,7 +29,8 @@ class ListTransaction extends Component {
 
   render() {
     switch (this.props.type) {
-      case 'income' || 'expense':
+      case 'income':
+      case 'expense':
         return (
           <div className="list-container">
             { this._mapTransactions() }
@@ -43,7 +44,7 @@ class ListTransaction extends Component {
         );
       default: 
         return 'type not found'
-    }
+    };
   };
 };
 

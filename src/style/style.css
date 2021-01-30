@@ -319,3 +319,7 @@ button:focus {
   display: flex;
   flex-direction: column-reverse;
 }
+
+.doughnut-wrapper {
+  margin: 0 20px 0 20px;
+}

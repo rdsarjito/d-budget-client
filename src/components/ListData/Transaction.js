@@ -11,8 +11,7 @@ class Transaction extends Component {
     const DELETE = {
       method: 'DELETE',
     };
-    const format = this.props.type;
-    this.props.deleteTransaction(this.props.API, format, DELETE, id);
+    this.props.deleteTransaction(this.props.API, this.props.type, DELETE, id);
   };
   render() {
     const transaction = this.props.transaction;

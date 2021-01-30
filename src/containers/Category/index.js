@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
 import FormCategory from '../../components/FormCategory';
-import ListTransaction from '../../components/ListTransactions';
+import ListData from '../../components/ListData';
 
 const API = `http://localhost:5000`;
 
@@ -19,7 +19,7 @@ class Category extends Component {
     return (
       <main>
         <FormCategory />
-        <ListTransaction type="category" API={API} />
+        <ListData type="category" API={API} />
       </main>
     );
   };

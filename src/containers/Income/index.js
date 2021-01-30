@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
 import Form from '../../components/Form';
-import ListTransactions from '../../components/ListTransactions';
-import TotalCashFLow from '../../components/TotalCashFLow';
+import ListData from '../../components/ListData';
+import TotalCashFlow from '../../components/TotalCashFlow';
 
 const API = `http://localhost:5000`;
 
@@ -20,8 +20,8 @@ class Income extends Component {
     return (
       <main>
         <Form type="income" API={API} />
-        <TotalCashFLow type="income" />
-        <ListTransactions type="income" API={API} />
+        <TotalCashFlow type="income" />
+        <ListData type="income" API={API} />
       </main>
     );
   };

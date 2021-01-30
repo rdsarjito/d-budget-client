@@ -1,18 +1,30 @@
 import { Component } from 'react';
+import { connect } from 'react-redux'
+
+import * as actions from '../../actions';
 import Form from '../../components/Form';
-import ListTransactions from '../../components/ListTransactions';
-import TotalCashFlow from '../../components/TotalCashFLow';
+import ListData from '../../components/ListData';
+import TotalCashFlow from '../../components/TotalCashFlow';
+
+const API = `http://localhost:5000`;
 
 class Expense extends Component {
+  componentDidMount(){
+    const GET = {
+      method: 'GET',
+    };
+    this.props.getTransaction(API, 'expense', GET);
+    this.props.getCategory(API, 'category', GET);
+  };
   render() {
     return (
       <main>
-        <Form />
-        <TotalCashFlow />
-        <ListTransactions className="list-container" />
+        <Form type="expense" API={API} />
+        <TotalCashFlow type="expense" />
+        <ListData type="expense" API={API} />
       </main>
     );
   };
 };
 
-export default Expense;
+export default connect(null, actions)(Expense);

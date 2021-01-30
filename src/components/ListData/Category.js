@@ -10,8 +10,7 @@ class Category extends Component {
   _deleteCategory(id) {
     const DELETE = {
       method: 'DELETE',
-    }
-
+    };
     this.props.deleteCategory(this.props.API, this.props.type, DELETE, id);
   };
 
@@ -30,4 +29,4 @@ class Category extends Component {
   };
 };
 
-export default connect(({ categories }) => ({ categories }), actions)(Category);
+export default connect(null, actions)(Category);
