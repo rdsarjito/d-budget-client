@@ -8,7 +8,7 @@ import '../../style/style.css';
 
 class TotalCashFlow extends Component {
   render() {
-    const totalAmount = this.props.balances.reduce((result, item) => {
+    const totalAmount = this.props.transactions.reduce((result, item) => {
       return result + parseInt(item.amount);
     }, 0);
     return (
@@ -21,4 +21,4 @@ class TotalCashFlow extends Component {
   };
 };
 
-export default connect(({ balances }) => ({ balances }), actions)(TotalCashFlow);
+export default connect(({ transactions }) => ({ transactions }), actions)(TotalCashFlow);

@@ -3,6 +3,6 @@ import balanceReducer from './balanceReducer';
 import categoryReducer from './categoryReducer';
 
 export default combineReducers({
-  balances: balanceReducer,
+  transactions: balanceReducer,
   categories: categoryReducer,
 });

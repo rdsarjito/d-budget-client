@@ -89,4 +89,4 @@ class Form extends Component {
   };
 };
 
-export default connect(({ balances, categories }) => ({ balances, categories }), actions)(Form);
+export default connect(({ transactions, categories }) => ({ transactions, categories }), actions)(Form);

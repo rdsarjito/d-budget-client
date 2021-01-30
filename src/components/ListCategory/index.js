@@ -60,4 +60,4 @@ class ListCategory extends Component {
   };
 };
 
-export default connect(({ categories, balances }) => ({ categories, balances }), actions)(ListCategory);
+export default connect(({ categories, transactions }) => ({ categories, transactions }), actions)(ListCategory);

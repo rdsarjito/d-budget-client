@@ -49,4 +49,4 @@ class HistoryRow extends Component {
     });
   };
 };
-export default connect(({ balances }) => ({ balances }), actions)(HistoryRow);
+export default connect(({ transactions }) => ({ transactions }), actions)(HistoryRow);
