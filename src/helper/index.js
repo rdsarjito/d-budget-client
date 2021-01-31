@@ -19,7 +19,7 @@ export const stringDate = (date) => {
 };
 
 export const filterArrayByObj = (arr, obj) => {
-  return arr.filter(a => a.type.includes(obj));
+  return arr.filter(a => a.typeBalance.includes(obj));
 };
 
 export const randomArray = (items) => {

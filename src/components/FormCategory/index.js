@@ -41,7 +41,7 @@ class FormCategory extends Component {
 
     const data = {
       category: this.state.category,
-      type: this.state.type,
+      typeBalance: this.state.type,
       color
     };
 

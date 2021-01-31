@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import NumberFormat from 'react-number-format';
 
+import * as actions from '../../actions';
 import DropDownCategory from '../DropDownCategory';
 import AddCategory from '../AddCategory';
 import { removeMoneyDots } from '../../helper';
@@ -134,4 +135,4 @@ class Form extends Component {
   };
 };
 
-export default connect(({ transactions, categories }) => ({ transactions, categories }))(Form);
+export default connect(({ transactions, categories }) => ({ transactions, categories }), actions)(Form);
