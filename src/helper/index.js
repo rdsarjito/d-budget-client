@@ -25,3 +25,7 @@ export const filterArrayByObj = (arr, obj) => {
 export const randomArray = (items) => {
   return items[~~(items.length * Math.random())];
 };
+
+export const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};

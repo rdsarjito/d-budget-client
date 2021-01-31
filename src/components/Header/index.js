@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
+import { capitalizeFirstLetter } from '../../helper';
+
 import '../../style/style.css';
 
 class Header extends Component {
@@ -28,7 +30,7 @@ class Header extends Component {
           <img src='http://localhost:5000/images/left-arrow.png' alt='' />
         </div>
         <div className="header-title white">
-          {path}
+          { capitalizeFirstLetter(path)}
         </div>
       </div>
     );
