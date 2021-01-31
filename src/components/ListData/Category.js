@@ -20,7 +20,7 @@ class Category extends Component {
     return (
       <div key={category._id} className="row-cashflow evenly-color">
         <div className="row-content">
-        <div>{category.category}</div>
+          <div className={`${category.typeBalance}`}>{category.category}</div>
           <div>{date}</div>
         </div>
         <div onClick={() => { this._deleteCategory(category._id) }} className="btn-delete">X</div>

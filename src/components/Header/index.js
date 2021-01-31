@@ -30,7 +30,7 @@ class Header extends Component {
           <img src='http://localhost:5000/images/left-arrow.png' alt='' />
         </div>
         <div className="header-title white">
-          { capitalizeFirstLetter(path)}
+          {capitalizeFirstLetter(path)}
         </div>
       </div>
     );

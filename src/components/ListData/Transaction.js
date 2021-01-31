@@ -20,7 +20,7 @@ class Transaction extends Component {
       <div className="row-cashflow evenly-color">
         <div className="row-content">
           <div>{transaction.description}</div>
-          <div>{addMoneyDots(transaction.amount)}</div>
+          <div className={`${transaction.typeBalance}`}>{addMoneyDots(transaction.amount)}</div>
           <div>{date}</div>
         </div>
         <div onClick={() => { this._deleteTransaction(transaction._id) }} className="btn-delete">X</div>
