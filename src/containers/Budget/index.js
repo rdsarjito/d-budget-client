@@ -30,8 +30,8 @@ class BudgetContainer extends Component {
     return (
       <main>
         <Balance income={this.state.income} expense={this.state.expense} />
-        <Menu />
         <Doughnut income={this.state.income} expense={this.state.expense} category={this.state.category} />
+        <Menu />
       </main>
     )
   }
