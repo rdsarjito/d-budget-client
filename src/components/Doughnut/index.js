@@ -1,7 +1,6 @@
 import { Component } from 'react';
 
 import { Doughnut } from 'react-chartjs-2';
-
 class DoughnutChart extends Component {
   _resetCategories () {
     this.props.category.forEach((c) => c.amount = 0);
@@ -20,18 +19,17 @@ class DoughnutChart extends Component {
       }],
       labels: this.props.category.map((c) => c.category),
     };
+    const options = {
+      maintainAspectRatio: false, 
+      legend: { position: "bottom"} 
+    }
     return (
       <div className="doughnut-wrapper">
-        <Doughnut 
+        <Doughnut
           data={chartData} 
           width={500} 
           height={250} 
-          options={
-            { 
-              maintainAspectRatio: false, 
-              legend: { position: "bottom"} 
-            }
-          }
+          options={options}
         />
       </div>
     );

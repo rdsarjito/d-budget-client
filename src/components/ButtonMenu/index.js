@@ -7,7 +7,7 @@ const formats = [{name: 'income'}, {name: 'expense'}, {name: 'history'}];
 
 class ButtonMenu extends Component {
   _conditionImage(format) {
-    if(format === 'History') {
+    if(format === 'history') {
       return <img src='http://101.50.0.139:5050/images/history.png' alt='' />
     };
     return <img src='http://101.50.0.139:5050/images/add.png' alt='' />

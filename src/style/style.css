@@ -95,8 +95,12 @@ button:focus {
   text-align: center;
 }
 
+.button-menu-add {
+  width: 70px;
+}
+
 .button-menu-add img {
-  width: 40%;
+  width: 35px;
 }
 
 .form-wrapper {
@@ -255,8 +259,6 @@ button:focus {
 }
 
 
-
-
 /* Containers */
 .wrapper {
   border-radius: 2.5rem;
@@ -271,11 +273,10 @@ button:focus {
 }
 
 .balance-container {
-  padding: 70px 20px;
-  margin: -70px 0;
+  padding: 0 20px 20px 20px;
+  margin: 0 0 20px 0;
   color: black;
   background-color: #5e0085;
-  border-radius: 3em;
   position: relative;
   z-index: 1;
 }
@@ -293,7 +294,6 @@ button:focus {
 }
 
 .menu-container {
-  margin: 20px;
   padding: 10px 0 10px 0;
   display: flex;
   justify-content: space-around;
@@ -301,8 +301,11 @@ button:focus {
   border-radius: 0.5em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
   background-color: white;
-  position: relative;
-  z-index: 5;
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
 }
 
 .history-container {
