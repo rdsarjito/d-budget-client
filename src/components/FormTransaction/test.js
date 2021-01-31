@@ -8,6 +8,7 @@ import AddCategory from '../AddCategory';
 import { removeMoneyDots } from '../../helper';
 
 import '../../style/style.css';
+import useForm from '../useForm';
 
 class Form extends Component {
   constructor () {

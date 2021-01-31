@@ -6,7 +6,7 @@ class DoughnutChart extends Component {
     this.props.category.forEach((c) => c.amount = 0);
   };
   render() {
-    this._resetCategories()
+    this._resetCategories();
     const mergeData = [...this.props.income, ...this.props.expense];
     mergeData.forEach((t) => {
       const category = this.props.category.find((c) => c.category === t.category);

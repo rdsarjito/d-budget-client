@@ -12,7 +12,7 @@ class Balance extends Component {
           <div className="balance-title white">
             Balance
           </div>
-          <TotalBalance />
+          <TotalBalance income={this.props.income} expense={this.props.expense} />
         </div>
       </div>
     )

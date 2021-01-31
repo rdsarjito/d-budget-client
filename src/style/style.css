@@ -140,13 +140,15 @@ button:focus {
 .dropdown-category{
   margin-bottom: 20px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 .dropdown-category select {
   padding: 10px 5px 10px 5px;
   background-color: #5e0085;
   color: white;
+  width: 70%;
+  text-indent: 5px;
 }
 
 .dropdown-category select option {
@@ -211,9 +213,6 @@ button:focus {
   justify-content: space-between;
   padding: 5px;
 }
-
-
-
 
 /* RowCashflow */
 .evenly-color:nth-child(even) {

@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux'
 
 import * as actions from '../../actions';
-import Form from '../../components/Form';
+import FormTransaction from '../../components/FormTransaction';
 import ListData from '../../components/ListData';
 import TotalCashFlow from '../../components/TotalCashFlow';
 
@@ -19,7 +19,7 @@ class Expense extends Component {
   render() {
     return (
       <main>
-        <Form type="expense" API={API} />
+        <FormTransaction type="expense" API={API} />
         <TotalCashFlow type="expense" />
         <ListData type="expense" API={API} />
       </main>

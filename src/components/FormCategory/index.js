@@ -41,6 +41,7 @@ class FormCategory extends Component {
 
     const data = {
       category: this.state.category,
+      type: this.state.type,
       color
     };
 
@@ -64,7 +65,6 @@ class FormCategory extends Component {
   };
 
   render() {
-    console.log(this.state)
     return (
       <form className="form-content" onSubmit={this._onSubmit}>
         <select onChange={this._onChangeSelectCategory}>
