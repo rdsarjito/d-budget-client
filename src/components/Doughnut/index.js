@@ -1,6 +1,7 @@
 import { Component } from 'react';
 
 import { Doughnut } from 'react-chartjs-2';
+
 class DoughnutChart extends Component {
   _resetCategories () {
     this.props.category.forEach((c) => c.amount = 0);
