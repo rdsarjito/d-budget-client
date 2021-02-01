@@ -5,7 +5,7 @@ import * as actions from '../../actions';
 import FormCategory from '../../components/FormCategory';
 import ListData from '../../components/ListData';
 
-const API = `http://localhost:5000`;
+const API = `http://101.50.0.139:5000`;
 
 class Category extends Component {
   componentDidMount(){

@@ -6,7 +6,7 @@ import Doughnut from '../../components/Doughnut';
 
 import '../../style/style.css';
 
-const API = `http://localhost:5000`;
+const API = `http://101.50.0.139:5000`;
 
 class BudgetContainer extends Component {
   state = {
