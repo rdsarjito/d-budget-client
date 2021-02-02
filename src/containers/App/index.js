@@ -6,6 +6,7 @@ import Income from '../Income';
 import Expense from '../Expense';
 import History from '../History';
 import Category from '../Category';
+import Login from '../Login';
 
 import '../../style/style.css';
 
@@ -20,6 +21,7 @@ class App extends Component {
           <Route path="/expense" component={Expense} />
           <Route path="/history" component={History} />
           <Route path="/category" component={Category} />
+          <Route path="/login" component={Login} />
           <Redirect to="/budget" />
         </div>
       </BrowserRouter>  

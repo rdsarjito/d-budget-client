@@ -1,3 +1,4 @@
+export const FETCH_USER = 'fetch_user'
 export const ADD_TRANSACTION = 'add_transaction';
 export const GET_TRANSACTIONS = 'get_transactions';
 export const DELETE_TRANSACTION = 'delete_transaction';

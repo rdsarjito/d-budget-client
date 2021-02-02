@@ -1,4 +1,5 @@
 import {
+  FETCH_USER,
   ADD_TRANSACTION,
   GET_TRANSACTIONS,
   DELETE_TRANSACTION,
@@ -6,6 +7,12 @@ import {
   GET_CATEGORIES,
   DELETE_CATEGORY,
 } from './types';
+
+export const fetchUser = (API, obj) => async dispatch => {
+  const res = await fetch(`${API}/api/google-login`, obj);
+  const respond = await res.json();
+  dispatch({ type: FETCH_USER, payload: respond });
+};
 
 export const addTransaction  = (API, format, POST) => async dispatch => {
   const res = await fetch(`${API}/api/${format}`, POST);
