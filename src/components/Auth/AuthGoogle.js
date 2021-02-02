@@ -10,12 +10,10 @@ const clientID = "760041547568-m296ef03jkijltffrhtv0p0r2ulh9fdr.apps.googleuserc
 class AuthGoogle extends Component {
   render() {
     return (
-      <div className="auth-google">
-        <GoogleLogin 
-          clientId={clientID}
-          buttonText="Login"
-        />
-      </div>
+      <GoogleLogin 
+        clientId={clientID}
+        buttonText="Login"
+      />
     );
   };
 };
