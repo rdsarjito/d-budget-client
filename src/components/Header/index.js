@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
+import Auth from '../Auth';
 import { capitalizeFirstLetter } from '../../helper';
 
 import '../../style/style.css';
@@ -21,17 +22,19 @@ class Header extends Component {
         <div className="wrapper-header">
           <div className="back-button"></div>
           <div className="header-title white">D-Budget</div>
+          <Auth />
         </div>
       );
     };
     return (
       <div className="wrapper-header">
         <div onClick={this.goBack} className="back-button">
-          <img src='http://101.50.0.139:5000/images/left-arrow.png' alt='' />
+          <img src='http://localhost:5000/images/left-arrow.png' alt='' />
         </div>
         <div className="header-title white">
           {capitalizeFirstLetter(path)}
         </div>
+        <Auth />
       </div>
     );
   };

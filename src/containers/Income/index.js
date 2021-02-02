@@ -6,7 +6,7 @@ import FormTransaction from '../../components/FormTransaction';
 import ListData from '../../components/ListData';
 import TotalCashFlow from '../../components/TotalCashFlow';
 
-const API = `http://101.50.0.139:5000`;
+const API = `http://localhost:5000`;
 
 class Income extends Component {
   componentDidMount(){

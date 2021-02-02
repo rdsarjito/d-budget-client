@@ -177,17 +177,30 @@ button:focus {
   background-color: #5e0085;
   padding: 20px;
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   font-size: 20px;
-  position: relative;
-  z-index: 2;
 }
-.back-button {
+
+.wrapper-header-budget {
+  border-top-left-radius: 2.5rem;
+  background-color: #5e0085;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.auth-google {
   width: 25%;
+  background-color: black;
 }
 
 .back-button img {
   width: 25px;
+}
+
+.back-button {
+  width: 25%;
 }
 
 .header-title {
