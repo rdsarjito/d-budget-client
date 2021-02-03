@@ -14,8 +14,10 @@ class AuthGoogle extends Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ code })
+      body: JSON.stringify(code)
     };
+
+    console.log(this.props.API)
 
     this.props.fetchUser(this.props.API, obj)
   };

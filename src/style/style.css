@@ -218,22 +218,19 @@ button:focus {
   display: none;
 }
 
-.display-none {
-  display: none;
-}
-
-.display-block {
-  display: block;
-}
-
 .nav-user {
   display: flex;
   flex-direction: column;
 }
 
+.test {
+  background-color: red;
+}
+
 .nav-user-img {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .wrapper-total-cashflow {

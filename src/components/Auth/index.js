@@ -14,7 +14,7 @@ class Auth extends Component {
 
   _navBar() {
     if(this.state.toggleNav === true) {
-      this.setState({ display: 'display-black', toggleNav: false })
+      this.setState({ display: null, toggleNav: false })
     }
     if(this.state.toggleNav === false) {
       this.setState({ display: 'display-none', toggleNav: true })
@@ -26,9 +26,9 @@ class Auth extends Component {
       <div className="render-content-header">
         <div></div>
         <div className="nav-user">
-          <div onClick={this._navBar} className="nav-user-img">
+          <div  className="nav-user-img">
             <div></div>
-            <img src="http://101.50.0.139:5050/images/blank-user.png" alt="user" />
+            <img src="http://101.50.0.139:5050/images/blank-user.png" alt="user" onClick={this._navBar} />
           </div>
           <Link className={this.state.display} to="/login">Login</Link>
         </div>
