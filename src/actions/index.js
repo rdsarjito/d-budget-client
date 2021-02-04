@@ -21,6 +21,7 @@ export const fetchUser = (code) => async dispatch => {
   };
   const res = await fetch(`${API}/api/google-login`, POST);
   const respond = await res.json();
+  console.log(respond)
   dispatch({ type: AUTH_GOOGLE, payload: respond });
 };
 
