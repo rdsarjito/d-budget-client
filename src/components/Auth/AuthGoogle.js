@@ -13,7 +13,7 @@ class AuthGoogle extends Component {
   };
 
   responseGoogleSucces = async(code) => {
-    await this.props.fetchUser(code);
+    await this.props.adduser(code);
     await this.props.getUser()
     this.setState({ redirect: true });
   };

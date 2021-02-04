@@ -11,7 +11,7 @@ import {
 
 const API = `http://localhost:5000`;
 
-export const fetchUser = (code) => async dispatch => {
+export const adduser = (code) => async dispatch => {
   const POST = {  
     method: 'POST',
     headers: {
