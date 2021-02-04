@@ -1,6 +1,6 @@
 import {
   GET_USER,
-  AUTH_GOOGLE,
+  ADD_USER,
   ADD_TRANSACTION,
   GET_TRANSACTIONS,
   DELETE_TRANSACTION,
@@ -20,10 +20,10 @@ export const fetchUser = (code) => async dispatch => {
     },
     body: JSON.stringify(code)
   };
-  const res = await fetch(`${API}/api/google-login`, POST);
+  const res = await fetch(`${API}/user`, POST);
   const respond = await res.json();
 
-  dispatch({ type: AUTH_GOOGLE, payload: respond });
+  dispatch({ type: ADD_USER, payload: respond });
 };
 
 export const getUser = () => async dispatch => {
@@ -37,7 +37,7 @@ export const getUser = () => async dispatch => {
   if(ls === null) {
     return;
   }
-  const res = await fetch(`${API}/api/google-login`, GET)
+  const res = await fetch(`${API}/user`, GET)
   const respond = await res.json();
   dispatch({ type: GET_USER, payload: respond });
 };
