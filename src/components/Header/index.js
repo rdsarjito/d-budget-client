@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
 
-// import Auth from '../Auth';
 import { capitalizeFirstLetter } from '../../helper';
 
 import '../../style/style.css';
@@ -14,9 +13,12 @@ class Header extends Component {
     super(props);
     this.goBack = this.goBack.bind(this);
   };
+
+  componentDidMount() {
+    this.props.getUser()
+  }
   
   _renderContent() {
-    this.props.getUser()
     switch(this.props.user) {
       case null:
         return;
@@ -28,9 +30,9 @@ class Header extends Component {
         );
       default:
         return (
-          <div className="picture-profile">
+          <Link to="/login" className="picture-profile">
             <img src={this.props.user.existingUser.picture} alt="user" />
-          </div>
+          </Link>
         );
     };
   };

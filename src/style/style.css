@@ -207,6 +207,10 @@ button:focus {
   text-align: center;
 }
 
+.profile-wrapper {
+  display: flex;
+}
+
 .picture-profile {
   width: 25%;
   text-align: right;
@@ -214,6 +218,10 @@ button:focus {
 
 .picture-profile img {
   width: 25px;
+}
+
+.picture-profile-big img {
+  width: 70px;
 }
 
 .wrapper-total-cashflow {

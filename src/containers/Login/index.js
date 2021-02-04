@@ -1,13 +1,11 @@
 import { Component } from 'react';
 
-import Auth from '../../components/Auth/AuthGoogle';
-
-const API = `http://localhost:5000`;
+import Auth from '../../components/Auth';
 
 class Login extends Component {
   render() {
     return (
-      <Auth API={API} />
+      <Auth />
     );
   };
 };

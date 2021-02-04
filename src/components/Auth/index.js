@@ -1,40 +1,41 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import * as actions from '../../actions';
+import AuthGoogle from './AuthGoogle';
 
 class Auth extends Component {
-  componentDidMount() {
-    this.props.getUser()
-  };
-  
   _renderContent() {
     switch(this.props.user) {
-      case null:
+      case(null):
         return;
-      case false:
+      case(false):
         return (
-          <Link to="/login">
+          <div to="/login" className="picture-profile-big">
             <img src="http://101.50.0.139:5050/images/blank-user.png" alt="user-blank" />
-          </Link>
-        )
+          </div>
+        );
       default:
         return (
-          <img src={this.props.user.existingUser.picture} alt="user" />
+          <div to="/login" className="picture-profile-big">
+            <img src={this.props.user.existingUser.picture} alt="user" />
+          </div>
         );
     };
   };
-  
   render() {
     return (
-      <div className="render-content-header">
-        <div className="nav-user">
+      <div className="profile-wrapper">
+        <div>
           {this._renderContent()}
+        </div>
+        <div className="auth-wrapper">
+          Login untuk menyimpan data
+          <AuthGoogle />
         </div>
       </div>
     );
   };
 };
 
-export default connect(({ auth, user }) => ({ auth, user }), actions)(Auth);
+export default connect(({ user }) => ({ user }), actions)(Auth);
