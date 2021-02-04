@@ -1,4 +1,5 @@
 import {
+  GET_USER,
   AUTH_GOOGLE,
   ADD_TRANSACTION,
   GET_TRANSACTIONS,
@@ -21,8 +22,28 @@ export const fetchUser = (code) => async dispatch => {
   };
   const res = await fetch(`${API}/api/google-login`, POST);
   const respond = await res.json();
-  console.log(respond)
+
+  if(res.status === 200) {
+    window.alert('Berhasil Login');
+  };
+
   dispatch({ type: AUTH_GOOGLE, payload: respond });
+};
+
+export const getUser = () => async dispatch => {
+  const ls = localStorage.getItem('jwt_token')
+  const GET = { 
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + ls
+    }
+  }
+  if(ls === null) {
+    return;
+  }
+  const res = await fetch(`${API}/api/google-login`, GET)
+  const respond = await res.json();
+  dispatch({ type: GET_USER, payload: respond });
 };
 
 export const addTransaction  = (type, data) => async dispatch => {

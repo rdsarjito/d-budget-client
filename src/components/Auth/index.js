@@ -5,17 +5,23 @@ import { Link } from 'react-router-dom';
 import * as actions from '../../actions';
 
 class Auth extends Component {
+  componentDidMount() {
+    this.props.getUser()
+  };
+  
   _renderContent() {
-    switch(this.props.auth) {
+    switch(this.props.user) {
       case null:
         return;
-      case true:
-        return <h1>test</h1>
-      default:
+      case false:
         return (
           <Link to="/login">
             <img src="http://101.50.0.139:5050/images/blank-user.png" alt="user-blank" />
           </Link>
+        )
+      default:
+        return (
+          <img src={this.props.user.existingUser.picture} alt="user" />
         );
     };
   };
@@ -31,4 +37,4 @@ class Auth extends Component {
   };
 };
 
-export default connect(({ auth }) => ({ auth }), actions)(Auth);
+export default connect(({ auth, user }) => ({ auth, user }), actions)(Auth);

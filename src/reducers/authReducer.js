@@ -9,9 +9,8 @@ export default (state = initialState, action) => {
     case AUTH_GOOGLE:
       const newJWT = [...state]
       newJWT.push(action.payload);
-      console.log(action.payload)
       saveToLocalStorage(JWT_TOKEN, newJWT);
-      return action.payload.data;
+      return newJWT;
     default:
       return state;
   };

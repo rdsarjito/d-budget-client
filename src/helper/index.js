@@ -38,4 +38,4 @@ export const getLocalStorage = (param) => {
   const storage = localStorage.getItem(param);
   if (!storage) return []
   return JSON.parse(storage);
-}
+};

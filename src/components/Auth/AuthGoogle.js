@@ -8,7 +8,8 @@ const clientID = "760041547568-m296ef03jkijltffrhtv0p0r2ulh9fdr.apps.googleuserc
 
 class AuthGoogle extends Component {
   responseGoogleSucces = async(code) => {
-    this.props.fetchUser(code);
+    await this.props.fetchUser(code);
+    this.setState({ redirect: true })
   };
   responseGoogleFailed(err) {
     console.log(err)
