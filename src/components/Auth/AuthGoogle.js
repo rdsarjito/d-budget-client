@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import GoogleLogin from 'react-google-login';
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
 import * as actions from '../../actions';
 import { Redirect } from 'react-router-dom';
@@ -22,23 +22,39 @@ class AuthGoogle extends Component {
     console.log(err)
   };
 
+  _renderContent() {
+    switch(this.props.user) {
+      case(null):
+        return;
+      case(false):
+        return (
+          <div>
+            <GoogleLogin 
+              clientId={clientID}
+              buttonText="Google"
+              onSuccess={this.responseGoogleSucces}
+              onFailure={this.responseGoogleFailed}
+              accessType={'offline'}
+              cookiePolicy={'single_host_origin'}
+              responseType={'code'}
+            />
+          </div>
+        )
+      default: 
+        return (
+          <div>logout</div>
+        )
+    }
+  };
+
   render() {
     if (this.state.redirect) {
       return <Redirect to='/budget'/>;
     };
     return (
       <div>
-        <GoogleLogin 
-          clientId={clientID}
-          buttonText="Google"
-          onSuccess={this.responseGoogleSucces}
-          onFailure={this.responseGoogleFailed}
-          accessType={'offline'}
-          cookiePolicy={'single_host_origin'}
-          responseType={'code'}
-        />
+        {this._renderContent()}
       </div>
-      
     );
   };
 };

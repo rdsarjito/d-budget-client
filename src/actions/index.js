@@ -12,7 +12,7 @@ import {
 const API = `http://localhost:5000`;
 
 export const adduser = (code) => async dispatch => {
-  const POST = {  
+  const POST = {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
