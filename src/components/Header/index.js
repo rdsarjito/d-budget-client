@@ -1,7 +1,10 @@
 import { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import Auth from '../Auth';
+import * as actions from '../../actions';
+
+// import Auth from '../Auth';
 import { capitalizeFirstLetter } from '../../helper';
 
 import '../../style/style.css';
@@ -9,7 +12,27 @@ import '../../style/style.css';
 class Header extends Component {
   constructor(props){
     super(props);
-    this.goBack = this.goBack.bind(this); // i think you are missing this
+    this.goBack = this.goBack.bind(this);
+  };
+  
+  _renderContent() {
+    this.props.getUser()
+    switch(this.props.user) {
+      case null:
+        return;
+      case false:
+        return (
+          <Link to="/login" className="picture-profile">
+            <img src="http://101.50.0.139:5050/images/blank-user.png" alt="user-blank" />
+          </Link>
+        );
+      default:
+        return (
+          <div className="picture-profile">
+            <img src={this.props.user.existingUser.picture} alt="user" />
+          </div>
+        );
+    };
   };
 
   goBack(){
@@ -22,7 +45,7 @@ class Header extends Component {
         <div className="wrapper-header">
           <div className="back-button"></div>
           <div className="header-title white">D-Budget</div>
-          <Auth />
+          {this._renderContent()}
         </div>
       );
     };
@@ -34,7 +57,7 @@ class Header extends Component {
         <div className="header-title white">
           {capitalizeFirstLetter(path)}
         </div>
-        <Auth />
+        {this._renderContent()}
       </div>
     );
   };
@@ -45,4 +68,4 @@ class Header extends Component {
   };
 };
 
-export default withRouter(Header);
+export default connect(({ user }) => ({ user }), actions)(withRouter(Header));

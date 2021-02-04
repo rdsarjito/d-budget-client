@@ -21,7 +21,9 @@ class DoughnutChart extends Component {
     };
     const options = {
       maintainAspectRatio: false, 
-      legend: { position: "bottom"} 
+      legend: {
+        display: false,
+    },
     }
     return (
       <div className="doughnut-wrapper">

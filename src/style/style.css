@@ -7,6 +7,10 @@
   position: absolute;
 }
 
+.kecil {
+  width: 25px;
+}
+
 
 body {
   background-color: wheat;
@@ -203,34 +207,13 @@ button:focus {
   text-align: center;
 }
 
-.render-content-header {
+.picture-profile {
   width: 25%;
-  display: flex;
-  justify-content: space-between;
+  text-align: right;
 }
 
-.render-content-header img {
-  width: 30px;
-  cursor: pointer;
-}
-
-.display-none {
-  display: none;
-}
-
-.nav-user {
-  display: flex;
-  flex-direction: column;
-}
-
-.test {
-  background-color: red;
-}
-
-.nav-user-img {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
+.picture-profile img {
+  width: 25px;
 }
 
 .wrapper-total-cashflow {

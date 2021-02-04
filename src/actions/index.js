@@ -23,10 +23,6 @@ export const fetchUser = (code) => async dispatch => {
   const res = await fetch(`${API}/api/google-login`, POST);
   const respond = await res.json();
 
-  if(res.status === 200) {
-    window.alert('Berhasil Login');
-  };
-
   dispatch({ type: AUTH_GOOGLE, payload: respond });
 };
 
