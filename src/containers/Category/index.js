@@ -18,7 +18,7 @@ class Category extends Component {
   render() {
     return (
       <main>
-        <FormCategory />
+        <FormCategory type="category" />
         <ListData type="category" API={API} />
       </main>
     );

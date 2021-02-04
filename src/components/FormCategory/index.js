@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { randomArray } from '../../helper';
 
-const API = `http://localhost:5000`;
-
 class FormCategory extends Component {
   constructor() {
     super();
@@ -45,19 +43,7 @@ class FormCategory extends Component {
       color
     };
 
-    const format = 'category';
-    
-    const POST = {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ data })
-    };
-
-
-    await this.props.addCategory(API, format, POST);
+    await this.props.addCategory(this.props.type, data);
     
     this.setState({
       category: '',
@@ -68,7 +54,7 @@ class FormCategory extends Component {
     return (
       <form className="form-content" onSubmit={this._onSubmit}>
         <select onChange={this._onChangeSelectCategory}>
-          <option>Pilih Satu Woi</option>
+          <option>Pilih Satu</option>
           <option value="income">Income</option>
           <option value="expense">Expense</option>
         </select>

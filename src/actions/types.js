@@ -5,3 +5,5 @@ export const DELETE_TRANSACTION = 'delete_transaction';
 export const ADD_CATEGORY = 'add-category';
 export const GET_CATEGORIES = 'get_categories';
 export const DELETE_CATEGORY = 'delete_category';
+export const AUTH_GOOGLE = 'auth_google';
+export const JWT_TOKEN = 'jwt_token';

@@ -74,17 +74,8 @@ class Form extends Component {
         description: this.state.description,
         amount: this.state.amount,
       };
-          
-      const POST = {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ data })
-      };
   
-      this.props.addTransaction(this.props.API, this.props.type, POST);
+      this.props.addTransaction(this.props.type, data);
       
       this.setState({
         category: '',
@@ -131,7 +122,7 @@ class Form extends Component {
           </button>
         </form>
       </div>
-    )
+    );
   };
 };
 

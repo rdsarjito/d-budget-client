@@ -1,5 +1,5 @@
 import {
-  FETCH_USER,
+  AUTH_GOOGLE,
   ADD_TRANSACTION,
   GET_TRANSACTIONS,
   DELETE_TRANSACTION,
@@ -8,14 +8,32 @@ import {
   DELETE_CATEGORY,
 } from './types';
 
-export const fetchUser = (API, obj) => async dispatch => {
-  const res = await fetch(`${API}/api/google-login`, obj);
+const API = `http://localhost:5000`;
+
+export const fetchUser = (code) => async dispatch => {
+  const POST = {  
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(code)
+  };
+  const res = await fetch(`${API}/api/google-login`, POST);
   const respond = await res.json();
-  // dispatch({ type: FETCH_USER, payload: respond });
+  dispatch({ type: AUTH_GOOGLE, payload: respond });
 };
 
-export const addTransaction  = (API, format, POST) => async dispatch => {
-  const res = await fetch(`${API}/${format}`, POST);
+export const addTransaction  = (type, data) => async dispatch => {
+  const POST = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ data })
+  };
+  const res = await fetch(`${API}/${type}`, POST);
   const respond = await res.json();
   dispatch({ type: ADD_TRANSACTION, payload: respond });
 };
@@ -31,8 +49,16 @@ export const deleteTransaction = (API, format, DELETE, id) => async dispatch => 
   dispatch({ type: DELETE_TRANSACTION, payload: id });
 };
 
-export const addCategory = (API, format, POST) => async dispatch => {
-  const res = await fetch(`${API}/${format}`, POST);
+export const addCategory = (type, data) => async dispatch => {
+  const POST = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ data })
+  };
+  const res = await fetch(`${API}/${type}`, POST);
   const respond = await res.json();
   dispatch({ type: ADD_CATEGORY, payload: respond });
 };

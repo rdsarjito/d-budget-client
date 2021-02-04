@@ -8,24 +8,11 @@ const clientID = "760041547568-m296ef03jkijltffrhtv0p0r2ulh9fdr.apps.googleuserc
 
 class AuthGoogle extends Component {
   responseGoogleSucces = async(code) => {
-    const obj = {  
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(code)
-    };
-
-    console.log(this.props.API)
-
-    this.props.fetchUser(this.props.API, obj)
+    this.props.fetchUser(code);
   };
-
   responseGoogleFailed(err) {
     console.log(err)
   };
-
   render() {
     return (
       <GoogleLogin 

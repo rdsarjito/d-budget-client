@@ -29,3 +29,13 @@ export const randomArray = (items) => {
 export const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
+
+export const saveToLocalStorage = (key, items) => {
+  localStorage.setItem(key, JSON.stringify(items));
+};
+
+export const getLocalStorage = (param) => {
+  const storage = localStorage.getItem(param);
+  if (!storage) return []
+  return JSON.parse(storage);
+}

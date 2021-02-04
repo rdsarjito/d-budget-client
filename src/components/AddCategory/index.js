@@ -9,7 +9,7 @@ class AddCategory extends Component {
         <div className="add-category-title">Category</div>
       </Link>
     );
-  }
+  };
 };
 
 export default AddCategory;
