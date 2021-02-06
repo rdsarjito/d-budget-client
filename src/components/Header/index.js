@@ -37,9 +37,8 @@ class Header extends Component {
     };
   };
 
-  goBack = async() =>{
-    await this.props.history.goBack();
-    await this.props.getUser()
+  goBack(){
+    this.props.history.goBack();
   };
 
   _conditionHeader(path) {
