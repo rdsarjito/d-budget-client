@@ -1,4 +1,4 @@
-import { ADD_CATEGORY, DELETE_CATEGORY, GET_CATEGORIES } from '../actions/types';
+import { ADD_CATEGORY, DELETE_CATEGORY, GET_CATEGORIES } from '../constants/actionTypes';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (categories = [], action) => {

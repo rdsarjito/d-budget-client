@@ -15,8 +15,8 @@ class Header extends Component {
   };
 
   componentDidMount() {
-    this.props.getUser()
-  }
+    this.props.getUser();
+  };
   
   _renderContent() {
     switch(this.props.user) {
@@ -37,8 +37,9 @@ class Header extends Component {
     };
   };
 
-  goBack(){
-    this.props.history.goBack();
+  goBack = async() =>{
+    await this.props.history.goBack();
+    await this.props.getUser()
   };
 
   _conditionHeader(path) {

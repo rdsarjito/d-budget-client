@@ -7,7 +7,7 @@ import {
   ADD_CATEGORY,
   GET_CATEGORIES,
   DELETE_CATEGORY,
-} from './types';
+} from '../constants/actionTypes';
 
 const API = `http://localhost:5000`;
 

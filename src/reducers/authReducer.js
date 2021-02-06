@@ -1,4 +1,4 @@
-import { ADD_USER, JWT_TOKEN } from '../actions/types';
+import { ADD_USER, JWT_TOKEN } from '../constants/actionTypes';
 import { saveToLocalStorage, getLocalStorage } from '../helper';
 
 const initialState = getLocalStorage(JWT_TOKEN);

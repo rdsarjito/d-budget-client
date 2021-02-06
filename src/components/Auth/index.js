@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
-import AuthGoogle from './AuthGoogle';
+import AuthGoogle from './LoginGoogle';
 
 class Auth extends Component {
   _renderContent() {

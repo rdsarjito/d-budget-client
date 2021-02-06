@@ -1,4 +1,4 @@
-import { ADD_TRANSACTION, GET_TRANSACTIONS, DELETE_TRANSACTION } from '../actions/types';
+import { ADD_TRANSACTION, GET_TRANSACTIONS, DELETE_TRANSACTION } from '../constants/actionTypes';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (transactions = [], action) => {  

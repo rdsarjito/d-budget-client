@@ -1,13 +1,13 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { GoogleLogin } from 'react-google-login';
 
 import * as actions from '../../actions';
 import { Redirect } from 'react-router-dom';
 
 const clientID = "760041547568-m296ef03jkijltffrhtv0p0r2ulh9fdr.apps.googleusercontent.com";
 
-class AuthGoogle extends Component {
+class LoginGoogle extends Component {
   state = {
     redirect: false
   };
@@ -19,7 +19,7 @@ class AuthGoogle extends Component {
   };
 
   responseGoogleFailed(err) {
-    console.log(err)
+    console.log(err);
   };
 
   _renderContent() {
@@ -59,4 +59,4 @@ class AuthGoogle extends Component {
   };
 };
 
-export default connect(({ user }) => ({ user }), actions)(AuthGoogle);
+export default connect(({ user }) => ({ user }), actions)(LoginGoogle);
