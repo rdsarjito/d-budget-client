@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import * as actions from '../../actions';
 import { getLocalStorage } from '../../helper';
@@ -7,6 +8,15 @@ import blankUserImage from '../../images/blank-user.png';
 import AuthGoogle from './LoginGoogle';
 
 class Auth extends Component {
+  state = {
+    redirect: false
+  };
+
+  _logoutButton = async () => {
+    await localStorage.clear();
+    this.setState({ redirect: true });
+  };
+
   _renderImage() {
     if(getLocalStorage('profile')[1]){
       return (
@@ -15,7 +25,7 @@ class Auth extends Component {
             <img src={getLocalStorage('profile')[1].existingUser.picture} alt="user" />
           </div>
           <div className="auth-wrapper">
-            <button>Logout</button>
+            <button onClick={this._logoutButton}>Logout</button>
           </div>
         </div>
       );
@@ -33,6 +43,9 @@ class Auth extends Component {
     );
   };
   render() {
+    if (this.state.redirect) {
+      return <Redirect to='/budget'/>;
+    };
     return (
       <div className="profile-wrapper">
         {this._renderImage()}

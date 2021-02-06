@@ -29,14 +29,15 @@ export const adduser = (code) => async dispatch => {
 
 export const getUser = () => async dispatch => {
   const token = localStorage.getItem('jwt_token')
+  if(token === null) return;
+
   const GET = { 
     method: 'GET',
     headers: {
-      Authorization: 'Bearer ' + token
+      Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('jwt_token'))[0].accesToken
     }
   }
 
-  if(token === null) return;
 
   const res = await fetch(`${API}/user`, GET)
   const respond = await res.json();
