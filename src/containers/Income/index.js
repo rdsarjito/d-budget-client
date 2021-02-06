@@ -9,7 +9,7 @@ import TotalCashFlow from '../../components/TotalCashFlow';
 const API = `http://localhost:5000`;
 
 class Income extends Component {
-  componentDidMount(){
+  componentDidMount = async() =>{
     const GET = {
       method: 'GET',
     };

@@ -23,28 +23,17 @@ class LoginGoogle extends Component {
   };
 
   _renderContent() {
-    switch(this.props.user) {
-      case(null):
-        return;
-      case(false):
-        return (
-          <div>
-            <GoogleLogin 
-              clientId={clientID}
-              buttonText="Google"
-              onSuccess={this.responseGoogleSucces}
-              onFailure={this.responseGoogleFailed}
-              accessType={'offline'}
-              cookiePolicy={'single_host_origin'}
-              responseType={'code'}
-            />
-          </div>
-        )
-      default: 
-        return (
-          <div>logout</div>
-        )
-    }
+    <div>
+      <GoogleLogin 
+        clientId={clientID}
+        buttonText="Google"
+        onSuccess={this.responseGoogleSucces}
+        onFailure={this.responseGoogleFailed}
+        accessType={'offline'}
+        cookiePolicy={'single_host_origin'}
+        responseType={'code'}
+      />
+    </div>
   };
 
   render() {
@@ -53,7 +42,15 @@ class LoginGoogle extends Component {
     };
     return (
       <div>
-        {this._renderContent()}
+        <GoogleLogin 
+        clientId={clientID}
+        buttonText="Google"
+        onSuccess={this.responseGoogleSucces}
+        onFailure={this.responseGoogleFailed}
+        accessType={'offline'}
+        cookiePolicy={'single_host_origin'}
+        responseType={'code'}
+      />
       </div>
     );
   };

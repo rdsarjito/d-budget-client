@@ -1,15 +1,16 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { saveToLocalStorage, getLocalStorage } from '../../helper';
 import * as actions from '../../actions';
 import AuthGoogle from './LoginGoogle';
 
 class Auth extends Component {
   _renderContent() {
-    switch(this.props.user) {
+    switch(getLocalStorage) {
       case(null):
         return;
-      case(false):
+      case(undefined):
         return (
           <div to="/login" className="picture-profile-big">
             <img src="http://101.50.0.139:5050/images/blank-user.png" alt="user-blank" />
@@ -18,7 +19,7 @@ class Auth extends Component {
       default:
         return (
           <div to="/login" className="picture-profile-big">
-            <img src={this.props.user.existingUser.picture} alt="user" />
+            {/* <img src={this.props.user.existingUser.picture} alt="user" /> */}
           </div>
         );
     };

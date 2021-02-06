@@ -7,3 +7,4 @@ export const DELETE_CATEGORY = 'delete_category';
 export const ADD_USER = 'add_user';
 export const GET_USER = 'get_user'
 export const JWT_TOKEN = 'jwt_token';
+export const PROFILE = 'profile';

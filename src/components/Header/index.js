@@ -1,10 +1,11 @@
 import { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import backArrow from '../../images/back-arrow.png';
 
 import * as actions from '../../actions';
 
-import { capitalizeFirstLetter } from '../../helper';
+import { capitalizeFirstLetter, getLocalStorage } from '../../helper';
 
 import '../../style/style.css';
 
@@ -19,22 +20,18 @@ class Header extends Component {
   };
   
   _renderContent() {
-    switch(this.props.user) {
-      case null:
-        return;
-      case false:
-        return (
-          <Link to="/login" className="picture-profile">
-            <img src="http://101.50.0.139:5050/images/blank-user.png" alt="user-blank" />
-          </Link>
-        );
-      default:
-        return (
-          <Link to="/login" className="picture-profile">
-            <img src={this.props.user.existingUser.picture} alt="user" />
-          </Link>
-        );
+    if(getLocalStorage('profile')[1]){
+      return (
+        <Link to="/login" className="picture-profile">
+          <img src={getLocalStorage('profile')[1].existingUser.picture} alt="user" />
+        </Link>
+      );
     };
+    return (
+      <Link to="/login" className="picture-profile">
+        <img src="http://101.50.0.139:5050/images/blank-user.png" alt="user-blank" />
+      </Link>
+    )
   };
 
   goBack(){
@@ -54,7 +51,7 @@ class Header extends Component {
     return (
       <div className="wrapper-header">
         <div onClick={this.goBack} className="back-button">
-          <img src='http://localhost:5000/images/left-arrow.png' alt='' />
+          <img src={backArrow} alt='' />
         </div>
         <div className="header-title white">
           {capitalizeFirstLetter(path)}

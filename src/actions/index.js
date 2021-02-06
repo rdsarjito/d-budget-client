@@ -11,6 +11,7 @@ import {
 
 const API = `http://localhost:5000`;
 
+
 export const adduser = (code) => async dispatch => {
   const POST = {
     method: 'POST',
@@ -27,18 +28,17 @@ export const adduser = (code) => async dispatch => {
 };
 
 export const getUser = () => async dispatch => {
-  const ls = localStorage.getItem('jwt_token')
+  const token = localStorage.getItem('jwt_token')
   const GET = { 
     method: 'GET',
     headers: {
-      Authorization: 'Bearer ' + ls
+      Authorization: 'Bearer ' + token
     }
   }
-  if(ls === null) {
-    return;
-  }
+
   const res = await fetch(`${API}/user`, GET)
   const respond = await res.json();
+
   dispatch({ type: GET_USER, payload: respond });
 };
 
