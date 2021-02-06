@@ -36,6 +36,8 @@ export const getUser = () => async dispatch => {
     }
   }
 
+  if(token === null) return;
+
   const res = await fetch(`${API}/user`, GET)
   const respond = await res.json();
 

@@ -14,7 +14,7 @@ class LoginGoogle extends Component {
 
   responseGoogleSucces = async(code) => {
     await this.props.adduser(code);
-    await this.props.getUser()
+    await this.props.getUser();
     this.setState({ redirect: true });
   };
 

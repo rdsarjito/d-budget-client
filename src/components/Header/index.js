@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import backArrow from '../../images/back-arrow.png';
 
 import * as actions from '../../actions';
-
 import { capitalizeFirstLetter, getLocalStorage } from '../../helper';
+import blankUserImage from '../../images/blank-user.png';
 
 import '../../style/style.css';
 
@@ -29,9 +29,9 @@ class Header extends Component {
     };
     return (
       <Link to="/login" className="picture-profile">
-        <img src="http://101.50.0.139:5050/images/blank-user.png" alt="user-blank" />
+        <img src={blankUserImage} alt="user-blank" />
       </Link>
-    )
+    );
   };
 
   goBack(){
