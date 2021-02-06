@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
+import addImage from '../../images/add.png';
+import historyImage from '../../images/history.png'
 
 import '../../style/style.css';
 
@@ -8,9 +10,9 @@ const formats = [{name: 'income'}, {name: 'expense'}, {name: 'history'}];
 class ButtonMenu extends Component {
   _conditionImage(format) {
     if(format === 'history') {
-      return <img src='http://101.50.0.139:5050/images/history.png' alt='' />
+      return <img src={historyImage} alt='' />
     };
-    return <img src='http://101.50.0.139:5050/images/add.png' alt='' />
+    return <img src={addImage} alt='' />
   };
 
   render() {
