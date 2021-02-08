@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import addImage from '../../images/add.png';
 import historyImage from '../../images/history.png'
 
+import { capitalizeFirstLetter } from '../../helper';
 import '../../style/style.css';
 
 class ButtonMenu extends Component {
@@ -22,7 +23,7 @@ class ButtonMenu extends Component {
             {this._conditionImage(format.name)}
           </div>
           <div className="button-menu-title ungu">
-            {format.name}
+            {capitalizeFirstLetter(format.name)}
           </div>
         </Link>
       );
