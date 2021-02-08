@@ -10,11 +10,8 @@ const API = `http://localhost:5000`;
 
 class Income extends Component {
   componentDidMount = async() =>{
-    const GET = {
-      method: 'GET',
-    };
-    this.props.getTransaction(API, 'income', GET);
-    this.props.getCategory(API, 'category', GET);
+    this.props.getTransaction('income');
+    this.props.getCategory();
   };
   render() {
     return (

@@ -43,7 +43,7 @@ class FormCategory extends Component {
       color
     };
 
-    await this.props.addCategory(this.props.type, data);
+    await this.props.addCategory(data);
     
     this.setState({
       category: '',

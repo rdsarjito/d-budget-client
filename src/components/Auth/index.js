@@ -14,6 +14,7 @@ class Auth extends Component {
 
   _logoutButton = async () => {
     await localStorage.clear();
+    await this.props.getTransaction();
     this.setState({ redirect: true });
   };
 

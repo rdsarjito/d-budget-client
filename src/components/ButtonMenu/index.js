@@ -5,8 +5,6 @@ import historyImage from '../../images/history.png'
 
 import '../../style/style.css';
 
-const formats = [{name: 'income'}, {name: 'expense'}, {name: 'history'}];
-
 class ButtonMenu extends Component {
   _conditionImage(format) {
     if(format === 'history') {
@@ -16,6 +14,7 @@ class ButtonMenu extends Component {
   };
 
   render() {
+    const formats = [{name: 'income'}, {name: 'expense'}, {name: 'history'}];
     return formats.map(format => {
       return (
         <Link key={format.name} className="button-menu-wrapper" to={`/${format.name}`} >

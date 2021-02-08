@@ -9,10 +9,7 @@ const API = `http://localhost:5000`;
 
 class Category extends Component {
   componentDidMount(){
-    const GET = {
-      method: 'GET',
-    };
-    this.props.getCategory(API, 'category', GET);
+    this.props.getCategory();
   };
   
   render() {

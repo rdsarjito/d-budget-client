@@ -1,11 +1,12 @@
 import { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+
 import backArrow from '../../images/back-arrow.png';
+import blankUserImage from '../../images/blank-user.png';
 
 import * as actions from '../../actions';
 import { capitalizeFirstLetter, getLocalStorage } from '../../helper';
-import blankUserImage from '../../images/blank-user.png';
 
 import '../../style/style.css';
 

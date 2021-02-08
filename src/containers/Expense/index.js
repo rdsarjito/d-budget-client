@@ -10,11 +10,8 @@ const API = `http://localhost:5000`;
 
 class Expense extends Component {
   componentDidMount(){
-    const GET = {
-      method: 'GET',
-    };
-    this.props.getTransaction(API, 'expense', GET);
-    this.props.getCategory(API, 'category', GET);
+    this.props.getTransaction('expense');
+    this.props.getCategory();
   };
   render() {
     return (

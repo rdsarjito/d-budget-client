@@ -8,10 +8,7 @@ import '../../style/style.css';
 
 class Category extends Component {
   _deleteCategory(id) {
-    const DELETE = {
-      method: 'DELETE',
-    };
-    this.props.deleteCategory(this.props.API, this.props.type, DELETE, id);
+    this.props.deleteCategory(id);
   };
 
   render() {

@@ -7,10 +7,10 @@ import {
   ADD_CATEGORY,
   GET_CATEGORIES,
   DELETE_CATEGORY,
+  REMOVE_TRANSACTION,
 } from '../constants/actionTypes';
 
 const API = `http://localhost:5000`;
-
 
 export const adduser = (code) => async dispatch => {
   const POST = {
@@ -45,9 +45,13 @@ export const getUser = () => async dispatch => {
 };
 
 export const addTransaction  = (type, data) => async dispatch => {
+  const token = localStorage.getItem('jwt_token')
+  console.log(token);
+  if(token === null) return;
   const POST = {
     method: 'POST',
     headers: {
+      Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('jwt_token'))[0].accesToken,
       'Accept': 'application/json',
       'Content-Type': 'application/json',
     },
@@ -58,8 +62,19 @@ export const addTransaction  = (type, data) => async dispatch => {
   dispatch({ type: ADD_TRANSACTION, payload: respond });
 };
 
-export const getTransaction = (API, format, GET) => async dispatch => {
-  const res = await fetch(`${API}/${format}`, GET);
+export const getTransaction = (type) => async dispatch => {
+  const token = localStorage.getItem('jwt_token');
+  console.log(token)
+  if(token === null) {
+    return dispatch({ type: REMOVE_TRANSACTION });
+  }
+  const GET = {
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('jwt_token'))[0].accesToken
+    }
+  };
+  const res = await fetch(`${API}/${type}`, GET);
   const respond = await res.json();
   dispatch({ type: GET_TRANSACTIONS, payload: respond });
 };
@@ -69,7 +84,7 @@ export const deleteTransaction = (API, format, DELETE, id) => async dispatch => 
   dispatch({ type: DELETE_TRANSACTION, payload: id });
 };
 
-export const addCategory = (type, data) => async dispatch => {
+export const addCategory = (data) => async dispatch => {
   const POST = {
     method: 'POST',
     headers: {
@@ -78,18 +93,24 @@ export const addCategory = (type, data) => async dispatch => {
     },
     body: JSON.stringify({ data })
   };
-  const res = await fetch(`${API}/${type}`, POST);
+  const res = await fetch(`${API}/category`, POST);
   const respond = await res.json();
   dispatch({ type: ADD_CATEGORY, payload: respond });
 };
 
-export const getCategory = (API, format, GET) => async dispatch => {
-  const res = await fetch(`${API}/${format}`, GET);
+export const getCategory = () => async dispatch => {
+  const GET = {
+    method: 'GET',
+  };
+  const res = await fetch(`${API}/category`, GET);
   const respond = await res.json();
   dispatch({ type: GET_CATEGORIES, payload: respond });
 };
 
-export const deleteCategory = (API, format, DELETE, id) => async dispatch => {
-  await fetch(`${API}/${format}/` + id, DELETE);
+export const deleteCategory = (id) => async dispatch => {
+  const DELETE = {
+    method: 'DELETE',
+  };
+  await fetch(`${API}/category` + id, DELETE);
   dispatch({ type: DELETE_CATEGORY, payload: id })
 };
