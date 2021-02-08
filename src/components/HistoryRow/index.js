@@ -17,9 +17,18 @@ class HistoryRow extends Component {
   };
 
   componentDidMount = async() => {
+    const token = localStorage.getItem('jwt_token');
+    if(token === null) {
+      return;
+    };
+    
     const GET = {
       method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('jwt_token'))[0].accesToken
+      }
     };
+
     const getIncome =  await fetch(`${API}/income`, GET);
     const getExpense = await fetch(`${API}/expense`, GET);
     
