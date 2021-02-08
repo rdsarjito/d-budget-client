@@ -38,7 +38,6 @@ export const getUser = () => async dispatch => {
     }
   }
 
-
   const res = await fetch(`${API}/user`, GET)
   const respond = await res.json();
 

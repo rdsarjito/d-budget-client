@@ -22,7 +22,7 @@ class Auth extends Component {
       return (
         <div>
           <div to="/login" >
-            <img src={getLocalStorage('profile')[1].existingUser.picture} alt="user" />
+            <img src={getLocalStorage('profile')[1].userData.picture} alt="user" />
           </div>
           <div className="auth-wrapper">
             <button onClick={this._logoutButton}>Logout</button>

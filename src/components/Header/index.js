@@ -23,7 +23,7 @@ class Header extends Component {
     if(getLocalStorage('profile')[1]){
       return (
         <Link to="/login" className="picture-profile">
-          <img src={getLocalStorage('profile')[1].existingUser.picture} alt="user" />
+          <img src={getLocalStorage('profile')[1].userData.picture} alt="user" />
         </Link>
       );
     };
