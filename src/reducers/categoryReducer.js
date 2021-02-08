@@ -1,4 +1,4 @@
-import { ADD_CATEGORY, DELETE_CATEGORY, GET_CATEGORIES } from '../constants/actionTypes';
+import { ADD_CATEGORY, DELETE_CATEGORY, GET_CATEGORIES, EMPTY_CATEGORY } from '../constants/actionTypes';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (categories = [], action) => {
@@ -9,6 +9,8 @@ export default (categories = [], action) => {
       return [...categories, action.payload];
     case DELETE_CATEGORY:
       return categories.filter((post) => post._id !== action.payload);
+    case EMPTY_CATEGORY:
+      return categories = [];
     default:
       return categories;
   };

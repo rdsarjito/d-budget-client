@@ -8,10 +8,7 @@ import '../../style/style.css';
 
 class Transaction extends Component {
   _deleteTransaction(id) {
-    const DELETE = {
-      method: 'DELETE',
-    };
-    this.props.deleteTransaction(this.props.API, this.props.type, DELETE, id);
+    this.props.deleteTransaction(this.props.type, id);
   };
   render() {
     const transaction = this.props.transaction;

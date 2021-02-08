@@ -7,7 +7,8 @@ import {
   ADD_CATEGORY,
   GET_CATEGORIES,
   DELETE_CATEGORY,
-  REMOVE_TRANSACTION,
+  EMPTY_TRANSACTION,
+  EMPTY_CATEGORY,
 } from '../constants/actionTypes';
 
 const API = `http://localhost:5000`;
@@ -46,7 +47,6 @@ export const getUser = () => async dispatch => {
 
 export const addTransaction  = (type, data) => async dispatch => {
   const token = localStorage.getItem('jwt_token')
-  console.log(token);
   if(token === null) return;
   const POST = {
     method: 'POST',
@@ -64,10 +64,9 @@ export const addTransaction  = (type, data) => async dispatch => {
 
 export const getTransaction = (type) => async dispatch => {
   const token = localStorage.getItem('jwt_token');
-  console.log(token)
   if(token === null) {
-    return dispatch({ type: REMOVE_TRANSACTION });
-  }
+    return dispatch({ type: EMPTY_TRANSACTION });
+  };
   const GET = {
     method: 'GET',
     headers: {
@@ -79,15 +78,29 @@ export const getTransaction = (type) => async dispatch => {
   dispatch({ type: GET_TRANSACTIONS, payload: respond });
 };
 
-export const deleteTransaction = (API, format, DELETE, id) => async dispatch => {
-  await fetch(`${API}/${format}/` + id, DELETE);
-  dispatch({ type: DELETE_TRANSACTION, payload: id });
+export const deleteTransaction = (type, id) => async dispatch => {
+  const token = localStorage.getItem('jwt_token');
+  if(token === null) {
+    return dispatch({ type: EMPTY_TRANSACTION });
+  };
+  const DELETE = {
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('jwt_token'))[0].accesToken
+    }
+  };
+  const res = await fetch(`${API}/${type}/` + id, DELETE);
+  const respond = await res.json();
+  dispatch({ type: DELETE_TRANSACTION, payload: respond });
 };
 
 export const addCategory = (data) => async dispatch => {
+  const token = localStorage.getItem('jwt_token');
+  if(token === null) return;
   const POST = {
     method: 'POST',
     headers: {
+      Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('jwt_token'))[0].accesToken,
       'Accept': 'application/json',
       'Content-Type': 'application/json',
     },
@@ -99,8 +112,15 @@ export const addCategory = (data) => async dispatch => {
 };
 
 export const getCategory = () => async dispatch => {
+  const token = localStorage.getItem('jwt_token');
+  if(token === null) {
+    return dispatch({ type: EMPTY_CATEGORY });
+  };
   const GET = {
     method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('jwt_token'))[0].accesToken
+    }
   };
   const res = await fetch(`${API}/category`, GET);
   const respond = await res.json();
@@ -108,9 +128,15 @@ export const getCategory = () => async dispatch => {
 };
 
 export const deleteCategory = (id) => async dispatch => {
+  const token = localStorage.getItem('jwt_token');
+  if(token === null) return;
   const DELETE = {
     method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('jwt_token'))[0].accesToken
+    }
   };
-  await fetch(`${API}/category` + id, DELETE);
-  dispatch({ type: DELETE_CATEGORY, payload: id })
+  const res = await fetch(`${API}/category/` + id, DELETE);
+  const respond = await res.json();
+  dispatch({ type: DELETE_CATEGORY, payload: respond })
 };

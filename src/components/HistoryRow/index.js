@@ -33,7 +33,6 @@ class HistoryRow extends Component {
     const sortDate = sortedDate(mergeData);
     return sortDate.map((history) => {
       const date = stringDate(history.date);
-      console.log(history.typeBalance)
       return (
         <div key={history._id} className="history-wrapper">
           <div className="history-date">
