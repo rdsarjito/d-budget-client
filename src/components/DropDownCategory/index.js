@@ -1,11 +1,15 @@
 import { Component } from 'react';
 
 import Category from './Category';
-class DropdownCategory extends Component {  
+class DropdownCategory extends Component {
+  state =  {
+    category: ''
+  }
+
   render() {
     return (
       <div className="dropdown-category">
-        <select onChange={this.props.onChange} className="select-category">
+        <select onChange={this.props.onChange} value={this.props.category} className="select-category">
           <option value="" className="option-title">Choose one category</option>
           <Category categories={this.props.categories} type={this.props.type} />
         </select>

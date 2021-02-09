@@ -95,9 +95,10 @@ class Form extends Component {
         <form className="form-wrapper" onSubmit={this._onSubmit}>
           <DropDownCategory 
             onChange={this._onChangeSelectCategory} 
-            categories={this.props.categories} 
+            categories={this.props.categories}
+            category={this.state.category}
             categoryError={this.state.categoryError} 
-            type={this.props.type} 
+            type={this.props.type}
           />
           <div className="form-description">
             <input type="description" className="form-description-input" placeholder="Description" onChange={this._onChangeInputDescription} value={this.state.description} />
