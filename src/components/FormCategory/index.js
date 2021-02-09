@@ -8,8 +8,10 @@ class FormCategory extends Component {
   constructor() {
     super();
     this.state = {
+      type: '',
       category: '',
-      type: ''
+      typeError: '',
+      categoryError: ''
     };
     this._onChangeInputCategory = this._onChangeInputCategory.bind(this);
     this._onChangeSelectCategory = this._onChangeSelectCategory.bind(this);
@@ -32,33 +34,65 @@ class FormCategory extends Component {
     return randomArray(expenseColors);
   };
 
-  _onSubmit = async(e) => {
-    e.preventDefault();
-    
-    const color = this._condition(this.state.type);
+  _validateForm() {
+    let typeError = "";
+    let categoryError = "";
 
-    const data = {
-      category: this.state.category,
-      typeBalance: this.state.type,
-      color
+    if (!this.state.type) {
+      typeError = "Type cannot be blank"
     };
 
-    await this.props.addCategory(data);
-    
-    this.setState({
-      category: '',
-    });
+    if (!this.state.category) {
+      categoryError = "Category cannot be blank";
+    };
+
+    if (typeError || categoryError) {
+      this.setState({ typeError, categoryError });
+      return false;
+    };
+
+    return true;
+  };
+
+  _onSubmit = async(e) => {
+    e.preventDefault();
+    const isValid = this._validateForm();
+
+    if(isValid) {
+      const color = this._condition(this.state.type);
+
+      const data = {
+        category: this.state.category,
+        typeBalance: this.state.type,
+        color
+      };
+  
+      await this.props.addCategory(data);
+      
+      this.setState({
+        type: '',
+        category: '',
+        typeError: '',
+        categoryError: ''
+      });
+    };
   };
 
   render() {
     return (
       <form className="form-content" onSubmit={this._onSubmit}>
-        <select onChange={this._onChangeSelectCategory}>
+        <select value={this.state.type} onChange={this._onChangeSelectCategory}>
           <option>Pilih Satu</option>
           <option value="income">Income</option>
           <option value="expense">Expense</option>
         </select>
+        <div style={{ fontSize: 12, color: "red" }}>
+          {this.state.typeError}
+        </div>
         <input className="form-category-input" placeholder="Masukan Category" onChange={this._onChangeInputCategory} value={this.state.category} />
+        <div style={{ fontSize: 12, color: "red" }}>
+          {this.state.categoryError}
+        </div>
         <button>
           Simpan
         </button>

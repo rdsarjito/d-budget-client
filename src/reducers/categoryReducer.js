@@ -8,7 +8,7 @@ export default (categories = [], action) => {
     case ADD_CATEGORY:
       return [...categories, action.payload];
     case DELETE_CATEGORY:
-      return categories.filter((post) => post._id !== action.payload);
+      return categories.filter((post) => post._id !== action.payload._id);
     case EMPTY_CATEGORY:
       return categories = [];
     default:
