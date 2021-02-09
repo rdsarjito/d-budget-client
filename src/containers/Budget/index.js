@@ -29,10 +29,12 @@ class BudgetContainer extends Component {
 
     const getIncome =  await fetch(`${API}/income`, GET);
     const getExpense = await fetch(`${API}/expense`, GET);
+    const getCategory = await fetch(`${API}/category`, GET)
     
     const dataIncome = await getIncome.json();
     const dataExpense = await getExpense.json();
-    this.setState({ income: dataIncome, expense: dataExpense });
+    const dataCategory = await getCategory.json();
+    this.setState({ income: dataIncome, expense: dataExpense, category: dataCategory });
   };
   render() {
     return (
