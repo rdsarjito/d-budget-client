@@ -1,17 +1,22 @@
-import React, { useEffect, useCallback } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import React, { useEffect, useCallback, useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Transition } from '@headlessui/react'
 
+import d_logo from '../../images/d-logo.png';
 import backArrow from '../../images/back-arrow.png';
 import blankUserImage from '../../images/blank-user.png';
 
 import * as actions from '../../actions';
 import { capitalizeFirstLetter, getLocalStorage } from '../../helper';
 
+
 import '../../style/style.css';
 
 
 const Header = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+  
   useEffect(() => {
     if(!props.getUser) {
       props.getUser();
@@ -30,41 +35,78 @@ const Header = (props) => {
     () => {
       if(getLocalStorage('profile')[1]){
         return (
-          <Link to="/login" className="picture-profile">
-            <img src={getLocalStorage('profile')[1].userData.picture} alt="user" />
-          </Link>
+          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <img className="h-8 w-8 rounded-full" src={getLocalStorage('profile')[1].userData.picture} alt="user" />
+          </div>
         );
       };
       return (
-        <Link to="/login" className="picture-profile">
-          <img src={blankUserImage} alt="user-blank" />
-        </Link>
+        <div className="absolute inset-y-0 right-0 flex items-center">
+          <div className="ml-3 relative">
+            <div>
+              <button onClick={() => setIsOpen(!isOpen)} className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" >
+                <span className="sr-only">Open user menu</span>
+                <img className="h-8 w-8 rounded-full" src={blankUserImage} alt="user-blank" />
+              </button>
+            </div>
+          </div>
+          <Transition
+            show={isOpen}
+            enter="transition ease-out duration-100 transform"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
+            leave="transition ease-in duration-75 transform"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
+          >
+            {(ref) => (
+              <div ref={ref} className="rounded-md bg-white shadow-xs mt-8">
+                <div className="mt-2 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
+                  <a href="1" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+                  <a href="2" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+                  <a href="3" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+                </div>
+              </div>
+            )}
+          </Transition>
+        </div>
       );
     },
-    []
+    [isOpen]
   );
 
   const _conditionHeader = useCallback(
     (path) => {
       if(path === 'budget') {
         return (
-          <div className="wrapper-header">
-            <div className="back-button"></div>
-            <div className="header-title white">D-Budget</div>
+          <div className="relative flex items-center justify-between h-16">
+            <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex-shrink-0 flex items-center">
+                <img src={d_logo} alt='' className="block md:hidden lg:hidden h-8 w-auto" />
+                <img src={d_logo} alt='' className="hidden md:block lg:block h-8 w-auto" />
+              </div>
+            </div>
             {_renderContent()}
           </div>
         );
       };
   
       return (
-        <div className="wrapper-header">
-          <div onClick={_goBack} className="back-button">
-            <img src={backArrow} alt='' />
+        <div className="relative flex items-center justify-between h-16">
+          <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+            <div className="flex-shrink-0 flex items-center">
+              <div onClick={_goBack} className="absolute inset-y-0 left-0 flex items-center">
+                <img src={backArrow} alt='' className="md:hidden lg:hidden h-8 w-auto" />
+              </div>
+              <img src={d_logo} alt='' className="hidden md:block lg:block h-8 w-auto" />
+              <img src={d_logo} alt='' className="block md:hidden lg:hidden h-8 w-auto" />
+            </div>
+            {_renderContent()}
           </div>
-          <div className="header-title white">
+
+          {/* <div>
             {capitalizeFirstLetter(path)}
-          </div>
-          {_renderContent()}
+          </div> */}
         </div>
       );    
     }, 
@@ -72,7 +114,14 @@ const Header = (props) => {
   );
   
   const path = props.location.pathname.slice(1);
-  return _conditionHeader(path);
+
+  return (
+    <nav className="bg-gray-500">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        {_conditionHeader(path)}
+      </div>
+    </nav>
+  )
 };
 
 export default connect(({ user }) => ({ user }), actions)(withRouter(Header));
