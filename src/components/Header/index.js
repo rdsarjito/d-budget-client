@@ -8,7 +8,7 @@ import backArrow from '../../images/back-arrow.png';
 import blankUserImage from '../../images/blank-user.png';
 
 import * as actions from '../../actions';
-import { capitalizeFirstLetter, getLocalStorage } from '../../helper';
+import { getLocalStorage } from '../../helper';
 
 
 import '../../style/style.css';
@@ -103,8 +103,10 @@ const Header = (props) => {
               <div onClick={_goBack} className="absolute inset-y-0 left-0 flex items-center">
                 <img src={backArrow} alt='' className="md:hidden lg:hidden h-8 w-auto" />
               </div>
-              <img src={d_logo} alt='' className="hidden md:block lg:block h-8 w-auto" />
-              <img src={d_logo} alt='' className="block md:hidden lg:hidden h-8 w-auto" />
+              <div className="flex-shrink-0 flex items-center">
+                <img src={d_logo} alt='' className="hidden md:block lg:block h-8 w-auto" />
+                <img src={d_logo} alt='' className="block md:hidden lg:hidden h-8 w-auto" />
+              </div>
               <div className="hidden sm:block sm:ml-6">
                 <div className="flex space-x-4">
                   <Link to="/budget" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</Link>
@@ -114,12 +116,9 @@ const Header = (props) => {
                 </div>
               </div>
             </div>
-            {_renderContent()}
           </div>
-          
-          {/* <div>
-            {capitalizeFirstLetter(path)}
-          </div> */}
+          {_renderContent()}
+
         </div>
       );    
     }, 
