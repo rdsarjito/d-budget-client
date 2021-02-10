@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom'; 
 import Header from '../../components/Header';
-import Budget from '../Budget';
+import Dashboard from '../Dashboard';
 import Income from '../Income';
 import Expense from '../Expense';
 import History from '../History';
@@ -16,13 +16,13 @@ class App extends Component {
       <BrowserRouter>
         <div className="wrapper">
           <Header />
-          <Route path="/budget" component={Budget} />
+          <Route path="/dashboard" component={Dashboard} />
           <Route path="/income" component={Income} />
           <Route path="/expense" component={Expense} />
           <Route path="/history" component={History} />
           <Route path="/category" component={Category} />
           <Route path="/login" component={Login} />
-          <Redirect to="/budget" />
+          <Redirect to="/dashboard" />
         </div>
       </BrowserRouter>  
     )

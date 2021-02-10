@@ -46,7 +46,7 @@ class Auth extends Component {
   };
   render() {
     if (this.state.redirect) {
-      return <Redirect to='/budget'/>;
+      return <Redirect to='/dashboard'/>;
     };
     return (
       <div className="profile-wrapper">

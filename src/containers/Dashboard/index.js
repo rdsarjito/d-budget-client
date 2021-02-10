@@ -8,7 +8,7 @@ import '../../style/style.css';
 
 const API = `http://localhost:5000`;
 
-class BudgetContainer extends Component {
+class DashboardContainer extends Component {
   state = {
     income: [],
     expense: [],
@@ -47,4 +47,4 @@ class BudgetContainer extends Component {
   }
 }
 
-export default BudgetContainer;
+export default DashboardContainer;
