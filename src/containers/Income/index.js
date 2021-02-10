@@ -16,6 +16,7 @@ class Income extends Component {
   render() {
     return (
       <main>
+        
         <FormTransaction type="income" API={API} />
         <TotalCashFlow type="income" />
         <ListData type="income" API={API} />
