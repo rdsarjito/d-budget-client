@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback, useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Transition } from '@headlessui/react'
 
@@ -62,9 +62,7 @@ const Header = (props) => {
             {(ref) => (
               <div ref={ref} className="rounded-md bg-white shadow-xs mt-8">
                 <div className="mt-2 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
-                  <a href="1" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
-                  <a href="2" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
-                  <a href="3" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+                  <Link to="/login" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign in</Link>
                 </div>
               </div>
             )}
@@ -85,6 +83,14 @@ const Header = (props) => {
                 <img src={d_logo} alt='' className="block md:hidden lg:hidden h-8 w-auto" />
                 <img src={d_logo} alt='' className="hidden md:block lg:block h-8 w-auto" />
               </div>
+              <div class="hidden sm:block sm:ml-6">
+                <div class="flex space-x-4">
+                  <a href="1" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                  <a href="2" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Income</a>
+                  <a href="3" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Expense</a>
+                  <a href="4" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">History</a>
+                </div>
+              </div>
             </div>
             {_renderContent()}
           </div>
@@ -100,10 +106,18 @@ const Header = (props) => {
               </div>
               <img src={d_logo} alt='' className="hidden md:block lg:block h-8 w-auto" />
               <img src={d_logo} alt='' className="block md:hidden lg:hidden h-8 w-auto" />
+              <div class="hidden sm:block sm:ml-6">
+                <div class="flex space-x-4">
+                  <a href="1" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                  <a href="2" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Income</a>
+                  <a href="3" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Expense</a>
+                  <a href="4" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">History</a>
+                </div>
+              </div>
             </div>
             {_renderContent()}
           </div>
-
+          
           {/* <div>
             {capitalizeFirstLetter(path)}
           </div> */}
