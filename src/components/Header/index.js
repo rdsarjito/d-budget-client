@@ -13,7 +13,6 @@ import { capitalizeFirstLetter, getLocalStorage } from '../../helper';
 
 import '../../style/style.css';
 
-
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   
@@ -83,12 +82,12 @@ const Header = (props) => {
                 <img src={d_logo} alt='' className="block md:hidden lg:hidden h-8 w-auto" />
                 <img src={d_logo} alt='' className="hidden md:block lg:block h-8 w-auto" />
               </div>
-              <div class="hidden sm:block sm:ml-6">
-                <div class="flex space-x-4">
-                  <a href="1" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
-                  <a href="2" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Income</a>
-                  <a href="3" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Expense</a>
-                  <a href="4" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">History</a>
+              <div className="hidden sm:block sm:ml-6">
+                <div className="flex space-x-4">
+                  <Link to="/budget" className={(path === "budget") ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" : "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>Dashboard</Link>
+                  <Link to="/income" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Income</Link>
+                  <Link to="/expense" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Expense</Link>
+                  <Link to="/history" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">History</Link>
                 </div>
               </div>
             </div>
@@ -106,12 +105,12 @@ const Header = (props) => {
               </div>
               <img src={d_logo} alt='' className="hidden md:block lg:block h-8 w-auto" />
               <img src={d_logo} alt='' className="block md:hidden lg:hidden h-8 w-auto" />
-              <div class="hidden sm:block sm:ml-6">
-                <div class="flex space-x-4">
-                  <a href="1" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
-                  <a href="2" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Income</a>
-                  <a href="3" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Expense</a>
-                  <a href="4" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">History</a>
+              <div className="hidden sm:block sm:ml-6">
+                <div className="flex space-x-4">
+                  <Link to="/budget" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</Link>
+                  <Link to="/income" className={(path === "income") ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" : "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>Income</Link>
+                  <Link to="/expense" className={(path === "expense") ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" : "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>Expense</Link>
+                  <Link to="/history" className={(path === "history") ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" : "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>History</Link>
                 </div>
               </div>
             </div>
