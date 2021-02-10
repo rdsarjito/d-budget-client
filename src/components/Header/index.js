@@ -62,6 +62,7 @@ const Header = (props) => {
       return (
         <div className="absolute inset-y-0 right-0 flex items-center">
           <div className="ml-3 relative">
+            <div>test</div>
             <div>
               <button onClick={() => setIsOpen(!isOpen)} className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" >
                 <span className="sr-only">Open user menu</span>
