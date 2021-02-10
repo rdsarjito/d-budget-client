@@ -9,17 +9,17 @@ import '../../style/style.css';
 class ButtonMenu extends Component {
   _conditionImage(format) {
     if(format === 'history') {
-      return <img src={historyImage} alt='' />
+      return <img className="mx-auto h-8 w-8" src={historyImage} alt='' />
     };
-    return <img src={addImage} alt='' />
+    return <img className="mx-auto h-8 w-8" src={addImage} alt='' />
   };
 
   render() {
     const formats = [{name: 'income'}, {name: 'expense'}, {name: 'history'}];
     return formats.map(format => {
       return (
-        <Link key={format.name} className="button-menu-wrapper" to={`/${format.name}`} >
-          <div className="button-menu-add">
+        <Link key={format.name} className="" to={`/${format.name}`} >
+          <div >
             {this._conditionImage(format.name)}
           </div>
           <div className="button-menu-title ungu">
