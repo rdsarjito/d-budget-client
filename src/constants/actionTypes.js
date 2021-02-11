@@ -8,5 +8,6 @@ export const DELETE_CATEGORY = 'delete_category';
 export const EMPTY_CATEGORY = 'empty_category';
 export const ADD_USER = 'add_user';
 export const GET_USER = 'get_user'
+export const LOGOUT_USER = 'logout';
 export const JWT_TOKEN = 'jwt_token';
 export const PROFILE = 'profile';

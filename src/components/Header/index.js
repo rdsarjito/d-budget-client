@@ -1,6 +1,6 @@
-import React, { useEffect, useCallback, useState } from 'react';
-import { withRouter, Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, { useEffect, useCallback, useState, useRef } from 'react';
+import { withRouter, Link, useHistory } from 'react-router-dom';
+import { connect, useDispatch } from 'react-redux';
 import { Transition } from '@headlessui/react'
 
 import d_logo from '../../images/d-logo.png';
@@ -12,15 +12,20 @@ import { capitalizeFirstLetter, getLocalStorage } from '../../helper';
 
 
 import '../../style/style.css';
+import { LOGOUT_USER } from '../../constants/actionTypes';
 
 const Header = (props) => {
+  const navRef = useRef();
+
   const [isOpen, setIsOpen] = useState(false);
+
+  const history = useHistory();
+  const dispatch = useDispatch();
   
   useEffect(() => {
     if(!props.getUser) {
       props.getUser();
     }
-    console.log('mount it!');
   }, [props]);
 
   const _goBack = useCallback(
@@ -28,6 +33,14 @@ const Header = (props) => {
       props.history.goBack();
     },
     [props]
+  );
+
+  const _logoutButton = useCallback(
+    () => {
+      dispatch({ type: LOGOUT_USER });
+      history.push('/login')
+    },
+    [dispatch, history]
   );
 
   const _renderContent = useCallback(
@@ -48,10 +61,10 @@ const Header = (props) => {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            {(ref) => (
-              <div ref={ref} className="rounded-md bg-white shadow-xs mt-8">
+            {() => (
+              <div ref={navRef} className="rounded-md bg-white shadow-xs mt-8">
                 <div className="mt-2 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
-                  <Link to="/logout" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Log Out</Link>
+                  <div onClick={_logoutButton} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Log Out</div>
                 </div>
               </div>
             )}
@@ -62,7 +75,6 @@ const Header = (props) => {
       return (
         <div className="absolute inset-y-0 right-0 flex items-center">
           <div className="ml-3 relative">
-            <div>test</div>
             <div>
               <button onClick={() => setIsOpen(!isOpen)} className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" >
                 <span className="sr-only">Open user menu</span>
@@ -79,8 +91,8 @@ const Header = (props) => {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            {(ref) => (
-              <div ref={ref} className="rounded-md bg-white shadow-xs mt-8">
+            {() => (
+              <div ref={navRef} className="rounded-md bg-white shadow-xs mt-8">
                 <div className="mt-2 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
                   <Link to="/login" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign in</Link>
                 </div>
@@ -90,7 +102,7 @@ const Header = (props) => {
         </div>
       );
     },
-    [isOpen]
+    [isOpen, _logoutButton]
   );
 
   const _conditionHeader = useCallback(
@@ -153,9 +165,9 @@ const Header = (props) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {_conditionHeader(path)}
       </div>
-      <header class="bg-white shadow">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 class="text-3xl font-bold leading-tight text-gray-900">
+      <header className="bg-white shadow">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold leading-tight text-gray-900">
             {capitalizeFirstLetter(path)}
           </h1>
         </div>

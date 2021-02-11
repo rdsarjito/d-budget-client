@@ -1,4 +1,4 @@
-import { GET_USER, ADD_USER, JWT_TOKEN, PROFILE } from '../constants/actionTypes';
+import { GET_USER, ADD_USER, JWT_TOKEN, PROFILE, LOGOUT_USER } from '../constants/actionTypes';
 import { saveToLocalStorage, getLocalStorage } from '../helper';
 
 const initialState = getLocalStorage(JWT_TOKEN);
@@ -14,6 +14,10 @@ export default (state = initialState, action) => {
       state.push(action.payload);
       saveToLocalStorage(JWT_TOKEN, state);
       return state;
+    case LOGOUT_USER:
+      localStorage.clear();
+
+      return state = [];
     default:
       return state;
   };
