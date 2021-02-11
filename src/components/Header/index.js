@@ -122,9 +122,9 @@ const Header = (props) => {
               <div className="hidden sm:block sm:ml-6">
                 <div className="flex space-x-4">
                   <Link to="/dashboard" className={(path === "dashboard") ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" : "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>Dashboard</Link>
-                  <Link to="/income" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Income</Link>
-                  <Link to="/expense" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Expense</Link>
-                  <Link to="/history" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">History</Link>
+                  <Link to="/income" className="text-gray-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Income</Link>
+                  <Link to="/expense" className="text-gray-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Expense</Link>
+                  <Link to="/history" className="text-gray-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">History</Link>
                 </div>
               </div>
             </div>
@@ -146,10 +146,10 @@ const Header = (props) => {
               </div>
               <div className="hidden sm:block sm:ml-6">
                 <div className="flex space-x-4">
-                  <Link to="/dashboard" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</Link>
-                  <Link to="/income" className={(path === "income") ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" : "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>Income</Link>
-                  <Link to="/expense" className={(path === "expense") ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" : "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>Expense</Link>
-                  <Link to="/history" className={(path === "history") ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" : "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>History</Link>
+                  <Link to="/dashboard" className="text-gray-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</Link>
+                  <Link to="/income" className={(path === "income") ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" : "text-gray-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>Income</Link>
+                  <Link to="/expense" className={(path === "expense") ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" : "text-gray-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>Expense</Link>
+                  <Link to="/history" className={(path === "history") ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" : "text-gray-600 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"}>History</Link>
                 </div>
               </div>
             </div>
@@ -165,18 +165,21 @@ const Header = (props) => {
   const path = props.location.pathname.slice(1);
 
   return (
-    <nav className="bg-gray-500">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {_conditionHeader(path)}
-      </div>
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold leading-tight text-gray-900">
-            {capitalizeFirstLetter(path)}
-          </h1>
+    <div>
+      <nav className="bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {_conditionHeader(path)}
         </div>
-      </header>
-    </nav>
+      </nav>
+      <header className="bg-white border-b">
+          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h1 className="text-3xl font-bold leading-tight text-gray-900">
+              {capitalizeFirstLetter(path)}
+            </h1>
+          </div>
+        </header>
+    </div>
+
   )
 };
 
