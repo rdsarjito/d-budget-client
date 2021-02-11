@@ -23,12 +23,9 @@ class LoginGoogle extends Component {
   };
 
   _renderContent() {
-    <div className="w-4">
+    <div>
       <GoogleLogin 
         clientId={clientID}
-        render={renderProps => (
-          <button onClick={renderProps.onClick} disabled={renderProps.disabled}>asdasds</button>
-        )}
         buttonText="Google"
         onSuccess={this.responseGoogleSucces}
         onFailure={this.responseGoogleFailed}

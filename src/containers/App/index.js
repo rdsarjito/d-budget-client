@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom'; 
 import Header from '../../components/Header';
+import SignUp from '../../components/Auth/SignUp';
 import Dashboard from '../Dashboard';
 import Income from '../Income';
 import Expense from '../Expense';
@@ -22,6 +23,7 @@ class App extends Component {
           <Route path="/history" component={History} />
           <Route path="/category" component={Category} />
           <Route path="/login" component={Login} />
+          <Route path="/signup" component={SignUp} />
           <Redirect to="/dashboard" />
         </div>
       </BrowserRouter>  
