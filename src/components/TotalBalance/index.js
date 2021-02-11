@@ -14,9 +14,17 @@ class TotalBalance extends Component {
       return result + parseInt(item.amount);
     }, 0);
     const totalBalance = totalInflow - totalOutflow;
+    if(totalBalance === 0) {
+      return <div className="hidden"></div>
+    }
     return (
-      <div className="balance-cash white">
-        Rp. {addMoneyDots(totalBalance)}
+      <div>
+        <div className="text-center w-20 mx-auto">
+          Balance
+        </div>
+        <div className="text-center">
+          Rp. {addMoneyDots(totalBalance)}
+        </div>
       </div>
     )
   }

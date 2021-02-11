@@ -22,6 +22,23 @@ class LoginGoogle extends Component {
     console.log(err);
   };
 
+  _renderContent() {
+    <div className="w-4">
+      <GoogleLogin 
+        clientId={clientID}
+        render={renderProps => (
+          <button onClick={renderProps.onClick} disabled={renderProps.disabled}>asdasds</button>
+        )}
+        buttonText="Google"
+        onSuccess={this.responseGoogleSucces}
+        onFailure={this.responseGoogleFailed}
+        accessType={'offline'}
+        cookiePolicy={'single_host_origin'}
+        responseType={'code'}
+      />
+    </div>
+  };
+
   render() {
     if (this.state.redirect) {
       return <Redirect to='/dashboard'/>;
@@ -30,11 +47,6 @@ class LoginGoogle extends Component {
       <div>
         <GoogleLogin 
         clientId={clientID}
-        render={renderProps => (
-          <button onClick={renderProps.onClick} disabled={renderProps.disabled} class="relative mt-6 border rounded-md py-2 text-sm text-gray-800 bg-gray-100 hover:bg-gray-200">
-          <span>Login with Google</span>
-        </button>    
-        )}
         buttonText="Google"
         onSuccess={this.responseGoogleSucces}
         onFailure={this.responseGoogleFailed}
