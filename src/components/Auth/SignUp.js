@@ -33,7 +33,7 @@ const SignUp = () => {
 
       <div class="flex items-center mb-6 -mt-4">
         <div class="flex ml-auto">
-          <a href="#" class="inline-flex text-xs sm:text-sm text-blue-500 hover:text-blue-700">Forgot Your Password?</a>
+          <a href="3" class="inline-flex text-xs sm:text-sm text-blue-500 hover:text-blue-700">Forgot Your Password?</a>
         </div>
       </div>
 
