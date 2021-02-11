@@ -9,18 +9,22 @@ import blankUserImage from '../../images/blank-user.png';
 
 import * as actions from '../../actions';
 import { capitalizeFirstLetter, getLocalStorage } from '../../helper';
-
-
-import '../../style/style.css';
+import useOutsideClick from "../../useOutsideClick";
 import { LOGOUT_USER } from '../../constants/actionTypes';
 
-const Header = (props) => {
-  const navRef = useRef();
+import '../../style/style.css';
 
-  const [isOpen, setIsOpen] = useState(false);
+const Header = (props) => {
+  const ref = useRef();
+
+  const [show, setSate] = useState(false);
 
   const history = useHistory();
   const dispatch = useDispatch();
+
+  useOutsideClick(ref, () => {
+    if (show) setSate(false);
+  });
   
   useEffect(() => {
     if(!props.getUser) {
@@ -48,12 +52,12 @@ const Header = (props) => {
       if(getLocalStorage('profile')[1]){
         return (
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <button onClick={() => setIsOpen(!isOpen)} className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" >
+            <button onClick={() => setSate(!show)} className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" >
               <span className="sr-only">Open user menu</span>
               <img className="h-8 w-8 rounded-full" src={getLocalStorage('profile')[1].userData.picture} alt="user" />
             </button>
             <Transition
-            show={isOpen}
+            show={show}
             enter="transition ease-out duration-100 transform"
             enterFrom="opacity-0 scale-95"
             enterTo="opacity-100 scale-100"
@@ -61,13 +65,13 @@ const Header = (props) => {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            {() => (
-              <div ref={navRef} className="rounded-md bg-white shadow-xs mt-8">
+            {show && (
+              <div ref={ref} className="rounded-md bg-white shadow-xs mt-8">
                 <div className="mt-2 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
                   <div onClick={_logoutButton} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Log Out</div>
                 </div>
               </div>
-            )}
+              )}
           </Transition>
           </div>
         );
@@ -76,14 +80,14 @@ const Header = (props) => {
         <div className="absolute inset-y-0 right-0 flex items-center">
           <div className="ml-3 relative">
             <div>
-              <button onClick={() => setIsOpen(!isOpen)} className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" >
+              <button onClick={() => setSate(!show)} className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" >
                 <span className="sr-only">Open user menu</span>
                 <img className="h-8 w-8 rounded-full" src={blankUserImage} alt="user-blank" />
               </button>
             </div>
           </div>
           <Transition
-            show={isOpen}
+            show={show}
             enter="transition ease-out duration-100 transform"
             enterFrom="opacity-0 scale-95"
             enterTo="opacity-100 scale-100"
@@ -92,7 +96,7 @@ const Header = (props) => {
             leaveTo="opacity-0 scale-95"
           >
             {() => (
-              <div ref={navRef} className="rounded-md bg-white shadow-xs mt-8">
+              <div ref={ref} className="rounded-md bg-white shadow-xs mt-8">
                 <div className="mt-2 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
                   <Link to="/login" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign in</Link>
                 </div>
@@ -102,7 +106,7 @@ const Header = (props) => {
         </div>
       );
     },
-    [isOpen, _logoutButton]
+    [show, _logoutButton]
   );
 
   const _conditionHeader = useCallback(
