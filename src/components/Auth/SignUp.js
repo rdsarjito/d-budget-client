@@ -2,6 +2,8 @@ import React from 'react';
 
 const SignUp = () => {
   return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-300">
+    <div className="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
     <div class="mt-10">
     <form action="#">
       <div class="flex flex-col mb-6">
@@ -48,6 +50,8 @@ const SignUp = () => {
         </button>
       </div>
     </form>
+    </div>
+    </div>
     </div>
   )
 
