@@ -4,7 +4,7 @@ const SignUp = () => {
   return (
     <div className="flex flex-col mx-4 items-center justify-center lg:bg-gray-300">
       <div className="my-10 flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
-        <div className="font-medium self-center text-xl sm:text-2xl uppercase text-gray-800">Sign up for free</div>
+        <div className="font-medium text-center text-xl sm:text-2xl uppercase text-gray-800">Sign up for free</div>
         <div className="mt-10">
           <form action="#">
             <div class="flex flex-col mb-6">

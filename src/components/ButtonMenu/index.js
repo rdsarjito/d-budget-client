@@ -18,7 +18,7 @@ class ButtonMenu extends Component {
     const formats = [{name: 'income'}, {name: 'expense'}, {name: 'history'}];
     return formats.map(format => {
       return (
-        <Link key={format.name} className="" to={`/${format.name}`} >
+        <Link key={format.name} to={`/${format.name}`} >
           <div >
             {this._conditionImage(format.name)}
           </div>
