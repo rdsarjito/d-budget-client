@@ -24,6 +24,7 @@ export const adduser = (code) => async dispatch => {
   };
   const res = await fetch(`${API}/user`, POST);
   const respond = await res.json();
+  console.log(respond)
 
   dispatch({ type: ADD_USER, payload: respond });
 };
