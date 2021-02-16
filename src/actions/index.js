@@ -140,3 +140,4 @@ export const deleteCategory = (id) => async dispatch => {
   const respond = await res.json();
   dispatch({ type: DELETE_CATEGORY, payload: respond })
 };
+
