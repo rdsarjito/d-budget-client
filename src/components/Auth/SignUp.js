@@ -1,6 +1,6 @@
 import React from 'react';
 import useForm from '../../useForm';
-import validate from '../../validateInfo';
+import validate from '../../validateSignUp';
 
 const SignUp = () => {
   const { handleChange, values, handleSubmit, errors } = useForm(validate);
@@ -29,6 +29,7 @@ const SignUp = () => {
                 <label htmlFor="password" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Password:</label>
                 <div className="relative">
                   <input id="password" value={values.password} onChange={handleChange} type="password" name="password" className="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Password" />
+                  <p>{errors.password}</p>
                 </div>
               </div>
 
@@ -36,6 +37,7 @@ const SignUp = () => {
                 <label htmlFor="password2" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">Confirm Password:</label>
                 <div className="relative">
                   <input id="password2" value={values.password2} onChange={handleChange} type="password" name="password2" className="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Confirm Password" />
+                  <p>{errors.password2}</p>
                 </div>
               </div>
 
