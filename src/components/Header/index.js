@@ -57,14 +57,14 @@ const Header = (props) => {
               <img className="h-8 w-8 rounded-full" src={getLocalStorage('profile')[1].userData.picture} alt="user" />
             </button>
             <Transition
-            show={show}
-            enter="transition ease-out duration-100 transform"
-            enterFrom="opacity-0 scale-95"
-            enterTo="opacity-100 scale-100"
-            leave="transition ease-in duration-75 transform"
-            leaveFrom="opacity-100 scale-100"
-            leaveTo="opacity-0 scale-95"
-          >
+              show={show}
+              enter="transition ease-out duration-100 transform"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="transition ease-in duration-75 transform"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
             {show && (
               <div ref={ref} className="rounded-md bg-white shadow-xs mt-8">
                 <div className="mt-2 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">

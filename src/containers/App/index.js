@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import Header from '../../components/Header';
 import SignUp from '../../components/Auth/SignUp';
 import Dashboard from '../Dashboard';
-import Income from '../Income';
+import Income from '../Income/income';
 import Expense from '../Expense';
 import History from '../History';
 import Category from '../Category';

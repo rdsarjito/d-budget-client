@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { adduser } from './actions/index';
 
 const useForm = (validate) => {
-  const dispatch = useDispatch();
 
   const [values, setValues] = useState({
     username: '',
@@ -25,7 +22,6 @@ const useForm = (validate) => {
   const handleSubmit = e => {
     e.preventDefault();
     setErrors(validate(values));
-    dispatch(adduser(values))
   }
 
   return { handleChange, values, handleSubmit, errors }

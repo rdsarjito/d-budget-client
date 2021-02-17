@@ -13,7 +13,7 @@ import {
 
 const API = `http://localhost:5000`;
 
-export const adduser = (code) => async dispatch => {
+export const loginGoogle = (code) => async dispatch => {
   const POST = {
     method: 'POST',
     headers: {
