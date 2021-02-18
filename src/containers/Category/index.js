@@ -1,25 +1,25 @@
-import { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
-import * as actions from '../../actions';
+import { getCategory } from '../../actions';
 import FormCategory from '../../components/FormCategory';
 import ListData from '../../components/ListData';
 
 const API = `http://localhost:5000`;
 
-class Category extends Component {
-  componentDidMount(){
-    this.props.getCategory();
-  };
-  
-  render() {
-    return (
-      <main>
-        <FormCategory type="category" />
-        <ListData type="category" API={API} />
-      </main>
-    );
-  };
+const Category = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCategory())
+  }, [dispatch]);
+
+  return (
+    <main>
+      <FormCategory type="category" />
+      <ListData type="category" API={API} />
+    </main>
+  );
 };
 
-export default connect(null, actions)(Category);
+export default Category;
