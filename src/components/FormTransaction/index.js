@@ -90,38 +90,40 @@ class Form extends Component {
 
   render() {
     return (
-      <div className="padding-left-right">
-        <AddCategory />
-        <form className="form-wrapper" onSubmit={this._onSubmit}>
-          <DropDownCategory 
-            onChange={this._onChangeSelectCategory} 
-            categories={this.props.categories}
-            category={this.state.category}
-            categoryError={this.state.categoryError} 
-            type={this.props.type}
-          />
-          <div className="form-description">
-            <input type="description" className="form-description-input" placeholder="Description" onChange={this._onChangeInputDescription} value={this.state.description} />
-            <div style={{ fontSize: 12, color: "red" }}>
-              {this.state.descriptionError}
+      <div className="hidden md:block pr-4 pl-4 py-10 flex flex-col items-center justify-center bg-gray-300">
+        <div className="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md mx-auto">
+          <AddCategory />
+          <form action="1">
+            <DropDownCategory 
+              onChange={this._onChangeSelectCategory} 
+              categories={this.props.categories}
+              category={this.state.category}
+              categoryError={this.state.categoryError} 
+              type={this.props.type}
+            />
+            <div className="form-description">
+              <input type="description" className="form-description-input" placeholder="Description" onChange={this._onChangeInputDescription} value={this.state.description} />
+              <div style={{ fontSize: 12, color: "red" }}>
+                {this.state.descriptionError}
+              </div>
             </div>
-          </div>
-          <div className="form-amount">
-            <div className="form-amount-title">
-              Amount
+            <div className="form-amount">
+              <div className="form-amount-title">
+                Amount
+              </div>
+              <span className="textbox">
+                Rp.
+                <NumberFormat className="form-amount-input" onChange={this._onChangeInputAmount} value={this.state.amount} thousandSeparator={true} placeholder='Amount' />
+              </span>
+              <div style={{ fontSize: 12, color: "red" }}>
+                {this.state.amountError}
+              </div>
             </div>
-            <span className="textbox">
-              Rp.
-              <NumberFormat className="form-amount-input" onChange={this._onChangeInputAmount} value={this.state.amount} thousandSeparator={true} placeholder='Amount' />
-            </span>
-            <div style={{ fontSize: 12, color: "red" }}>
-              {this.state.amountError}
-            </div>
-          </div>
-          <button className="form-btn-simpan">
-            Simpan
-          </button>
-        </form>
+            <button className="form-btn-simpan">
+              Simpan
+            </button>
+          </form>
+        </div>
       </div>
     );
   };
