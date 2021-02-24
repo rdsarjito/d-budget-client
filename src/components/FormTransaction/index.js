@@ -90,7 +90,7 @@ class Form extends Component {
 
   render() {
     return (
-      <div className="hidden md:block pr-4 pl-4 py-10 flex flex-col items-center justify-center bg-gray-300">
+      <div className="md:block pr-4 pl-4 py-10 flex flex-col items-center justify-center bg-gray-300">
         <div className="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md mx-auto">
           <AddCategory />
           <form onSubmit={this._onSubmit}>
@@ -111,9 +111,9 @@ class Form extends Component {
               <div className="mb-1">
                 Amount
               </div>
-              <span className="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400">
-                Rp.
-                <NumberFormat onChange={this._onChangeInputAmount} value={this.state.amount} thousandSeparator={true} placeholder='Amount' />
+              <span >
+                {/* Rp.  */}
+                <NumberFormat className="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" onChange={this._onChangeInputAmount} value={this.state.amount} thousandSeparator={true} placeholder='Amount' />
               </span>
               <div className="mt-1" style={{ fontSize: 12, color: "red" }}>
                 {this.state.amountError}
