@@ -8,9 +8,9 @@ class DropdownCategory extends Component {
 
   render() {
     return (
-      <div className="dropdown-category">
+      <div className="mb-6">
         <select onChange={this.props.onChange} value={this.props.category} className="select-category">
-          <option value="" className="option-title">Choose one category</option>
+          <option value="" className="option-title">Choose One Category</option>
           <Category categories={this.props.categories} type={this.props.type} />
         </select>
         <div style={{ fontSize: 12, color: "red" }}>

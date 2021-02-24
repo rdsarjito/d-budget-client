@@ -5,7 +5,7 @@ import addImage from '../../images/add.png'
 class AddCategory extends Component {
   render() {
     return (
-      <Link className="flex justify-start my-4" to={`/${'Category'}`}>
+      <Link className="flex justify-start mb-6" to={`/${'Category'}`}>
         <img className="w-8" src={addImage} alt='' />
         <div className="flex items-center ml-2">Category</div>
       </Link>

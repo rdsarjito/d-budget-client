@@ -101,27 +101,34 @@ class Form extends Component {
               categoryError={this.state.categoryError} 
               type={this.props.type}
             />
-            <div className="form-description">
-              <input type="description" className="form-description-input" placeholder="Description" onChange={this._onChangeInputDescription} value={this.state.description} />
+            <div className="flex flex-col mb-6">
+              <input type="description" className="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Description" onChange={this._onChangeInputDescription} value={this.state.description} />
               <div style={{ fontSize: 12, color: "red" }}>
                 {this.state.descriptionError}
               </div>
             </div>
-            <div className="form-amount">
-              <div className="form-amount-title">
+            <div className="mb-6">
+              <div className="mb-1">
                 Amount
               </div>
-              <span className="textbox">
+              <span className="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400">
                 Rp.
-                <NumberFormat className="form-amount-input" onChange={this._onChangeInputAmount} value={this.state.amount} thousandSeparator={true} placeholder='Amount' />
+                <NumberFormat onChange={this._onChangeInputAmount} value={this.state.amount} thousandSeparator={true} placeholder='Amount' />
               </span>
-              <div style={{ fontSize: 12, color: "red" }}>
+              <div className="mt-1" style={{ fontSize: 12, color: "red" }}>
                 {this.state.amountError}
               </div>
             </div>
-            <button className="form-btn-simpan">
-              Simpan
-            </button>
+            <div className="flex w-full">
+              <button type="submit" className="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2 w-full transition duration-150 ease-in">
+                <span className="mr-2 uppercase">Save</span>
+                  <span>
+                    <svg className="h-6 w-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                  </span>
+              </button>
+            </div>
           </form>
         </div>
       </div>
