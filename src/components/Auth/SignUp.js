@@ -1,9 +1,9 @@
 import React from 'react';
-import useForm from '../../useForm';
+import useFormSignUp from '../../useFormSignUp';
 import validate from '../../validateSignUp';
 
 const SignUp = () => {
-  const { handleChange, values, handleSubmit, errors } = useForm(validate);
+  const { handleChange, values, handleSubmit, errors } = useFormSignUp(validate);
   return (
     <div className="pr-4 pl-4 py-10 flex flex-col items-center justify-center bg-gray-300">
       <div className="flex flex-col items-center justify-center lg:bg-gray-300">
