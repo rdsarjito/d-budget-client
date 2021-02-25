@@ -41,6 +41,12 @@ class HistoryRow extends Component {
     const mergeData = [...this.state.income, ...this.state.expense];
     const sortDate = sortedDate(mergeData);
     return sortDate.map((history) => {
+      let color;
+      if(history.typeBalance === 'income') {
+        color = 'green'
+      } else if(history.typeBalance === 'expense') {
+        color = 'red'
+      }
       const date = stringDate(history.date);
       return (
         <div key={history._id} className="history-wrapper">
@@ -51,7 +57,7 @@ class HistoryRow extends Component {
             <div className="history-description">
               {history.description}
             </div>
-            <div className={`history-amount ${history.typeBalance}`}>
+            <div className={`history-amount text-${color}-700`}>
               {addMoneyDots(history.amount)}
             </div>
           </div>
