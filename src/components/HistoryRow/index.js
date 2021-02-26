@@ -49,8 +49,8 @@ class HistoryRow extends Component {
       }
       const date = stringDate(history.date);
       return (
-        <div key={history._id} className="max-w-7xl py-6 px-4 sm:px-6 lg:px-8 ">
-          <div className="transform even:bg-red-700">
+        <div key={history._id} className="max-w-7xl py-6 px-4 sm:px-6 lg:px-8 transform even:bg-red-700">
+          <div className="">
             {date}
           </div>
           <div className="history-content">

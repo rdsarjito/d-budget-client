@@ -12,7 +12,7 @@ class TotalCashFlow extends Component {
       return result + parseInt(item.amount);
     }, 0);
     return (
-      <div className="wrapper-total-cashflow">
+      <div className="mx-auto w-40">
         <div className="number-total-cashflow">
           Total {this.props.type}: {addMoneyDots(totalAmount)}
         </div>
