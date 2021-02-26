@@ -13,7 +13,7 @@ class TotalCashFlow extends Component {
     }, 0);
     return (
       <div className="mx-auto w-40">
-        <div className="number-total-cashflow">
+        <div className={`${this.props.type}`}>
           Total {this.props.type}: {addMoneyDots(totalAmount)}
         </div>
       </div>
