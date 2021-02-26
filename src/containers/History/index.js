@@ -6,7 +6,7 @@ import '../../style/style.css';
 
 const History = () => {
   return (
-    <div className="history-container">
+    <div className="">
       <HistoryRow />
     </div>
   );
